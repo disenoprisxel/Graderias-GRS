@@ -1,0 +1,120 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { FiChevronRight } from 'react-icons/fi'
+import ContactoCTA from '@/components/sections/ContactoCTA'
+
+interface ProyectoPageProps {
+  titulo: string
+  descripcion: string
+  lugar: string
+  año: string
+  descripcionLarga: string[]
+  imagen: string
+  galeria?: string[]
+  datos?: { label: string; valor: string }[]
+}
+
+export default function ProyectoPage({
+  titulo,
+  descripcion,
+  lugar,
+  año,
+  descripcionLarga,
+  imagen,
+  galeria = [],
+  datos = [],
+}: ProyectoPageProps) {
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative h-80 md:h-[500px] bg-dark overflow-hidden">
+        <Image
+          src={imagen}
+          alt={titulo}
+          fill
+          className="object-cover opacity-50"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
+        <div className="relative z-10 h-full flex flex-col justify-end pb-10 px-4 max-w-5xl mx-auto">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-1 text-light/70 text-sm mb-3">
+            <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
+            <FiChevronRight className="text-light/50" />
+            <Link href="/#proyectos" className="hover:text-primary transition-colors">Proyectos</Link>
+            <FiChevronRight className="text-light/50" />
+            <span className="text-white">{titulo}</span>
+          </nav>
+          <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl drop-shadow-lg leading-tight">
+            {titulo}
+          </h1>
+          <p className="mt-2 text-primary font-heading font-semibold text-lg">
+            {lugar} &mdash; {año}
+          </p>
+        </div>
+      </section>
+
+      {/* Content + Datos */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Description */}
+          <div className="lg:col-span-2">
+            <p className="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-2">
+              Descripción del proyecto
+            </p>
+            {descripcionLarga.map((parrafo, i) => (
+              <p key={i} className="text-body-text leading-relaxed mb-4 text-lg">
+                {parrafo}
+              </p>
+            ))}
+          </div>
+
+          {/* Ficha técnica */}
+          {datos.length > 0 && (
+            <div>
+              <div className="bg-light/50 rounded-xl p-6 sticky top-24">
+                <h3 className="font-heading font-bold text-dark text-lg mb-4 border-b border-light pb-3">
+                  Ficha del Proyecto
+                </h3>
+                <dl className="space-y-3">
+                  {datos.map(({ label, valor }) => (
+                    <div key={label}>
+                      <dt className="text-xs text-body-text/60 uppercase tracking-wide font-heading">{label}</dt>
+                      <dd className="font-heading font-semibold text-dark mt-0.5">{valor}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Gallery */}
+      {galeria.length > 0 && (
+        <section className="pb-16 bg-light/30">
+          <div className="max-w-7xl mx-auto px-4 pt-8">
+            <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
+              Galería del Proyecto
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {galeria.map((src, i) => (
+                <div key={i} className="relative aspect-square rounded-lg overflow-hidden bg-dark">
+                  <Image
+                    src={src}
+                    alt={`${titulo} — imagen ${i + 1}`}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <ContactoCTA />
+    </>
+  )
+}

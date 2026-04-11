@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-primary: #96CF24;
+  --color-dark: #33373D;
+  --color-body-text: #505155;
+  --color-light: #DDDDDD;
+
+  /* Fonts */
+  --font-heading: var(--font-poppins), sans-serif;
+  --font-body: var(--font-roboto), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-body-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
