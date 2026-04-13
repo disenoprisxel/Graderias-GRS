@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
   try {
-    const { nombre, email, telefono, mensaje } = await req.json()
+    const { nombre, email, telefono, empresa, ciudad, asunto, mensaje } = await req.json()
 
     // Basic validation
     if (!nombre || !email || !mensaje) {
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     if (!RESEND_API_KEY) {
       // In development without API key: log and return success
-      console.log('[Contact Form]', { nombre, email, telefono, mensaje })
+      console.log('[Contact Form]', { nombre, email, telefono, empresa, ciudad, asunto, mensaje })
       return NextResponse.json({ ok: true })
     }
 
@@ -44,22 +44,13 @@ export async function POST(req: NextRequest) {
             </div>
             <div style="padding: 30px; background: #fff; border: 1px solid #ddd;">
               <table style="width: 100%; border-collapse: collapse;">
-                <tr>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; width: 120px; color: #33373D;">Nombre</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; color: #505155;">${nombre}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #33373D;">Email</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; color: #505155;"><a href="mailto:${email}">${email}</a></td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #33373D;">Teléfono</td>
-                  <td style="padding: 10px; border-bottom: 1px solid #eee; color: #505155;">${telefono || 'No especificado'}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px; font-weight: bold; color: #33373D; vertical-align: top;">Mensaje</td>
-                  <td style="padding: 10px; color: #505155; white-space: pre-wrap;">${mensaje}</td>
-                </tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;width:130px;color:#33373D;">Nombre</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;">${nombre}</td></tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;color:#33373D;">Email</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;"><a href="mailto:${email}">${email}</a></td></tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;color:#33373D;">Tel/Cel</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;">${telefono || '—'}</td></tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;color:#33373D;">Empresa/Evento</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;">${empresa || '—'}</td></tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;color:#33373D;">Ciudad</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;">${ciudad || '—'}</td></tr>
+                <tr><td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;color:#33373D;">Asunto</td><td style="padding:10px;border-bottom:1px solid #eee;color:#505155;">${asunto || '—'}</td></tr>
+                <tr><td style="padding:10px;font-weight:bold;color:#33373D;vertical-align:top;">Mensaje</td><td style="padding:10px;color:#505155;white-space:pre-wrap;">${mensaje}</td></tr>
               </table>
             </div>
             <div style="background: #33373D; padding: 16px; text-align: center;">
