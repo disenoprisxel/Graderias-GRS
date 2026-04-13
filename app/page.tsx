@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import QuienesSomos from '@/components/sections/QuienesSomos'
-import ProductosGrid from '@/components/sections/ProductosGrid'
 import ProyectosDestacados from '@/components/sections/ProyectosDestacados'
+import ProductosGrid from '@/components/sections/ProductosGrid'
+import ClientesCarrusel from '@/components/sections/ClientesCarrusel'
+import CoberturaNacional from '@/components/sections/CoberturaNacional'
+import NosotrosCumpliendo from '@/components/sections/NosotrosCumpliendo'
 import ContactoCTA from '@/components/sections/ContactoCTA'
 
 export const metadata: Metadata = {
@@ -18,6 +21,9 @@ export default function HomePage() {
       <QuienesSomos />
       <ProyectosDestacados />
       <ProductosGrid />
+      <ClientesCarrusel />
+      <CoberturaNacional />
+      <NosotrosCumpliendo />
       <ContactoCTA />
     </>
   )

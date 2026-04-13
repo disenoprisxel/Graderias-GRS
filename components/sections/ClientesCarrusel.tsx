@@ -1,0 +1,56 @@
+'use client'
+
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+
+const clientes = [
+  { nombre: 'Unitec',          logo: '/images/clientes/unitec.png' },
+  { nombre: 'SOFA',            logo: '/images/clientes/sofa.png' },
+  { nombre: 'RCN Televisión',  logo: '/images/clientes/rcn.png' },
+  { nombre: 'Club El Nogal',   logo: '/images/clientes/club-el-nogal.png' },
+  { nombre: 'Dimayor',         logo: '/images/clientes/dimayor.png' },
+  { nombre: 'Aguilas Doradas', logo: '/images/clientes/aguilas-doradas.png' },
+  { nombre: 'Alcaldía de Tocancipá', logo: '/images/clientes/alcaldia-tocancipa.png' },
+]
+
+// Duplicamos para el loop infinito
+const track = [...clientes, ...clientes]
+
+export default function ClientesCarrusel() {
+  return (
+    <section className="bg-white py-14 overflow-hidden">
+      {/* Header */}
+      <div className="text-center mb-10 px-4">
+        <p className="text-primary font-heading font-semibold text-base italic">Nuestros</p>
+        <h2 className="font-heading font-extrabold text-dark text-4xl uppercase tracking-wide mt-1">
+          Clientes
+        </h2>
+        <div className="mt-2 mx-auto w-10 h-0.5 bg-primary" />
+      </div>
+
+      {/* Marquee */}
+      <div className="relative w-full overflow-hidden">
+        <motion.div
+          className="flex items-center gap-16 w-max"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 18, ease: 'linear', repeat: Infinity }}
+        >
+          {track.map((cliente, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center w-44 h-20"
+            >
+              <Image
+                src={cliente.logo}
+                alt={cliente.nombre}
+                width={160}
+                height={70}
+                className="object-contain max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
