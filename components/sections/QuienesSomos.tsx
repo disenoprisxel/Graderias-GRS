@@ -4,10 +4,9 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-// ⚠️ Reemplaza estos IDs con los IDs reales de los videos de YouTube de Graderías GRS
 const videos = [
-  { id: 'K7lRSw4QHXM', titulo: 'Desfile de Independencia en Cartagena' },
-  { id: 'dQw4w9WgXcQ', titulo: 'Graderías y Escenarios GRS' },
+  { id: '89WA4XXsCx4', titulo: 'Graderías GRS — Video 1' },
+  { id: 'SkkOSfV5S2o', titulo: 'Graderías GRS — Video 2' },
 ]
 
 export default function QuienesSomos() {
