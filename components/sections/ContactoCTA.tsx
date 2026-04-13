@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
 import { FaWhatsapp, FaPhone } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
 
@@ -12,11 +12,11 @@ const statsData = [
   { num: '24/7', label: 'Soporte técnico' },
 ]
 
-const btnVariants = {
+const btnVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 }
-const btnItem = {
+const btnItem: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
 import { FiCheckCircle } from 'react-icons/fi'
 
 const puntos = [
@@ -13,11 +13,11 @@ const puntos = [
   'Asesoría técnica personalizada para cada evento',
 ]
 
-const listVariants = {
+const listVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 }
-const listItem = {
+const listItem: Variants = {
   hidden: { opacity: 0, x: -24 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }

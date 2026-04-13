@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
 import { FiUsers, FiGrid, FiCalendar } from 'react-icons/fi'
 
 const stats = [
@@ -11,11 +11,11 @@ const stats = [
   { icono: FiCalendar, numero: '+216',    label: 'Eventos\nrealizados en el\nrecorrido del año' },
 ]
 
-const statVariants = {
+const statVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 }
-const statItem = {
+const statItem: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 }

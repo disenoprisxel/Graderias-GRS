@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa'
 import { FiMapPin, FiSmartphone, FiPhone, FiMail } from 'react-icons/fi'
 
@@ -20,11 +20,11 @@ const contacto = [
   { Icono: FiMail,       texto: 'rodrigosabogal58@hotmail.com',  href: 'mailto:rodrigosabogal58@hotmail.com' },
 ]
 
-const colVariants = {
+const colVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 }
-const colItem = {
+const colItem: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 }
