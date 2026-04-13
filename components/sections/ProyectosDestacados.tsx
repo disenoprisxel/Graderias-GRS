@@ -42,6 +42,11 @@ const proyectos = [
     href: '/juegos-centroamericanos-y-del-caribe-barranquilla',
     image: '/images/proyectos/barranquilla.jpg',
   },
+  {
+    titulo: 'Estadio Aguilas Doradas',
+    href: '/estadio-aguilas-doradas',
+    image: '/images/proyectos/aguilas-doradas.jpg',
+  },
 ]
 
 export default function ProyectosDestacados() {
