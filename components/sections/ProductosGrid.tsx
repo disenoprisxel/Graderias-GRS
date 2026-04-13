@@ -1,101 +1,121 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+// Explicit grid placement — 3 cols, 4 rows (cada fila base = 260px)
+// col/row usan notación CSS grid: "1", "2", "3" o "1 / span 2"
 const productos = [
-  {
-    label: 'Venta de Graderías',
-    href: '/venta_de_graderias',
-    image: '/images/productos/venta-graderias.jpg',
-  },
   {
     label: 'Alquiler de Graderías',
     href: '/alquiler_de_graderias',
     image: '/images/productos/alquiler-graderias.jpg',
+    col: '1', row: '1',
+  },
+  {
+    label: 'Venta de Graderías',
+    href: '/venta_de_graderias',
+    image: '/images/productos/venta-graderias.jpg',
+    col: '2', row: '1 / span 2', // TALL
+  },
+  {
+    label: 'Diseño y Render',
+    href: '/diseno-y-produccion',
+    image: '/images/productos/diseno-produccion.jpg',
+    col: '3', row: '1',
   },
   {
     label: 'Techos de Graderías',
     href: '/techos-de-graderias',
     image: '/images/productos/techos-graderias.jpg',
+    col: '1', row: '2',
   },
   {
-    label: 'Silletería Escenarios',
-    href: '/silleteria-escenarios',
-    image: '/images/productos/silleteria.jpg',
-  },
-  {
-    label: 'Cubierta en Truss',
-    href: '/cubiertas-truss',
-    image: '/images/productos/cubiertas-truss.jpg',
-  },
-  {
-    label: 'Bancas de Madera',
+    label: 'Bancas de Suplentes',
     href: '/bancas-de-madera',
     image: '/images/productos/bancas-madera.jpg',
+    col: '3', row: '2',
   },
   {
-    label: 'Paneles y Tarimas',
-    href: '/paneles-y-tarimas',
-    image: '/images/productos/paneles-tarimas.jpg',
+    label: 'Silletería de Escenarios',
+    href: '/silleteria-escenarios',
+    image: '/images/productos/silleteria.jpg',
+    col: '1', row: '3',
   },
   {
-    label: 'Vallas y Barreras',
+    label: 'Cubiertas en Truss',
+    href: '/cubiertas-truss',
+    image: '/images/productos/cubiertas-truss.jpg',
+    col: '2', row: '3 / span 2', // TALL
+  },
+  {
+    label: 'Pantallas',
+    href: '/pantallas-led',
+    image: '/images/productos/pantallas-led.jpg',
+    col: '3', row: '3',
+  },
+  {
+    label: 'Vallas y Mallas de Encerramiento',
     href: '/vallas-y-barreras',
     image: '/images/productos/vallas-barreras.jpg',
+    col: '1', row: '4',
   },
   {
     label: 'Stand Truss',
     href: '/stand-truss',
     image: '/images/productos/stand-truss.jpg',
-  },
-  {
-    label: 'Pantallas LED',
-    href: '/pantallas-led',
-    image: '/images/productos/pantallas-led.jpg',
-  },
-  {
-    label: 'Diseño y Producción',
-    href: '/diseno-y-produccion',
-    image: '/images/productos/diseno-produccion.jpg',
+    col: '3', row: '4',
   },
 ]
 
 export default function ProductosGrid() {
   return (
-    <section className="py-16 bg-light/40">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-10">
-          <span className="text-primary font-heading font-bold uppercase tracking-widest text-sm">
-            Lo que ofrecemos
-          </span>
-          <h2 className="font-heading font-extrabold text-dark text-3xl md:text-4xl mt-2">
-            Nuestros Productos y Servicios
-          </h2>
-        </div>
+    <section className="bg-[#f2f2f2] py-14">
+      {/* Header */}
+      <div className="text-center mb-8 px-4">
+        <p className="text-primary font-heading font-semibold text-base italic">Nuestros</p>
+        <h2 className="font-heading font-extrabold text-dark text-4xl uppercase tracking-wide mt-1">
+          Productos
+        </h2>
+        <div className="mt-2 mx-auto w-10 h-0.5 bg-primary" />
+        <p className="mt-4 text-body-text text-sm max-w-lg mx-auto">
+          Conoce la variedad de productos y servicios que tenemos a tu disposición.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {productos.map((producto) => (
-            <Link
-              key={producto.href}
-              href={producto.href}
-              className="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-dark"
-            >
+      {/* Asymmetric grid */}
+      <div
+        className="max-w-5xl mx-auto px-4"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridAutoRows: '260px',
+          gap: '12px',
+        }}
+      >
+        {productos.map((p) => (
+          <Link
+            key={p.href}
+            href={p.href}
+            className="group overflow-hidden bg-white"
+            style={{ gridColumn: p.col, gridRow: p.row }}
+          >
+            {/* Image fills all space above the title bar */}
+            <div className="relative w-full h-[calc(100%-48px)] overflow-hidden">
               <Image
-                src={producto.image}
-                alt={producto.label}
+                src={p.image}
+                alt={p.label}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-50"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-              {/* Green overlay on hover */}
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-end p-4">
-                <span className="font-heading font-bold text-white uppercase text-sm leading-tight drop-shadow-lg">
-                  {producto.label}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+            {/* Title bar */}
+            <div className="h-12 flex items-center justify-center px-3 bg-white">
+              <span className="font-heading font-semibold text-primary text-sm text-center leading-tight">
+                {p.label}
+              </span>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   )

@@ -16,8 +16,8 @@ export default function HomePage() {
     <>
       <Hero />
       <QuienesSomos />
-      <ProductosGrid />
       <ProyectosDestacados />
+      <ProductosGrid />
       <ContactoCTA />
     </>
   )
