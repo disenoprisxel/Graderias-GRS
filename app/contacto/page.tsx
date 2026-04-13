@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ClientesCarrusel from '@/components/sections/ClientesCarrusel'
 
 const inputClass =
   'w-full border border-gray-300 rounded px-4 py-3 text-sm text-dark placeholder-gray-400 focus:outline-none focus:border-primary transition-colors bg-white'
@@ -41,15 +42,38 @@ export default function ContactoPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* ── Header ── */}
-      <div className="pt-16 pb-8 text-center">
+      {/* ── Hero Banner ── */}
+      <div
+        className="relative w-full h-64 md:h-80 flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/contacto-hero.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay oscuro */}
+        <div className="absolute inset-0 bg-dark/70" />
+
+        {/* Texto centrado */}
+        <div className="relative z-10 text-center px-4">
+          <h1 className="font-heading font-extrabold text-white text-4xl md:text-6xl uppercase tracking-wide">
+            Contáctanos
+          </h1>
+          <p className="mt-3 text-primary font-heading font-semibold text-lg md:text-xl italic">
+            Tu evento en las mejores manos...
+          </p>
+        </div>
+      </div>
+
+      {/* ── Subtítulo ── */}
+      <div className="pt-12 pb-8 text-center">
         <p className="text-primary font-heading font-semibold italic text-lg">Sigamos</p>
-        <h1 className="font-heading font-extrabold text-dark text-4xl md:text-5xl uppercase mt-1">
+        <h2 className="font-heading font-extrabold text-dark text-3xl md:text-4xl uppercase mt-1">
           En Contacto
-        </h1>
+        </h2>
         <div className="mt-3 mx-auto w-10 h-0.5 bg-primary" />
         <p className="mt-5 text-body-text text-sm max-w-lg mx-auto">
-          Nos complace saber de ti, responderemos tu consulta lo mas pronto posible
+          Nos complace saber de ti, responderemos tu consulta lo más pronto posible
         </p>
       </div>
 
@@ -170,6 +194,10 @@ export default function ContactoPage() {
           )}
         </div>
       </div>
+
+      {/* ── Carrusel Nuestros Clientes ── */}
+      <ClientesCarrusel />
+
     </div>
   )
 }
