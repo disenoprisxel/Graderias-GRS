@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FiMenu, FiX, FiChevronDown, FiArrowUpRight } from 'react-icons/fi'
 import {
   FiLayers, FiTruck, FiHome, FiMonitor, FiAnchor,
-  FiBox, FiGrid, FiShield, FiStar, FiCpu, FiPenTool,
+  FiBox, FiGrid, FiShield, FiStar, FiPenTool,
 } from 'react-icons/fi'
 
 const productosMenu = [
@@ -42,11 +42,14 @@ const row2 = productosMenu.slice(5, 10)
 const row3 = productosMenu.slice(10)
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen]     = useState(false)
+  const [mobileOpen, setMobileOpen]       = useState(false)
   const [productosOpen, setProductosOpen] = useState(false)
   const [proyectosOpen, setProyectosOpen] = useState(false)
-  const [scrolled, setScrolled]         = useState(false)
-  const productosTrigger                = useRef<HTMLDivElement>(null)
+  const [scrolled, setScrolled]           = useState(false)
+
+  // Timeout refs para el cierre con delay — evita que el gap entre botón y menú lo cierre
+  const productosTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const proyectosTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10)
@@ -54,8 +57,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
+  const openProductos  = useCallback(() => { if (productosTimer.current) clearTimeout(productosTimer.current); setProductosOpen(true)  }, [])
+  const closeProductos = useCallback(() => { productosTimer.current = setTimeout(() => setProductosOpen(false), 120) }, [])
+  const openProyectos  = useCallback(() => { if (proyectosTimer.current) clearTimeout(proyectosTimer.current); setProyectosOpen(true)  }, [])
+  const closeProyectos = useCallback(() => { proyectosTimer.current = setTimeout(() => setProyectosOpen(false), 120) }, [])
+
   return (
-    <header className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
+    // position:relative necesario para que el mega-menu absoluto se posicione dentro del header
+    <header className={`sticky top-0 z-50 bg-white transition-shadow relative ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
+
       <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
 
         {/* Logo */}
@@ -69,23 +79,25 @@ export default function Navbar() {
           <Link href="/#quienes" className="hover:text-primary transition-colors">¿Quiénes Somos?</Link>
 
           {/* Proyectos — dropdown simple */}
-          <div className="relative" onMouseEnter={() => setProyectosOpen(true)} onMouseLeave={() => setProyectosOpen(false)}>
+          <div className="relative" onMouseEnter={openProyectos} onMouseLeave={closeProyectos}>
             <button className="flex items-center gap-1 hover:text-primary transition-colors">
               Proyectos Destacados <FiChevronDown />
             </button>
             <AnimatePresence>
               {proyectosOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -8 }}
+                  initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.18 }}
-                  className="absolute top-full left-0 bg-white shadow-2xl rounded-b-xl py-2 min-w-60 border-t-2 border-primary z-50"
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.16 }}
+                  onMouseEnter={openProyectos}
+                  onMouseLeave={closeProyectos}
+                  className="absolute top-full left-0 bg-white shadow-2xl rounded-b-xl py-2 min-w-64 border-t-2 border-primary z-50"
                 >
                   {proyectosMenu.map((item) => (
                     <Link key={item.href} href={item.href}
                       className="flex items-center gap-2 px-4 py-2.5 text-dark hover:bg-primary hover:text-white transition-colors text-sm group">
-                      <FiArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <FiArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                       {item.label}
                     </Link>
                   ))}
@@ -94,8 +106,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Productos — mega-menu */}
-          <div ref={productosTrigger} className="relative" onMouseEnter={() => setProductosOpen(true)} onMouseLeave={() => setProductosOpen(false)}>
+          {/* Productos — trigger del mega-menu */}
+          <div onMouseEnter={openProductos} onMouseLeave={closeProductos}>
             <button className={`flex items-center gap-1 transition-colors ${productosOpen ? 'text-primary' : 'hover:text-primary'}`}>
               Productos
               <motion.span animate={{ rotate: productosOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -129,20 +141,20 @@ export default function Navbar() {
       {/* Green accent line */}
       <div className="h-1 bg-primary" />
 
-      {/* ── MEGA-MENU PRODUCTOS ── */}
+      {/* ── MEGA-MENU PRODUCTOS ──
+          absolute dentro del header (position:relative), se posiciona justo debajo */}
       <AnimatePresence>
         {productosOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="absolute left-0 right-0 z-40 bg-[#111] shadow-2xl border-t border-primary/30"
-            onMouseEnter={() => setProductosOpen(true)}
-            onMouseLeave={() => setProductosOpen(false)}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            onMouseEnter={openProductos}
+            onMouseLeave={closeProductos}
+            className="absolute left-0 right-0 top-full z-40 bg-[#111] shadow-2xl border-t-2 border-primary"
           >
             <div className="max-w-6xl mx-auto px-6 py-6">
-              {/* Título del mega-menu */}
               <p className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-4">
                 Nuestros Productos
               </p>
@@ -162,7 +174,7 @@ export default function Navbar() {
               </div>
 
               {/* Fila 3 — 1 item centrado */}
-              <div className="flex justify-center gap-2">
+              <div className="flex justify-center">
                 {row3.map(({ label, href, Icono }) => (
                   <div key={href} className="w-1/5">
                     <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
@@ -197,7 +209,7 @@ export default function Navbar() {
             <summary className="py-2 flex items-center justify-between cursor-pointer hover:text-primary">
               Productos <FiChevronDown />
             </summary>
-            <div className="grid grid-cols-2 gap-2 mt-2 pl-2">
+            <div className="grid grid-cols-2 gap-2 mt-2">
               {productosMenu.map(({ label, href, Icono }) => (
                 <Link key={href} href={href}
                   onClick={() => setMobileOpen(false)}
