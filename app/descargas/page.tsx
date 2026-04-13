@@ -2,47 +2,23 @@ import type { Metadata } from 'next'
 import { FiDownload, FiFileText } from 'react-icons/fi'
 
 export const metadata: Metadata = {
-  title: 'Descargas — Fichas Técnicas',
+  title: 'Descargas — Graderías GRS',
   description:
-    'Descargue las fichas técnicas, catálogos y especificaciones de los productos y servicios de Graderías GRS.',
+    'Descargue los brochures de alquiler y venta de graderías y escenarios de Graderías GRS.',
 }
 
-const fichas = [
+const archivos = [
   {
-    categoria: 'Graderías',
-    archivos: [
-      { nombre: 'Ficha Técnica — Gradería Modular Estándar', archivo: '/descargas/ficha-graderia-modular.pdf' },
-      { nombre: 'Ficha Técnica — Gradería con Cubierta', archivo: '/descargas/ficha-graderia-cubierta.pdf' },
-      { nombre: 'Catálogo General de Graderías', archivo: '/descargas/catalogo-graderias.pdf' },
-    ],
+    nombre: 'Brochure Alquiler de Graderías',
+    descripcion: 'Catálogo completo de servicios de alquiler: graderías, escenarios, cubiertas y mobiliario para eventos.',
+    archivo: '/descargas/brochure-alquiler.pdf',
+    badge: 'ALQUILER',
   },
   {
-    categoria: 'Silletería',
-    archivos: [
-      { nombre: 'Ficha Técnica — Silla Plástica para Gradería', archivo: '/descargas/ficha-silla-plastica.pdf' },
-      { nombre: 'Ficha Técnica — Butaca Fija para Estadio', archivo: '/descargas/ficha-butaca-fija.pdf' },
-    ],
-  },
-  {
-    categoria: 'Estructuras Truss',
-    archivos: [
-      { nombre: 'Ficha Técnica — Cubierta Truss Escenario', archivo: '/descargas/ficha-cubierta-truss.pdf' },
-      { nombre: 'Ficha Técnica — Stand Truss Modular', archivo: '/descargas/ficha-stand-truss.pdf' },
-    ],
-  },
-  {
-    categoria: 'Otros Productos',
-    archivos: [
-      { nombre: 'Ficha Técnica — Valla Metálica de Seguridad', archivo: '/descargas/ficha-valla-metalica.pdf' },
-      { nombre: 'Ficha Técnica — Tarima Modular', archivo: '/descargas/ficha-tarima-modular.pdf' },
-      { nombre: 'Ficha Técnica — Pantalla LED', archivo: '/descargas/ficha-pantalla-led.pdf' },
-    ],
-  },
-  {
-    categoria: 'Certificaciones',
-    archivos: [
-      { nombre: 'Certificado ICC — International Code Council', archivo: '/descargas/certificado-icc.pdf' },
-    ],
+    nombre: 'Brochure Venta de Graderías',
+    descripcion: 'Catálogo de productos en venta: graderías en aluminio, silletería, estructuras truss y más.',
+    archivo: '/descargas/brochure-venta.pdf',
+    badge: 'VENTA',
   },
 ]
 
@@ -53,61 +29,66 @@ export default function DescargasPage() {
       <section className="bg-dark py-20">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <span className="text-primary font-heading font-bold uppercase tracking-widest text-sm">
-            Recursos técnicos
+            Material corporativo
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl mt-3">
             Descargas
           </h1>
           <p className="mt-4 text-light/80 text-lg">
-            Fichas técnicas, catálogos y certificaciones de nuestros productos y servicios.
+            Descarga nuestros brochures con toda la información de productos y servicios.
           </p>
         </div>
       </section>
 
-      {/* Files */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="space-y-10">
-            {fichas.map((categoria) => (
-              <div key={categoria.categoria}>
-                <h2 className="font-heading font-bold text-dark text-xl mb-4 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-primary rounded-full inline-block" />
-                  {categoria.categoria}
-                </h2>
-                <div className="space-y-3">
-                  {categoria.archivos.map((archivo) => (
-                    <a
-                      key={archivo.archivo}
-                      href={archivo.archivo}
-                      download
-                      className="flex items-center justify-between p-4 border border-light rounded-lg hover:border-primary hover:bg-primary/5 transition-all group"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
-                          <FiFileText className="text-primary group-hover:text-white" size={20} />
-                        </div>
-                        <span className="font-heading font-semibold text-dark text-sm">
-                          {archivo.nombre}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 text-primary text-sm font-heading font-semibold shrink-0">
-                        <FiDownload size={18} />
-                        <span className="hidden sm:inline">Descargar</span>
-                      </div>
-                    </a>
-                  ))}
+      {/* Archivos */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="space-y-6">
+            {archivos.map((archivo) => (
+              <a
+                key={archivo.archivo}
+                href={archivo.archivo}
+                download
+                className="flex items-center justify-between p-6 border border-light rounded-xl hover:border-primary hover:shadow-lg transition-all group bg-white"
+              >
+                <div className="flex items-start gap-5">
+                  {/* Icono */}
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
+                    <FiFileText className="text-primary group-hover:text-white transition-colors" size={28} />
+                  </div>
+
+                  {/* Texto */}
+                  <div>
+                    <span className="inline-block bg-primary/10 text-primary font-heading font-bold text-xs uppercase tracking-widest px-2 py-0.5 rounded mb-2">
+                      {archivo.badge}
+                    </span>
+                    <h2 className="font-heading font-bold text-dark text-lg leading-tight">
+                      {archivo.nombre}
+                    </h2>
+                    <p className="mt-1 text-body-text text-sm leading-relaxed max-w-sm">
+                      {archivo.descripcion}
+                    </p>
+                  </div>
                 </div>
-              </div>
+
+                {/* Botón */}
+                <div className="flex flex-col items-center gap-1 text-primary shrink-0 ml-4 group-hover:text-dark transition-colors">
+                  <FiDownload size={24} />
+                  <span className="text-xs font-heading font-bold uppercase tracking-wide hidden sm:block">
+                    Descargar
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-light/50 rounded-xl text-center">
-            <p className="text-body-text">
-              ¿No encuentra el documento que busca?{' '}
+          <div className="mt-14 p-7 bg-[#f9f9f9] rounded-2xl text-center border border-light">
+            <p className="text-body-text text-sm leading-relaxed">
+              ¿Necesita información técnica específica de algún producto?{' '}
               <a href="/contacto" className="text-primary font-heading font-semibold hover:underline">
                 Contáctenos
               </a>{' '}
-              y le enviamos la información técnica que necesite.
+              y le enviamos el material que necesite.
             </p>
           </div>
         </div>

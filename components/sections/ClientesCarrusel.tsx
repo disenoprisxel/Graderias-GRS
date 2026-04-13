@@ -20,16 +20,26 @@ export default function ClientesCarrusel() {
   return (
     <section className="bg-white py-14 overflow-hidden">
       {/* Header */}
-      <div className="text-center mb-10 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="text-center mb-10 px-4"
+      >
         <p className="text-primary font-heading font-semibold text-base italic">Nuestros</p>
         <h2 className="font-heading font-extrabold text-dark text-4xl uppercase tracking-wide mt-1">
           Clientes
         </h2>
         <div className="mt-2 mx-auto w-10 h-0.5 bg-primary" />
-      </div>
+      </motion.div>
 
       {/* Marquee */}
       <div className="relative w-full overflow-hidden">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
         <motion.div
           className="flex items-center gap-16 w-max"
           animate={{ x: ['0%', '-50%'] }}

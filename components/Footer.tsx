@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa'
 import { FiMapPin, FiSmartphone, FiPhone, FiMail } from 'react-icons/fi'
 
@@ -17,13 +20,14 @@ const contacto = [
   { Icono: FiMail,       texto: 'rodrigosabogal58@hotmail.com',  href: 'mailto:rodrigosabogal58@hotmail.com' },
 ]
 
-const certificaciones = [
-  { src: '/images/certificaciones/25-years.png',         alt: '25 Years Experience',        w: 70,  h: 70 },
-  { src: '/images/certificaciones/icc.png',              alt: 'ICC International Code Council', w: 130, h: 60 },
-  { src: '/images/certificaciones/iso-9001.png',         alt: 'ISO 9001 Icontec',            w: 90,  h: 90 },
-  { src: '/images/certificaciones/iso-14001.png',        alt: 'ISO 14001 Icontec',           w: 90,  h: 90 },
-  { src: '/images/certificaciones/camara-comercio.png',  alt: 'Cámara de Comercio de Bogotá', w: 120, h: 50 },
-]
+const colVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+}
+const colItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
 
 export default function Footer() {
   return (
@@ -38,10 +42,15 @@ export default function Footer() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-
+      <motion.div
+        variants={colVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        className="relative z-10 max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10 items-start"
+      >
         {/* Col 1 — Logo + redes */}
-        <div className="flex flex-col items-start gap-6">
+        <motion.div variants={colItem} className="flex flex-col items-start gap-6">
           <Image
             src="/images/logo.png"
             alt="Graderías GRS — Graderías y Escenarios"
@@ -54,22 +63,23 @@ export default function Footer() {
           </p>
           <div className="flex gap-3 mt-1">
             {sociales.map(({ href, label, Icono }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
+                whileHover={{ scale: 1.15 }}
                 className="w-10 h-10 rounded bg-white/10 hover:bg-primary transition-colors flex items-center justify-center"
               >
                 <Icono size={18} />
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Col 2 — Contacto */}
-        <div>
+        <motion.div variants={colItem}>
           <h3 className="font-heading font-bold text-primary uppercase tracking-widest text-xs mb-5">
             Nos encuentras en
           </h3>
@@ -87,10 +97,10 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Col 3 — Certificaciones */}
-        <div className="flex flex-col gap-4">
+        <motion.div variants={colItem} className="flex flex-col gap-4">
           {/* Fila 1: 25 years + ICC */}
           <div className="flex items-center gap-4 flex-wrap">
             <Image
@@ -139,8 +149,8 @@ export default function Footer() {
             height={45}
             className="object-contain"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Bottom bar */}
       <div className="relative z-10 border-t border-white/10 py-4 px-6">

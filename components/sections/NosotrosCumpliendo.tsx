@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { FiCheckCircle, FiUserCheck } from 'react-icons/fi'
 
 const items = [
@@ -17,10 +20,17 @@ const items = [
 
 export default function NosotrosCumpliendo() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-24 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4">
-        {/* Título con subrayado decorativo en "Sueños" */}
-        <h2 className="font-heading font-extrabold text-dark text-3xl md:text-4xl leading-tight">
+
+        {/* Título */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="font-heading font-extrabold text-dark text-3xl md:text-4xl leading-tight"
+        >
           Nosotros Cumpliendo Tus{' '}
           <span className="relative inline-block">
             Sueños
@@ -29,19 +39,37 @@ export default function NosotrosCumpliendo() {
               aria-hidden="true"
             />
           </span>
-        </h2>
-        <p className="mt-5 text-body-text max-w-2xl leading-relaxed">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-5 text-body-text max-w-2xl leading-relaxed"
+        >
           Hacemos el montaje de tu evento a la medida de tus necesidades, para esto contamos con materiales:
-        </p>
+        </motion.p>
 
         {/* Feature cards */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {items.map(({ icono: Icono, titulo, descripcion }) => (
-            <div key={titulo} className="flex items-start gap-5">
+          {items.map(({ icono: Icono, titulo, descripcion }, i) => (
+            <motion.div
+              key={titulo}
+              initial={{ opacity: 0, x: i === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
+              className="flex items-start gap-5"
+            >
               {/* Black icon box */}
-              <div className="w-20 h-20 bg-dark rounded-lg flex items-center justify-center shrink-0">
+              <motion.div
+                whileHover={{ scale: 1.08, backgroundColor: '#96CF24' }}
+                transition={{ duration: 0.25 }}
+                className="w-20 h-20 bg-dark rounded-lg flex items-center justify-center shrink-0 cursor-default"
+              >
                 <Icono className="text-primary" size={36} />
-              </div>
+              </motion.div>
               {/* Text */}
               <div>
                 <h3 className="font-heading font-bold text-primary text-base uppercase tracking-wide">
@@ -51,7 +79,7 @@ export default function NosotrosCumpliendo() {
                   {descripcion}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

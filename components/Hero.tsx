@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 const slides = [
@@ -28,6 +28,14 @@ const slides = [
 export default function Hero() {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(1)
+  const heroRef = useRef<HTMLElement>(null)
+
+  // Parallax: bg se mueve más lento que el scroll
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+  const bgParallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   const next = useCallback(() => {
     setDirection(1)
@@ -50,22 +58,13 @@ export default function Hero() {
   }, [next])
 
   const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? '100%' : '-100%',
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? '-100%' : '100%',
-      opacity: 0,
-    }),
+    enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
   }
 
   return (
-    <section className="relative w-full h-[600px] lg:h-[700px] overflow-hidden bg-dark">
+    <section ref={heroRef} className="relative w-full h-[780px] lg:h-[910px] overflow-hidden bg-dark">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={current}
@@ -74,50 +73,67 @@ export default function Hero() {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          {/* Background image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slides[current].image})` }}
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/55" />
+          {/* Parallax background layer */}
+          <motion.div
+            className="absolute inset-0"
+            style={{ y: bgParallaxY, scale: 1.15 }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slides[current].image})` }}
+            />
+          </motion.div>
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
 
           {/* Text content */}
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-4 inline-block"
+            >
+              Graderías y Escenarios GRS
+            </motion.span>
+
             <motion.h1
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="font-heading font-extrabold text-white text-4xl md:text-5xl lg:text-6xl max-w-4xl leading-tight drop-shadow-lg"
+              transition={{ delay: 0.25, duration: 0.7, ease: 'easeOut' }}
+              className="font-heading font-extrabold text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-5xl leading-tight drop-shadow-lg"
             >
               {slides[current].title}
             </motion.h1>
+
             <motion.p
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="mt-4 text-primary font-heading font-semibold text-xl md:text-2xl max-w-2xl drop-shadow"
+              transition={{ delay: 0.45, duration: 0.7, ease: 'easeOut' }}
+              className="mt-5 text-primary font-heading font-semibold text-xl md:text-2xl max-w-2xl drop-shadow"
             >
               {slides[current].subtitle}
             </motion.p>
+
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="mt-8 flex flex-col sm:flex-row gap-4"
+              transition={{ delay: 0.65, duration: 0.7, ease: 'easeOut' }}
+              className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <a
                 href="/contacto"
-                className="bg-primary text-white font-heading font-bold px-8 py-3 rounded hover:bg-opacity-90 transition-colors text-lg"
+                className="bg-primary text-white font-heading font-bold px-9 py-4 rounded hover:bg-[#7db31e] transition-colors text-lg shadow-lg"
               >
                 Cotizar ahora
               </a>
               <a
                 href="/#quienes"
-                className="border-2 border-white text-white font-heading font-bold px-8 py-3 rounded hover:bg-white hover:text-dark transition-colors text-lg"
+                className="border-2 border-white text-white font-heading font-bold px-9 py-4 rounded hover:bg-white hover:text-dark transition-colors text-lg"
               >
                 Conócenos
               </a>
@@ -130,7 +146,7 @@ export default function Hero() {
       <button
         onClick={prev}
         aria-label="Anterior"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-primary transition-colors rounded-full p-2"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-primary transition-colors rounded-full p-3"
       >
         <FiChevronLeft size={28} />
       </button>
@@ -139,24 +155,27 @@ export default function Hero() {
       <button
         onClick={next}
         aria-label="Siguiente"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-primary transition-colors rounded-full p-2"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-primary transition-colors rounded-full p-3"
       >
         <FiChevronRight size={28} />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
-            className={`w-3 h-3 rounded-full transition-all ${
-              i === current ? 'bg-primary scale-125' : 'bg-white/60 hover:bg-white'
+            className={`h-1 rounded-full transition-all duration-300 ${
+              i === current ? 'bg-primary w-8' : 'bg-white/50 w-4 hover:bg-white/80'
             }`}
           />
         ))}
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark/40 to-transparent z-10 pointer-events-none" />
     </section>
   )
 }

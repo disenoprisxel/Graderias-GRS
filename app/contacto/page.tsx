@@ -1,12 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import ClientesCarrusel from '@/components/sections/ClientesCarrusel'
 
 const inputClass =
   'w-full border border-gray-300 rounded px-4 py-3 text-sm text-dark placeholder-gray-400 focus:outline-none focus:border-primary transition-colors bg-white'
 
 export default function ContactoPage() {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const heroBgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
+
   const [form, setForm] = useState({
     nombre: '',
     telefono: '',
@@ -42,27 +47,35 @@ export default function ContactoPage() {
   return (
     <div className="bg-white min-h-screen">
 
-      {/* ── Hero Banner ── */}
-      <div
-        className="relative w-full h-64 md:h-80 flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: 'url(/images/contacto-hero.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* ── Hero Banner con Parallax ── */}
+      <div ref={heroRef} className="relative w-full h-64 md:h-80 flex items-center justify-center overflow-hidden">
+        {/* Parallax background */}
+        <motion.div
+          className="absolute inset-0 scale-125"
+          style={{
+            y: heroBgY,
+            backgroundImage: 'url(/images/contacto-hero.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
         {/* Overlay oscuro */}
         <div className="absolute inset-0 bg-dark/70" />
 
         {/* Texto centrado */}
-        <div className="relative z-10 text-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="relative z-10 text-center px-4"
+        >
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-6xl uppercase tracking-wide">
             Contáctanos
           </h1>
           <p className="mt-3 text-primary font-heading font-semibold text-lg md:text-xl italic">
             Tu evento en las mejores manos...
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── Subtítulo ── */}

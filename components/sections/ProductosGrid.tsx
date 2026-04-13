@@ -1,8 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 // Explicit grid placement — 3 cols, 4 rows (cada fila base = 260px)
-// col/row usan notación CSS grid: "1", "2", "3" o "1 / span 2"
 const productos = [
   {
     label: 'Alquiler de Graderías',
@@ -70,7 +72,13 @@ export default function ProductosGrid() {
   return (
     <section className="bg-[#f2f2f2] py-14">
       {/* Header */}
-      <div className="text-center mb-8 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="text-center mb-8 px-4"
+      >
         <p className="text-primary font-heading font-semibold text-base italic">Nuestros</p>
         <h2 className="font-heading font-extrabold text-dark text-4xl uppercase tracking-wide mt-1">
           Productos
@@ -79,7 +87,7 @@ export default function ProductosGrid() {
         <p className="mt-4 text-body-text text-sm max-w-lg mx-auto">
           Conoce la variedad de productos y servicios que tenemos a tu disposición.
         </p>
-      </div>
+      </motion.div>
 
       {/* Asymmetric grid */}
       <div
@@ -91,30 +99,37 @@ export default function ProductosGrid() {
           gap: '12px',
         }}
       >
-        {productos.map((p) => (
-          <Link
+        {productos.map((p, i) => (
+          <motion.div
             key={p.href}
-            href={p.href}
-            className="group overflow-hidden bg-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, ease: 'easeOut', delay: (i % 3) * 0.1 }}
             style={{ gridColumn: p.col, gridRow: p.row }}
+            className="overflow-hidden bg-white group"
           >
-            {/* Image fills all space above the title bar */}
-            <div className="relative w-full h-[calc(100%-48px)] overflow-hidden">
-              <Image
-                src={p.image}
-                alt={p.label}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            </div>
-            {/* Title bar */}
-            <div className="h-12 flex items-center justify-center px-3 bg-white">
-              <span className="font-heading font-semibold text-primary text-sm text-center leading-tight">
-                {p.label}
-              </span>
-            </div>
-          </Link>
+            <Link href={p.href} className="block h-full">
+              {/* Image fills all space above the title bar */}
+              <div className="relative w-full h-[calc(100%-48px)] overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.label}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/20 transition-colors duration-400" />
+              </div>
+              {/* Title bar */}
+              <div className="h-12 flex items-center justify-center px-3 bg-white group-hover:bg-primary transition-colors duration-300">
+                <span className="font-heading font-semibold text-primary group-hover:text-white text-sm text-center leading-tight transition-colors duration-300">
+                  {p.label}
+                </span>
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </section>
