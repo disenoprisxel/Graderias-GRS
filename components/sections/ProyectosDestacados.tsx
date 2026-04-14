@@ -91,7 +91,7 @@ export default function ProyectosDestacados() {
           <motion.div key={proyecto.href} variants={cardVariants}>
             <Link
               href={proyecto.href}
-              className="group relative aspect-[4/3] overflow-hidden bg-dark block"
+              className="group relative aspect-[8/9] overflow-hidden bg-dark block"
             >
               {/* Imagen */}
               <Image
