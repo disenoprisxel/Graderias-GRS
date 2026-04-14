@@ -121,15 +121,15 @@ export default function QuienesSomos() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative rounded-lg overflow-hidden shadow-2xl"
+          className="relative rounded-lg overflow-hidden shadow-2xl bg-[#f5f5f5]"
           style={{ minHeight: '520px' }}
         >
           <motion.div className="absolute inset-0" style={{ y: imageY }}>
             <Image
               src="/images/quienes-somos.jpg"
-              alt="Graderías GRS — Estructura de gradería en aluminio"
+              alt="Graderías GRS — Gradería en aluminio"
               fill
-              className="object-cover scale-110"
+              className="object-contain"
               loading="lazy"
             />
           </motion.div>
