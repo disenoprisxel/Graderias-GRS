@@ -66,15 +66,15 @@ export default function Navbar() {
     // position:relative necesario para que el mega-menu absoluto se posicione dentro del header
     <header className={`sticky top-0 z-50 bg-white transition-shadow relative ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
 
-      <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+      <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={160} height={60} priority className="h-14 w-auto" />
+          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={210} height={80} priority className="h-20 w-auto" />
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-6 font-heading font-semibold text-dark text-sm">
+        <div className="hidden lg:flex items-center gap-7 font-heading font-semibold text-dark text-base">
           <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
           <Link href="/#quienes" className="hover:text-primary transition-colors">¿Quiénes Somos?</Link>
 
@@ -125,9 +125,9 @@ export default function Navbar() {
           <Image
             src="/images/certificaciones/experiencia.png"
             alt="25 Years Experience — ICC International Code Council"
-            width={160}
-            height={56}
-            className="h-14 w-auto object-contain"
+            width={200}
+            height={70}
+            className="h-16 w-auto object-contain"
           />
         </div>
 
