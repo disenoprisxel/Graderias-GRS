@@ -102,15 +102,48 @@ export default function WhatsAppButton() {
       {/* ── Botón flotante ── */}
       <motion.button
         onClick={() => setOpen((v) => !v)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 left-4 sm:left-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full shadow-xl flex items-center justify-center transition-colors"
+        animate={open ? { scale: 1 } : {
+          scale: [1, 1.15, 1, 1.15, 1],
+        }}
+        transition={open ? {} : {
+          duration: 1.2,
+          repeat: Infinity,
+          repeatDelay: 2.5,
+          ease: 'easeInOut',
+        }}
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 left-4 sm:left-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center"
         aria-label="Contactar por WhatsApp"
       >
-        <FaWhatsapp size={30} />
+        {/* Anillo de pulso */}
+        {!open && (
+          <>
+            <motion.span
+              className="absolute inset-0 rounded-full bg-[#25D366]"
+              animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
+            />
+            <motion.span
+              className="absolute inset-0 rounded-full bg-[#25D366]"
+              animate={{ scale: [1, 1.35], opacity: [0.4, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut', delay: 0.4 }}
+            />
+          </>
+        )}
+        <motion.div
+          animate={open ? { rotate: 0 } : { rotate: [0, -15, 15, -10, 10, 0] }}
+          transition={open ? {} : { duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
+        >
+          <FaWhatsapp size={30} />
+        </motion.div>
         {/* Indicador de notificación */}
         {!open && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
+          <motion.span
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+            className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
+          />
         )}
       </motion.button>
     </>
