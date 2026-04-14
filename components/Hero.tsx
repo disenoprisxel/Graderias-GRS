@@ -150,77 +150,68 @@ export default function Hero() {
           {/* ── Contenido según tipo ── */}
           {slide.type === 'logos' ? (
 
-            /* ── SLIDE LOGOS (Fuxion) ── */
-            <div className="relative z-10 h-full flex flex-col justify-between px-8 md:px-16 py-10">
-              {/* Fila superior: logos izq + der */}
-              <div className="flex items-start justify-between w-full">
-                {/* Logo izquierdo + tag */}
+            /* ── SLIDE LOGOS (Fuxion) — logos en la parte inferior ── */
+            <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-20 pb-16">
+              <div className="flex items-end justify-between w-full">
+
+                {/* Logo izquierdo — entra desde abajo-izquierda */}
                 <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="flex flex-col items-start gap-3"
+                  initial={{ opacity: 0, x: -60, y: 30 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col items-start gap-2"
                 >
                   <Image
                     src={slide.logoLeft}
                     alt={slide.logoLeftAlt}
-                    width={220}
-                    height={110}
-                    className="object-contain max-h-28 w-auto drop-shadow-xl"
+                    width={200}
+                    height={100}
+                    className="object-contain max-h-24 w-auto drop-shadow-2xl"
                   />
                   {slide.tagLeft && (
-                    <span className="text-white/80 font-heading tracking-[0.35em] text-sm uppercase">
+                    <motion.span
+                      initial={{ opacity: 0, letterSpacing: '0.1em' }}
+                      animate={{ opacity: 1, letterSpacing: '0.35em' }}
+                      transition={{ delay: 0.7, duration: 0.8 }}
+                      className="text-white/80 font-heading text-sm uppercase"
+                    >
                       {slide.tagLeft}
-                    </span>
+                    </motion.span>
                   )}
                 </motion.div>
 
-                {/* Logo derecho */}
+                {/* Logo derecho — entra desde abajo-derecha */}
                 <motion.div
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="flex flex-col items-end gap-2"
+                  initial={{ opacity: 0, x: 60, y: 30 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col items-end gap-1"
                 >
-                  <span className="text-white/70 font-heading tracking-[0.3em] text-xs uppercase">
+                  <motion.span
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                    className="text-white/70 font-heading tracking-[0.3em] text-xs uppercase"
+                  >
                     C O N V E N C I Ó N
-                  </span>
+                  </motion.span>
                   <Image
                     src={slide.logoRight}
                     alt={slide.logoRightAlt}
-                    width={280}
-                    height={100}
-                    className="object-contain max-h-20 w-auto drop-shadow-xl"
+                    width={260}
+                    height={90}
+                    className="object-contain max-h-20 w-auto drop-shadow-2xl"
                   />
-                  <span className="text-white/70 font-heading tracking-[0.3em] text-sm">
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9, duration: 0.6 }}
+                    className="text-white/70 font-heading tracking-[0.4em] text-base"
+                  >
                     2 0 2 4
-                  </span>
+                  </motion.span>
                 </motion.div>
               </div>
-
-              {/* Espacio central vacío para mostrar el evento */}
-              <div />
-
-              {/* CTA inferior */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="flex gap-4"
-              >
-                <a
-                  href="/contacto"
-                  className="bg-primary text-white font-heading font-bold px-8 py-3 rounded hover:bg-[#7db31e] transition-colors text-base shadow-lg"
-                >
-                  Cotizar ahora
-                </a>
-                <a
-                  href="/fuxion2024"
-                  className="border-2 border-white text-white font-heading font-bold px-8 py-3 rounded hover:bg-white hover:text-dark transition-colors text-base"
-                >
-                  Ver proyecto
-                </a>
-              </motion.div>
             </div>
 
           ) : (
@@ -253,20 +244,6 @@ export default function Hero() {
               >
                 {(slide as SlideText).subtitle}
               </motion.p>
-
-              <motion.div
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.65, duration: 0.7, ease: 'easeOut' }}
-                className="mt-10 flex flex-col sm:flex-row gap-4"
-              >
-                <a href="/contacto" className="bg-primary text-white font-heading font-bold px-9 py-4 rounded hover:bg-[#7db31e] transition-colors text-lg shadow-lg">
-                  Cotizar ahora
-                </a>
-                <a href="/#quienes" className="border-2 border-white text-white font-heading font-bold px-9 py-4 rounded hover:bg-white hover:text-dark transition-colors text-lg">
-                  Conócenos
-                </a>
-              </motion.div>
             </div>
           )}
         </motion.div>
