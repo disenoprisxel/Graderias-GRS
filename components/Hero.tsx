@@ -133,10 +133,13 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          {/* Parallax background */}
+          {/* Parallax background + fade-scale de entrada */}
           <motion.div
             className="absolute inset-0"
-            style={{ y: bgParallaxY, scale: 1.15 }}
+            style={{ y: bgParallaxY }}
+            initial={{ scale: 1.12, opacity: 0 }}
+            animate={{ scale: 1.05, opacity: 1 }}
+            transition={{ duration: 1.1, ease: 'easeOut' }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -151,8 +154,8 @@ export default function Hero() {
           {slide.type === 'logos' ? (
 
             /* ── SLIDE LOGOS (Fuxion) — logos en la parte inferior ── */
-            <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-20 pb-16">
-              <div className="flex items-end justify-between w-full">
+            <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-14 pb-16">
+              <div className="flex items-end justify-between w-full max-w-5xl mx-auto">
 
                 {/* Logo izquierdo — entra desde abajo-izquierda */}
                 <motion.div
