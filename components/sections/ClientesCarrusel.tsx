@@ -3,18 +3,15 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
+// 25 imágenes reales del carrusel (carpeta /images/clientes/)
 const clientes = [
-  { nombre: 'Unitec',          logo: '/images/clientes/unitec.png' },
-  { nombre: 'SOFA',            logo: '/images/clientes/sofa.png' },
-  { nombre: 'RCN Televisión',  logo: '/images/clientes/rcn.png' },
-  { nombre: 'Club El Nogal',   logo: '/images/clientes/club-el-nogal.png' },
-  { nombre: 'Dimayor',         logo: '/images/clientes/dimayor.png' },
-  { nombre: 'Aguilas Doradas', logo: '/images/clientes/aguilas-doradas.png' },
-  { nombre: 'Alcaldía de Tocancipá', logo: '/images/clientes/alcaldia-tocancipa.png' },
-]
+  '01','02','03','04','05','06','07','08','09','10',
+  '11','12','13','14','15','16','18','19','20','21',
+  '22','23','24','26','27',
+].map((n) => ({ nombre: `Cliente ${n}`, logo: `/images/clientes/${n}.jpg` }))
 
-// Duplicamos para el loop infinito
-const track = [...clientes, ...clientes]
+// Triplicamos para asegurar loop sin saltos en pantallas anchas
+const track = [...clientes, ...clientes, ...clientes]
 
 export default function ClientesCarrusel() {
   return (
@@ -41,19 +38,19 @@ export default function ClientesCarrusel() {
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <motion.div
-          className="flex items-center gap-16 w-max"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 18, ease: 'linear', repeat: Infinity }}
+          className="flex items-center gap-10 w-max"
+          animate={{ x: ['0%', '-33.33%'] }}
+          transition={{ duration: 35, ease: 'linear', repeat: Infinity }}
         >
           {track.map((cliente, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex items-center justify-center w-44 h-20"
+              className="flex-shrink-0 flex items-center justify-center w-36 h-20"
             >
               <Image
                 src={cliente.logo}
                 alt={cliente.nombre}
-                width={160}
+                width={130}
                 height={70}
                 className="object-contain max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
               />

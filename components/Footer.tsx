@@ -52,11 +52,11 @@ export default function Footer() {
         {/* Col 1 — Logo + redes */}
         <motion.div variants={colItem} className="flex flex-col items-start gap-6">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-footer.png"
             alt="Graderías GRS — Graderías y Escenarios"
             width={200}
             height={80}
-            className="w-48 h-auto brightness-0 invert"
+            className="w-48 h-auto"
           />
           <p className="text-light/50 text-xs font-heading tracking-widest uppercase">
             Graderias y Escenarios
@@ -101,20 +101,13 @@ export default function Footer() {
 
         {/* Col 3 — Certificaciones */}
         <motion.div variants={colItem} className="flex flex-col gap-4">
-          {/* Fila 1: 25 years + ICC */}
-          <div className="flex items-center gap-4 flex-wrap">
+          {/* Experiencia (25 Years + ICC) */}
+          <div className="flex items-center">
             <Image
-              src="/images/certificaciones/25-years.png"
-              alt="25 Years Experience"
-              width={65}
-              height={65}
-              className="object-contain"
-            />
-            <Image
-              src="/images/certificaciones/icc.png"
-              alt="ICC International Code Council"
-              width={140}
-              height={55}
+              src="/images/certificaciones/experiencia.png"
+              alt="25 Years Experience — ICC International Code Council"
+              width={180}
+              height={60}
               className="object-contain"
             />
           </div>

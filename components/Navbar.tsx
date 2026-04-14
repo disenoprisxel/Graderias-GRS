@@ -70,7 +70,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <Image src="/images/logo.png" alt="Graderías GRS" width={160} height={60} priority className="h-14 w-auto" />
+          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={160} height={60} priority className="h-14 w-auto" />
         </Link>
 
         {/* Desktop links */}
@@ -120,16 +120,15 @@ export default function Navbar() {
           <Link href="/descargas" className="hover:text-primary transition-colors">Descargas</Link>
         </div>
 
-        {/* Badges */}
-        <div className="hidden lg:flex items-center gap-3 text-xs text-center font-heading">
-          <div className="border-2 border-primary rounded p-2 leading-tight">
-            <div className="font-bold text-primary text-lg leading-none">25</div>
-            <div className="text-dark font-semibold uppercase tracking-tight">Years<br />Experience</div>
-          </div>
-          <div className="border-2 border-dark rounded p-2 leading-tight">
-            <div className="font-bold text-dark text-xs uppercase tracking-tighter">ICC</div>
-            <div className="text-body-text text-xs leading-tight">International<br />Code Council</div>
-          </div>
+        {/* Badge experiencia */}
+        <div className="hidden lg:flex items-center">
+          <Image
+            src="/images/certificaciones/experiencia.png"
+            alt="25 Years Experience — ICC International Code Council"
+            width={160}
+            height={56}
+            className="h-14 w-auto object-contain"
+          />
         </div>
 
         {/* Hamburger */}
