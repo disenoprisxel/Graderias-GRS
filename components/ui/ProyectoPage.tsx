@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import ContactoCTA from '@/components/sections/ContactoCTA'
+import ComparisonSlider from '@/components/ui/ComparisonSlider'
 
 interface ProyectoPageProps {
   titulo: string
@@ -12,6 +13,7 @@ interface ProyectoPageProps {
   imagen: string
   galeria?: string[]
   datos?: { label: string; valor: string }[]
+  comparacion?: { antes: string; despues: string; labelAntes?: string; labelDespues?: string }
 }
 
 export default function ProyectoPage({
@@ -23,6 +25,7 @@ export default function ProyectoPage({
   imagen,
   galeria = [],
   datos = [],
+  comparacion,
 }: ProyectoPageProps) {
   return (
     <>
@@ -89,6 +92,26 @@ export default function ProyectoPage({
           )}
         </div>
       </section>
+
+      {/* Comparison Slider */}
+      {comparacion && (
+        <section className="py-14 bg-[#1a1a1a]">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="font-heading font-bold text-white text-2xl mb-2 text-center">
+              Render 3D vs Construcción Final
+            </h2>
+            <p className="text-center text-light/50 text-sm font-heading mb-8">
+              Del diseño a la realidad
+            </p>
+            <ComparisonSlider
+              antes={comparacion.antes}
+              despues={comparacion.despues}
+              labelAntes={comparacion.labelAntes}
+              labelDespues={comparacion.labelDespues}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Gallery */}
       {galeria.length > 0 && (
