@@ -69,24 +69,33 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    type: 'text',
-    image: '/images/proyectos/copa-davis.jpg',
-    title: 'Copa Davis — Colombia vs Turquía',
-    subtitle: 'Infraestructura de graderías para los mejores eventos deportivos',
+    type: 'logos',
+    image: '/images/hero/hero-san-andres.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'SAN ANDRÉS SILLETERÍA — GRADERÍAS EN ALUMINIO',
+    logoRight:    '',
+    logoRightAlt: '',
   },
   {
     id: 6,
-    type: 'text',
-    image: '/images/proyectos/aguilas-doradas.jpg',
-    title: 'Estadio Águilas Doradas',
-    subtitle: 'Soluciones estructurales para estadios de fútbol profesional',
+    type: 'logos',
+    image: '/images/hero/hero-vips.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'GRADERÍAS VIPS — PEQUEÑAS',
+    logoRight:    '',
+    logoRightAlt: '',
   },
   {
     id: 7,
-    type: 'text',
-    image: '/images/proyectos/bmx-tocancipa.jpg',
-    title: 'Pista de BMX Tocancipá',
-    subtitle: 'Graderías certificadas para eventos olímpicos y de alto rendimiento',
+    type: 'logos',
+    image: '/images/hero/hero-cometas.jpg',
+    logoLeft:    '/images/logos/idrd-bogota.png',
+    logoLeftAlt: 'IDRD — Instituto Distrital de Recreación y Deporte',
+    tagLeft:     'GRADERÍA Y SILLETERÍA — Parque las Cometas',
+    logoRight:    '',
+    logoRightAlt: '',
   },
 ]
 
@@ -242,28 +251,30 @@ export default function Hero() {
                   </motion.h2>
                 )}
 
-                {/* Logo centrado con animación de entrada */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.7, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-center"
-                >
-                  {/* Línea decorativa encima del logo */}
+                {/* Logo centrado con animación — solo si existe */}
+                {slide.logoLeft && (
                   <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
-                    className="w-16 h-0.5 bg-primary mb-5 origin-center"
-                  />
-                  <Image
-                    src={slide.logoLeft}
-                    alt={slide.logoLeftAlt}
-                    width={220}
-                    height={110}
-                    className="object-contain max-h-28 w-auto drop-shadow-2xl"
-                  />
-                </motion.div>
+                    initial={{ opacity: 0, scale: 0.7, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex flex-col items-center"
+                  >
+                    {/* Línea decorativa encima del logo */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
+                      className="w-16 h-0.5 bg-primary mb-5 origin-center"
+                    />
+                    <Image
+                      src={slide.logoLeft}
+                      alt={slide.logoLeftAlt}
+                      width={220}
+                      height={110}
+                      className="object-contain max-h-28 w-auto drop-shadow-2xl"
+                    />
+                  </motion.div>
+                )}
               </div>
             )
 
