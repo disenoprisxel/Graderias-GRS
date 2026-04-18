@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiX } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -11,12 +11,6 @@ const DEFAULT_MESSAGE = 'Hola, me gustaría obtener más información sobre sus 
 export default function WhatsAppButton() {
   const [open, setOpen] = useState(false)
   const [mensaje, setMensaje] = useState('')
-
-  // Abrir automáticamente después de 4 segundos (solo una vez)
-  useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 4000)
-    return () => clearTimeout(timer)
-  }, [])
 
   const handleEnviar = () => {
     const text = encodeURIComponent(mensaje.trim() || DEFAULT_MESSAGE)
