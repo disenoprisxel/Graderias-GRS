@@ -31,7 +31,7 @@ export default function CoberturaNacional() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-15%', '15%'])
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-[#1a1a1a] overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 bg-[#1a1a1a] overflow-hidden">
       {/* Parallax background */}
       <motion.div
         className="absolute inset-0 scale-125"
@@ -45,7 +45,7 @@ export default function CoberturaNacional() {
         />
       </motion.div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Card central */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -55,13 +55,13 @@ export default function CoberturaNacional() {
           className="bg-[#222] rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 shadow-2xl"
         >
           {/* Texto + stats */}
-          <div className="p-8 md:p-10 flex flex-col justify-center">
+          <div className="p-10 md:p-14 flex flex-col justify-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-heading font-extrabold text-white text-3xl md:text-4xl uppercase leading-tight"
+              className="font-heading font-extrabold text-white text-4xl md:text-5xl uppercase leading-tight"
             >
               Llevamos tu evento al<br />siguiente nivel
             </motion.h2>
@@ -71,7 +71,7 @@ export default function CoberturaNacional() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-5 text-light/70 text-sm leading-relaxed"
+              className="mt-6 text-light/70 text-base leading-relaxed max-w-md"
             >
               Hemos vendido y alquilado graderías en hierro y aluminio, tarimas,
               vallas y palcos de honor para el servicio de clientes a nivel nacional,
@@ -84,15 +84,15 @@ export default function CoberturaNacional() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-40px' }}
-              className="mt-8 flex flex-wrap gap-6"
+              className="mt-10 flex flex-wrap gap-10"
             >
               {stats.map(({ icono: Icono, numero, label }) => (
                 <motion.div key={numero} variants={statItem} className="flex flex-col items-start">
-                  <Icono className="text-primary mb-2" size={28} />
-                  <span className="font-heading font-extrabold text-primary text-2xl leading-none">
+                  <Icono className="text-primary mb-2" size={34} />
+                  <span className="font-heading font-extrabold text-primary text-3xl leading-none">
                     {numero}
                   </span>
-                  <span className="text-light/60 text-xs mt-1 leading-snug whitespace-pre-line">
+                  <span className="text-light/60 text-sm mt-1 leading-snug whitespace-pre-line">
                     {label}
                   </span>
                 </motion.div>
@@ -100,19 +100,19 @@ export default function CoberturaNacional() {
             </motion.div>
           </div>
 
-          {/* Mapa de Colombia */}
+          {/* Mapa de Colombia — más alto para que sea bien visible */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative min-h-72 md:min-h-0 bg-[#1e1e2e]"
+            className="relative min-h-[500px] md:min-h-0 bg-[#1e1e2e]"
           >
             <Image
               src="/images/mapa-colombia.png"
               alt="Cobertura nacional — Mapa de Colombia"
               fill
-              className="object-contain p-6"
+              className="object-contain p-8"
             />
           </motion.div>
         </motion.div>
