@@ -7,6 +7,7 @@ import ClientesCarrusel from '@/components/sections/ClientesCarrusel'
 import CoberturaNacional from '@/components/sections/CoberturaNacional'
 import NosotrosCumpliendo from '@/components/sections/NosotrosCumpliendo'
 import ContactoCTA from '@/components/sections/ContactoCTA'
+import slides2 from '@/data/slides2'
 
 export const metadata: Metadata = {
   title: 'Graderías GRS — Alquiler y Venta de Graderías en Colombia',
@@ -17,13 +18,19 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* ── Slideshow 1 ── */}
       <Hero />
+
       <QuienesSomos />
       <ProyectosDestacados />
       <ProductosGrid />
       <ClientesCarrusel />
       <CoberturaNacional />
       <NosotrosCumpliendo />
+
+      {/* ── Slideshow 2 ── */}
+      <Hero slides={slides2} />
+
       <ContactoCTA />
     </>
   )

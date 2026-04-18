@@ -26,7 +26,7 @@ type SlideText = SlideBase & {
 type Slide = SlideLogos | SlideText
 
 // ── Slides ──────────────────────────────────────────────────────────────────
-const slides: Slide[] = [
+export const slidesDefault: Slide[] = [
   {
     id: 1,
     type: 'logos',
@@ -99,7 +99,10 @@ const slides: Slide[] = [
   },
 ]
 
-export default function Hero() {
+// Exportar tipos para uso externo
+export type { Slide, SlideLogos, SlideText }
+
+export default function Hero({ slides = slidesDefault }: { slides?: Slide[] }) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(1)
   const heroRef = useRef<HTMLElement>(null)
