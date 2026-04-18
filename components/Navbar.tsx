@@ -66,21 +66,21 @@ export default function Navbar() {
     // position:relative necesario para que el mega-menu absoluto se posicione dentro del header
     <header className={`sticky top-0 z-50 bg-white transition-shadow relative ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
 
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-28">
+      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
 
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 py-2 px-2">
-          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={230} height={90} priority className="h-20 w-auto" />
+        <Link href="/" className="flex-shrink-0 py-1 px-1">
+          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={210} height={80} priority className="h-[72px] w-auto" />
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-7 font-heading font-semibold text-dark text-base">
-          <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
-          <Link href="/#quienes" className="hover:text-primary transition-colors">¿Quiénes Somos?</Link>
+        <div className="hidden lg:flex items-center gap-5 font-heading font-semibold text-dark text-sm xl:text-base">
+          <Link href="/" className="whitespace-nowrap hover:text-primary transition-colors">Inicio</Link>
+          <Link href="/#quienes" className="whitespace-nowrap hover:text-primary transition-colors">¿Quiénes Somos?</Link>
 
           {/* Proyectos — dropdown simple */}
           <div className="relative" onMouseEnter={openProyectos} onMouseLeave={closeProyectos}>
-            <button className="flex items-center gap-1 hover:text-primary transition-colors">
+            <button className="whitespace-nowrap flex items-center gap-1 hover:text-primary transition-colors">
               Proyectos Destacados <FiChevronDown />
             </button>
             <AnimatePresence>
@@ -108,7 +108,7 @@ export default function Navbar() {
 
           {/* Productos — trigger del mega-menu */}
           <div onMouseEnter={openProductos} onMouseLeave={closeProductos}>
-            <button className={`flex items-center gap-1 transition-colors ${productosOpen ? 'text-primary' : 'hover:text-primary'}`}>
+            <button className={`whitespace-nowrap flex items-center gap-1 transition-colors ${productosOpen ? 'text-primary' : 'hover:text-primary'}`}>
               Productos
               <motion.span animate={{ rotate: productosOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                 <FiChevronDown />
@@ -116,18 +116,18 @@ export default function Navbar() {
             </button>
           </div>
 
-          <Link href="/contacto" className="hover:text-primary transition-colors">Contacto</Link>
-          <Link href="/descargas" className="hover:text-primary transition-colors">Descargas</Link>
+          <Link href="/contacto" className="whitespace-nowrap hover:text-primary transition-colors">Contacto</Link>
+          <Link href="/descargas" className="whitespace-nowrap hover:text-primary transition-colors">Descargas</Link>
         </div>
 
         {/* Badge experiencia */}
-        <div className="hidden lg:flex items-center py-2 px-2">
+        <div className="hidden lg:flex items-center py-1 px-1">
           <Image
             src="/images/certificaciones/experiencia.png"
             alt="25 Years Experience — ICC International Code Council"
-            width={240}
-            height={90}
-            className="h-20 w-auto object-contain"
+            width={220}
+            height={80}
+            className="h-[72px] w-auto object-contain"
           />
         </div>
 
