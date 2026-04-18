@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import ContactoCTA from '@/components/sections/ContactoCTA'
 import ComparisonSlider from '@/components/ui/ComparisonSlider'
+import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import VideoCtaSection from '@/components/ui/VideoCtaSection'
 
 interface ProyectoPageProps {
   titulo: string
@@ -14,6 +16,7 @@ interface ProyectoPageProps {
   galeria?: string[]
   datos?: { label: string; valor: string }[]
   comparacion?: { antes: string; despues: string; labelAntes?: string; labelDespues?: string }
+  videoCta?: string
 }
 
 export default function ProyectoPage({
@@ -26,6 +29,7 @@ export default function ProyectoPage({
   galeria = [],
   datos = [],
   comparacion,
+  videoCta,
 }: ProyectoPageProps) {
   return (
     <>
@@ -113,28 +117,21 @@ export default function ProyectoPage({
         </section>
       )}
 
-      {/* Gallery */}
+      {/* Gallery con Lightbox */}
       {galeria.length > 0 && (
         <section className="pb-16 bg-light/30">
           <div className="max-w-7xl mx-auto px-4 pt-8">
             <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
               Galería del Proyecto
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galeria.map((src, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden bg-dark">
-                  <Image
-                    src={src}
-                    alt={`${titulo} — imagen ${i + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+            <GaleriaLightbox images={galeria} titulo={titulo} />
           </div>
         </section>
+      )}
+
+      {/* Video CTA */}
+      {videoCta && (
+        <VideoCtaSection videoSrc={videoCta} />
       )}
 
       <ContactoCTA />

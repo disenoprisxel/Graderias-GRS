@@ -40,6 +40,7 @@ export default function Page() {
         labelDespues: 'Construcción Final',
       }}
       galeria={galeria}
+      videoCta="/videos/evento-nivel.mp4"
     />
   )
 }
