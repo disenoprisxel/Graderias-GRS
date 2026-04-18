@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
-import { FaWhatsapp, FaPhone } from 'react-icons/fa'
+import { FaWhatsapp } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
 
 const statsData = [
@@ -105,15 +105,6 @@ export default function ContactoCTA() {
           >
             <FiMail size={22} />
             Enviar mensaje
-          </motion.a>
-          <motion.a
-            variants={btnItem}
-            href="tel:+573132816757"
-            whileHover={{ scale: 1.04 }}
-            className="flex items-center gap-3 border-2 border-white text-white font-heading font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-dark transition-colors text-lg w-full sm:w-auto justify-center"
-          >
-            <FaPhone size={20} />
-            Llamar ahora
           </motion.a>
         </motion.div>
 
