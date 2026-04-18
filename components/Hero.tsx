@@ -39,24 +39,33 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    type: 'text',
-    image: '/images/hero/hero-1.jpg',
-    title: 'Su evento en las mejores manos',
-    subtitle: 'Graderías, escenarios y cubiertas para eventos a nivel nacional',
+    type: 'logos',
+    image: '/images/hero/hero-bmx.jpg',
+    logoLeft:    '/images/logos/alcaldia-tocancipa.png',
+    logoLeftAlt: 'Alcaldía de Tocancipá',
+    tagLeft:     'PISTA BMX TOCANCIPÁ',
+    logoRight:    '',
+    logoRightAlt: '',
   },
   {
     id: 3,
-    type: 'text',
-    image: '/images/hero/hero-2.jpg',
-    title: 'Más de 25 años de experiencia',
-    subtitle: 'Alquiler y venta de graderías con los más altos estándares de calidad',
+    type: 'logos',
+    image: '/images/hero/hero-sincelejo.jpg',
+    logoLeft:    '/images/logos/alcaldia-sincelejo.png',
+    logoLeftAlt: 'Alcaldía de Sincelejo',
+    tagLeft:     'VENTA DE SILLETERÍA — ESTADIO DE BÉISBOL DE SINCELEJO',
+    logoRight:    '',
+    logoRightAlt: '',
   },
   {
     id: 4,
-    type: 'text',
-    image: '/images/hero/hero-3.jpg',
-    title: 'Proyectos a escala nacional',
-    subtitle: 'Hemos participado en los eventos más importantes de Colombia',
+    type: 'logos',
+    image: '/images/hero/hero-truss.jpg',
+    logoLeft:    '/images/logos/tocancipa.png',
+    logoLeftAlt: 'Tocancipá',
+    tagLeft:     'TECHOS Y ESTRUCTURAS EN TRUSS',
+    logoRight:    '',
+    logoRightAlt: '',
   },
   {
     id: 5,
@@ -183,7 +192,8 @@ export default function Hero() {
                   )}
                 </motion.div>
 
-                {/* Logo derecho — entra desde abajo-derecha */}
+                {/* Logo derecho — solo para slide Fuxion */}
+                {slide.logoRight ? (
                 <motion.div
                   initial={{ opacity: 0, x: 60, y: 30 }}
                   animate={{ opacity: 1, x: 0, y: 0 }}
@@ -214,6 +224,7 @@ export default function Hero() {
                     2 0 2 4
                   </motion.span>
                 </motion.div>
+                ) : <div />}
               </div>
             </div>
 
