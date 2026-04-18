@@ -21,6 +21,9 @@ export default function HomePage() {
       {/* ── Slideshow 1 ── */}
       <Hero />
 
+      {/* ── Separador entre slideshows ── */}
+      <div className="h-4 bg-dark" />
+
       {/* ── Slideshow 2 ── */}
       <Hero slides={slides2} />
 
