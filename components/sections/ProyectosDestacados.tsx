@@ -4,7 +4,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, type Variants } from 'framer-motion'
 
-const proyectos = [
+type Proyecto = {
+  titulo: string
+  href: string
+  image: string
+  logo?: string
+  logoAlt?: string
+}
+
+const proyectos: Proyecto[] = [
   {
     titulo: 'Pista de BMX Tocancipá',
     href: '/pista_bmx_tocancipa',
