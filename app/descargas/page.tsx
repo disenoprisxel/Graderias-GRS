@@ -11,13 +11,13 @@ const archivos = [
   {
     nombre: 'Brochure Alquiler de Graderías',
     descripcion: 'Catálogo completo de servicios de alquiler: graderías, escenarios, cubiertas y mobiliario para eventos.',
-    archivo: '/descargas/brochure-alquiler.pdf',
+    archivo: '/downloads/Brochure-Alquiler-GRS.pdf',
     badge: 'ALQUILER',
   },
   {
     nombre: 'Brochure Venta de Graderías',
     descripcion: 'Catálogo de productos en venta: graderías en aluminio, silletería, estructuras truss y más.',
-    archivo: '/descargas/brochure-venta.pdf',
+    archivo: '/downloads/Brochure-Venta-GRS.pdf',
     badge: 'VENTA',
   },
 ]
