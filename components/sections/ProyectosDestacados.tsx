@@ -117,31 +117,30 @@ export default function ProyectosDestacados() {
               {/* Overlay verde al hover */}
               <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
-              {/* Contenido hover — título + logo (si existe) */}
-              <div className="absolute inset-0 flex items-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                {proyecto.logo ? (
-                  /* Layout con logo: título izquierda, logo derecha */
-                  <div className="flex items-center justify-between w-full gap-4">
-                    <h3 className="font-heading font-extrabold text-white text-lg md:text-xl uppercase leading-tight drop-shadow flex-1">
-                      {proyecto.titulo}
-                    </h3>
-                    <div className="flex-shrink-0">
-                      <Image
-                        src={proyecto.logo}
-                        alt={proyecto.logoAlt ?? proyecto.titulo}
-                        width={100}
-                        height={80}
-                        className="object-contain max-h-20 w-auto drop-shadow-xl"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  /* Sin logo: título centrado */
-                  <div className="flex items-center justify-center w-full">
-                    <h3 className="font-heading font-extrabold text-white text-xl md:text-2xl text-center uppercase leading-tight drop-shadow">
-                      {proyecto.titulo}
-                    </h3>
-                  </div>
+              {/* Contenido hover — título arriba centrado + logo abajo centrado */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 gap-5 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                <h3 className="font-heading font-extrabold text-white text-xl md:text-2xl text-center uppercase leading-tight drop-shadow">
+                  {proyecto.titulo}
+                </h3>
+
+                {proyecto.logo && (
+                  /* Logo centrado debajo del título — SVG usa <img> para evitar problemas de optimización */
+                  proyecto.logo.endsWith('.svg') ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={proyecto.logo}
+                      alt={proyecto.logoAlt ?? proyecto.titulo}
+                      className="object-contain max-h-24 w-auto max-w-[180px] drop-shadow-xl"
+                    />
+                  ) : (
+                    <Image
+                      src={proyecto.logo}
+                      alt={proyecto.logoAlt ?? proyecto.titulo}
+                      width={180}
+                      height={96}
+                      className="object-contain max-h-24 w-auto drop-shadow-xl"
+                    />
+                  )
                 )}
               </div>
             </Link>
