@@ -146,9 +146,12 @@ export default function Footer() {
       </motion.div>
 
       {/* Bottom bar */}
-      <div className="relative z-10 border-t border-white/10 py-4 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
+      <div className="relative z-10 border-t border-white/20 py-5 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm font-semibold text-white">
           <span>&copy; {new Date().getFullYear()} Graderías GRS. Todos los derechos reservados.</span>
+          <span className="text-white/80">
+            Hecho por <span className="text-primary font-bold">PRISXEL</span> con ❤️
+          </span>
           <span>
             <Link href="/contacto" className="hover:text-primary transition-colors">Contacto</Link>
             {' '}&mdash;{' '}
