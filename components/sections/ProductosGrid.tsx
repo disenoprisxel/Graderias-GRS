@@ -9,7 +9,7 @@ const productos = [
   {
     label: 'Alquiler de Graderías',
     href: '/alquiler_de_graderias',
-    image: '/images/productos/alquiler-graderias.jpg',
+    image: '/images/productos/alquiler-graderias.jpg', // PP-Alquiler3.png
     col: '1', row: '1',
   },
   {
