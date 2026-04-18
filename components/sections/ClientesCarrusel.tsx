@@ -52,7 +52,7 @@ export default function ClientesCarrusel() {
                 alt={cliente.nombre}
                 width={130}
                 height={70}
-                className="object-contain max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="object-contain max-h-16 w-auto transition-all duration-300 opacity-90 hover:opacity-100 hover:scale-105"
               />
             </div>
           ))}

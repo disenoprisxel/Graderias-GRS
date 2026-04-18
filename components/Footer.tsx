@@ -38,7 +38,7 @@ export default function Footer() {
           src="/images/footer-bg.jpg"
           alt=""
           fill
-          className="object-cover opacity-10"
+          className="object-cover opacity-20"
         />
       </div>
 
