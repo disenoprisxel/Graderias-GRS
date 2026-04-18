@@ -162,71 +162,110 @@ export default function Hero() {
           {/* ── Contenido según tipo ── */}
           {slide.type === 'logos' ? (
 
-            /* ── SLIDE LOGOS (Fuxion) — logos en la parte inferior ── */
-            <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-14 pb-28">
-              <div className="flex items-end justify-between w-full max-w-5xl mx-auto">
+            slide.logoRight ? (
+              /* ── SLIDE LOGOS DOS (Fuxion) — logos en la parte inferior ── */
+              <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-14 pb-28">
+                <div className="flex items-end justify-between w-full max-w-5xl mx-auto">
 
-                {/* Logo izquierdo — entra desde abajo-izquierda */}
+                  {/* Logo izquierdo */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -60, y: 30 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex flex-col items-start gap-2"
+                  >
+                    <Image
+                      src={slide.logoLeft}
+                      alt={slide.logoLeftAlt}
+                      width={200}
+                      height={100}
+                      className="object-contain max-h-24 w-auto drop-shadow-2xl"
+                    />
+                    {slide.tagLeft && (
+                      <motion.span
+                        initial={{ opacity: 0, letterSpacing: '0.1em' }}
+                        animate={{ opacity: 1, letterSpacing: '0.35em' }}
+                        transition={{ delay: 0.7, duration: 0.8 }}
+                        className="text-white/80 font-heading text-sm uppercase"
+                      >
+                        {slide.tagLeft}
+                      </motion.span>
+                    )}
+                  </motion.div>
+
+                  {/* Logo derecho — Fuxion */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 60, y: 30 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex flex-col items-end gap-1"
+                  >
+                    <motion.span
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7, duration: 0.6 }}
+                      className="text-white/70 font-heading tracking-[0.3em] text-xs uppercase"
+                    >
+                      C O N V E N C I Ó N
+                    </motion.span>
+                    <Image
+                      src={slide.logoRight}
+                      alt={slide.logoRightAlt}
+                      width={260}
+                      height={90}
+                      className="object-contain max-h-20 w-auto drop-shadow-2xl"
+                    />
+                    <motion.span
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.9, duration: 0.6 }}
+                      className="text-white/70 font-heading tracking-[0.4em] text-base"
+                    >
+                      2 0 2 4
+                    </motion.span>
+                  </motion.div>
+                </div>
+              </div>
+            ) : (
+              /* ── SLIDE UN LOGO — título grande centrado + logo centrado ── */
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 gap-10">
+
+                {/* Título principal — grande y bold */}
+                {slide.tagLeft && (
+                  <motion.h2
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="font-heading font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight drop-shadow-lg max-w-4xl"
+                  >
+                    {slide.tagLeft}
+                  </motion.h2>
+                )}
+
+                {/* Logo centrado con animación de entrada */}
                 <motion.div
-                  initial={{ opacity: 0, x: -60, y: 30 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-start gap-2"
+                  initial={{ opacity: 0, scale: 0.7, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col items-center"
                 >
+                  {/* Línea decorativa encima del logo */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
+                    className="w-16 h-0.5 bg-primary mb-5 origin-center"
+                  />
                   <Image
                     src={slide.logoLeft}
                     alt={slide.logoLeftAlt}
-                    width={200}
-                    height={100}
-                    className="object-contain max-h-24 w-auto drop-shadow-2xl"
+                    width={220}
+                    height={110}
+                    className="object-contain max-h-28 w-auto drop-shadow-2xl"
                   />
-                  {slide.tagLeft && (
-                    <motion.span
-                      initial={{ opacity: 0, letterSpacing: '0.1em' }}
-                      animate={{ opacity: 1, letterSpacing: '0.35em' }}
-                      transition={{ delay: 0.7, duration: 0.8 }}
-                      className="text-white/80 font-heading text-sm uppercase"
-                    >
-                      {slide.tagLeft}
-                    </motion.span>
-                  )}
                 </motion.div>
-
-                {/* Logo derecho — solo para slide Fuxion */}
-                {slide.logoRight ? (
-                <motion.div
-                  initial={{ opacity: 0, x: 60, y: 30 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-end gap-1"
-                >
-                  <motion.span
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.6 }}
-                    className="text-white/70 font-heading tracking-[0.3em] text-xs uppercase"
-                  >
-                    C O N V E N C I Ó N
-                  </motion.span>
-                  <Image
-                    src={slide.logoRight}
-                    alt={slide.logoRightAlt}
-                    width={260}
-                    height={90}
-                    className="object-contain max-h-20 w-auto drop-shadow-2xl"
-                  />
-                  <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.6 }}
-                    className="text-white/70 font-heading tracking-[0.4em] text-base"
-                  >
-                    2 0 2 4
-                  </motion.span>
-                </motion.div>
-                ) : <div />}
               </div>
-            </div>
+            )
 
           ) : (
 
