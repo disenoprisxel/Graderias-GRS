@@ -173,29 +173,29 @@ export default function Hero() {
 
             slide.logoRight ? (
               /* ── SLIDE LOGOS DOS (Fuxion) — logos en la parte inferior ── */
-              <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-14 pb-28">
-                <div className="flex items-end justify-between w-full max-w-5xl mx-auto">
+              <div className="relative z-10 h-full flex flex-col justify-end px-5 md:px-14 pb-20 md:pb-28">
+                <div className="flex items-end justify-between w-full max-w-5xl mx-auto gap-4">
 
                   {/* Logo izquierdo */}
                   <motion.div
                     initial={{ opacity: 0, x: -60, y: 30 }}
                     animate={{ opacity: 1, x: 0, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col items-start gap-2"
+                    className="flex flex-col items-start gap-1"
                   >
                     <Image
                       src={slide.logoLeft}
                       alt={slide.logoLeftAlt}
                       width={200}
                       height={100}
-                      className="object-contain max-h-24 w-auto drop-shadow-2xl"
+                      className="object-contain max-h-16 md:max-h-24 w-auto max-w-[130px] md:max-w-none drop-shadow-2xl"
                     />
                     {slide.tagLeft && (
                       <motion.span
                         initial={{ opacity: 0, letterSpacing: '0.1em' }}
-                        animate={{ opacity: 1, letterSpacing: '0.35em' }}
+                        animate={{ opacity: 1, letterSpacing: '0.25em' }}
                         transition={{ delay: 0.7, duration: 0.8 }}
-                        className="text-white/80 font-heading text-sm uppercase"
+                        className="text-white/80 font-heading text-[9px] md:text-sm uppercase tracking-[0.25em]"
                       >
                         {slide.tagLeft}
                       </motion.span>
@@ -213,7 +213,7 @@ export default function Hero() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7, duration: 0.6 }}
-                      className="text-white/70 font-heading tracking-[0.3em] text-xs uppercase"
+                      className="text-white/70 font-heading tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-xs uppercase"
                     >
                       C O N V E N C I Ó N
                     </motion.span>
@@ -222,13 +222,13 @@ export default function Hero() {
                       alt={slide.logoRightAlt}
                       width={260}
                       height={90}
-                      className="object-contain max-h-20 w-auto drop-shadow-2xl"
+                      className="object-contain max-h-14 md:max-h-20 w-auto max-w-[140px] md:max-w-none drop-shadow-2xl"
                     />
                     <motion.span
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.9, duration: 0.6 }}
-                      className="text-white/70 font-heading tracking-[0.4em] text-base"
+                      className="text-white/70 font-heading tracking-[0.3em] md:tracking-[0.4em] text-sm md:text-base"
                     >
                       2 0 2 4
                     </motion.span>

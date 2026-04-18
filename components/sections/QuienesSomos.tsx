@@ -30,8 +30,8 @@ export default function QuienesSomos() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          {/* Videos 2 columnas */}
-          <div className="grid grid-cols-2 gap-3 mb-8">
+          {/* Videos — 1 col en móvil, 2 en tablet+ */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
             {videos.map((v) => (
               <div
                 key={v.id}

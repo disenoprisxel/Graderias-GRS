@@ -89,11 +89,42 @@ export default function ProductosGrid() {
         </p>
       </motion.div>
 
-      {/* Asymmetric grid */}
+      {/* ── MÓVIL: grid 2 columnas simples ── */}
+      <div className="lg:hidden max-w-lg mx-auto px-4 grid grid-cols-2 gap-3">
+        {productos.map((p, i) => (
+          <motion.div
+            key={`mob-${p.href}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: (i % 2) * 0.08 }}
+            className="overflow-hidden bg-white group rounded-sm shadow-sm"
+          >
+            <Link href={p.href} className="block">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.label}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/20 transition-colors duration-400" />
+              </div>
+              <div className="py-2 px-2 bg-white group-hover:bg-primary transition-colors duration-300 min-h-[44px] flex items-center justify-center">
+                <span className="font-heading font-semibold text-primary group-hover:text-white text-xs text-center leading-tight transition-colors duration-300">
+                  {p.label}
+                </span>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ── DESKTOP: bento asimétrico ── */}
       <div
-        className="max-w-5xl mx-auto px-4"
+        className="hidden lg:grid max-w-5xl mx-auto px-4"
         style={{
-          display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gridAutoRows: '260px',
           gap: '12px',
@@ -101,7 +132,7 @@ export default function ProductosGrid() {
       >
         {productos.map((p, i) => (
           <motion.div
-            key={p.href}
+            key={`desk-${p.href}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -110,7 +141,6 @@ export default function ProductosGrid() {
             className="overflow-hidden bg-white group"
           >
             <Link href={p.href} className="block h-full">
-              {/* Image fills all space above the title bar */}
               <div className="relative w-full h-[calc(100%-48px)] overflow-hidden">
                 <Image
                   src={p.image}
@@ -119,10 +149,8 @@ export default function ProductosGrid() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
-                {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/20 transition-colors duration-400" />
               </div>
-              {/* Title bar */}
               <div className="h-12 flex items-center justify-center px-3 bg-white group-hover:bg-primary transition-colors duration-300">
                 <span className="font-heading font-semibold text-primary group-hover:text-white text-sm text-center leading-tight transition-colors duration-300">
                   {p.label}
