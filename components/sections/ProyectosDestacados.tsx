@@ -51,7 +51,7 @@ const proyectos: Proyecto[] = [
     image: '/images/proyectos/juegos-centroamericanos.jpg',
   },
   {
-    titulo: 'Juegos Centroam. Barranquilla',
+    titulo: 'Juegos Centroamericanos y del Caribe — Barranquilla',
     href: '/juegos-centroamericanos-y-del-caribe-barranquilla',
     image: '/images/proyectos/barranquilla.jpg',
     logo: '/images/logos/barranquilla.svg',
