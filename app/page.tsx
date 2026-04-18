@@ -21,16 +21,15 @@ export default function HomePage() {
       {/* ── Slideshow 1 ── */}
       <Hero />
 
+      {/* ── Slideshow 2 ── */}
+      <Hero slides={slides2} />
+
       <QuienesSomos />
       <ProyectosDestacados />
       <ProductosGrid />
       <ClientesCarrusel />
       <CoberturaNacional />
       <NosotrosCumpliendo />
-
-      {/* ── Slideshow 2 ── */}
-      <Hero slides={slides2} />
-
       <ContactoCTA />
     </>
   )
