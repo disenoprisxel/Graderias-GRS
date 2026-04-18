@@ -86,20 +86,27 @@ export default function Navbar() {
             <AnimatePresence>
               {proyectosOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.16 }}
+                  initial={{ opacity: 0, y: -10, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={openProyectos}
                   onMouseLeave={closeProyectos}
-                  className="absolute top-full left-0 bg-white shadow-2xl rounded-b-xl py-2 min-w-64 border-t-2 border-primary z-50"
+                  className="absolute top-full left-0 bg-white shadow-2xl rounded-b-xl py-2 min-w-64 border-t-2 border-primary z-50 origin-top"
                 >
-                  {proyectosMenu.map((item) => (
-                    <Link key={item.href} href={item.href}
-                      className="flex items-center gap-2 px-4 py-2.5 text-dark hover:bg-primary hover:text-white transition-colors text-sm group">
-                      <FiArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-                      {item.label}
-                    </Link>
+                  {proyectosMenu.map((item, i) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2, delay: i * 0.03, ease: 'easeOut' }}
+                    >
+                      <Link href={item.href}
+                        className="flex items-center gap-2 px-4 py-2.5 text-dark hover:bg-primary hover:text-white transition-colors duration-200 text-sm group">
+                        <FiArrowUpRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                        {item.label}
+                      </Link>
+                    </motion.div>
                   ))}
                 </motion.div>
               )}
@@ -110,7 +117,7 @@ export default function Navbar() {
           <div onMouseEnter={openProductos} onMouseLeave={closeProductos}>
             <button className={`whitespace-nowrap flex items-center gap-1 transition-colors ${productosOpen ? 'text-primary' : 'hover:text-primary'}`}>
               Productos
-              <motion.span animate={{ rotate: productosOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <motion.span animate={{ rotate: productosOpen ? 180 : 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
                 <FiChevronDown />
               </motion.span>
             </button>
@@ -145,39 +152,64 @@ export default function Navbar() {
       <AnimatePresence>
         {productosOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
+            initial={{ opacity: 0, y: -14, scaleY: 0.94 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -10, scaleY: 0.96 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={openProductos}
             onMouseLeave={closeProductos}
-            className="absolute left-0 right-0 top-full z-40 bg-[#111] shadow-2xl border-t-2 border-primary"
+            className="absolute left-0 right-0 top-full z-40 bg-[#111] shadow-2xl border-t-2 border-primary origin-top"
           >
             <div className="max-w-6xl mx-auto px-6 py-6">
-              <p className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-4">
+              <motion.p
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.22, delay: 0.08 }}
+                className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-4"
+              >
                 Nuestros Productos
-              </p>
+              </motion.p>
 
-              {/* Fila 1 — 5 items */}
+              {/* Fila 1 — 5 items con stagger */}
               <div className="grid grid-cols-5 gap-2 mb-2">
-                {row1.map(({ label, href, Icono }) => (
-                  <ProductoCard key={href} label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
+                {row1.map(({ label, href, Icono }, i) => (
+                  <motion.div
+                    key={href}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.22, delay: 0.1 + i * 0.04, ease: 'easeOut' }}
+                  >
+                    <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
+                  </motion.div>
                 ))}
               </div>
 
               {/* Fila 2 — 5 items */}
               <div className="grid grid-cols-5 gap-2 mb-2">
-                {row2.map(({ label, href, Icono }) => (
-                  <ProductoCard key={href} label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
+                {row2.map(({ label, href, Icono }, i) => (
+                  <motion.div
+                    key={href}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.22, delay: 0.22 + i * 0.04, ease: 'easeOut' }}
+                  >
+                    <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
+                  </motion.div>
                 ))}
               </div>
 
               {/* Fila 3 — 1 item centrado */}
               <div className="flex justify-center">
                 {row3.map(({ label, href, Icono }) => (
-                  <div key={href} className="w-1/5">
+                  <motion.div
+                    key={href}
+                    className="w-1/5"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.22, delay: 0.42, ease: 'easeOut' }}
+                  >
                     <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
