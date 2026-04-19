@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
-import ContactoCTA from '@/components/sections/ContactoCTA'
 import ComparisonSlider from '@/components/ui/ComparisonSlider'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
 import VideoCtaSection from '@/components/ui/VideoCtaSection'
+import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
 interface ProyectoPageProps {
   titulo: string
@@ -189,7 +189,7 @@ export default function ProyectoPage({
         <VideoCtaSection videoSrc={videoCta} />
       )}
 
-      <ContactoCTA />
+      <ViajamosCTA />
     </>
   )
 }

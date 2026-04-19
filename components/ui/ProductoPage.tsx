@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
-import ContactoCTA from '@/components/sections/ContactoCTA'
+import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
 interface ProductoPageProps {
   titulo: string
@@ -102,7 +102,7 @@ export default function ProductoPage({
         </section>
       )}
 
-      <ContactoCTA />
+      <ViajamosCTA />
     </>
   )
 }
