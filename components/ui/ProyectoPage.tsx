@@ -16,6 +16,7 @@ interface ProyectoPageProps {
   galeria?: string[]
   datos?: { label: string; valor: string }[]
   comparacion?: { antes: string; despues: string; labelAntes?: string; labelDespues?: string }
+  videos?: string[]
   videoCta?: string
 }
 
@@ -29,6 +30,7 @@ export default function ProyectoPage({
   galeria = [],
   datos = [],
   comparacion,
+  videos = [],
   videoCta,
 }: ProyectoPageProps) {
   return (
@@ -113,6 +115,30 @@ export default function ProyectoPage({
               labelAntes={comparacion.labelAntes}
               labelDespues={comparacion.labelDespues}
             />
+          </div>
+        </section>
+      )}
+
+      {/* Videos del proyecto */}
+      {videos.length > 0 && (
+        <section className="py-14 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="font-heading font-bold text-dark text-2xl mb-8 text-center">
+              Videos del Proyecto
+            </h2>
+            <div className={`grid gap-6 ${videos.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+              {videos.map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden shadow-lg bg-dark aspect-video">
+                  <video
+                    src={src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
