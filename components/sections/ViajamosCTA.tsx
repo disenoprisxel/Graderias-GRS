@@ -11,11 +11,11 @@ const ciudades = [
 
 export default function ViajamosCTA() {
   return (
-    <section className="relative bg-dark overflow-hidden py-20">
+    <section className="relative bg-white overflow-hidden py-20 border-t border-light">
 
-      {/* Fondo de puntos decorativos */}
+      {/* Fondo de puntos decorativos suaves */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage: 'radial-gradient(circle, #96CF24 1px, transparent 1px)',
           backgroundSize: '28px 28px',
@@ -46,7 +46,7 @@ export default function ViajamosCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.08 }}
-              className="font-heading font-extrabold text-white text-4xl md:text-5xl uppercase leading-tight"
+              className="font-heading font-extrabold text-dark text-4xl md:text-5xl uppercase leading-tight"
             >
               Viajamos a todo{' '}
               <span className="text-primary">el país</span>
@@ -65,10 +65,10 @@ export default function ViajamosCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white/75 text-base leading-relaxed max-w-md"
+              className="text-body-text text-base leading-relaxed max-w-md"
             >
               Contamos con la experiencia de más de{' '}
-              <strong className="text-white">25 años</strong> en el montaje de graderías
+              <strong className="text-dark">25 años</strong> en el montaje de graderías
               en aluminio y hierro a nivel nacional. Formamos parte del sector más importante
               para el desarrollo del país: la pequeña y mediana empresa —{' '}
               <strong className="text-primary">PYME</strong>.
@@ -99,7 +99,7 @@ export default function ViajamosCTA() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             {/* Título cobertura */}
-            <p className="text-white/40 font-heading font-bold uppercase tracking-widest text-xs mb-5">
+            <p className="text-dark/40 font-heading font-bold uppercase tracking-widest text-xs mb-5">
               Algunas ciudades donde hemos trabajado
             </p>
 
@@ -112,7 +112,7 @@ export default function ViajamosCTA() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + i * 0.05 }}
-                  className="flex items-center gap-1.5 bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 text-white/80 hover:text-white text-sm font-heading font-semibold px-3 py-1.5 rounded-full transition-colors cursor-default"
+                  className="flex items-center gap-1.5 bg-light/60 border border-light hover:border-primary hover:bg-primary/10 text-dark/70 hover:text-primary text-sm font-heading font-semibold px-3 py-1.5 rounded-full transition-colors cursor-default"
                 >
                   <FiMapPin size={11} className="text-primary shrink-0" />
                   {ciudad}
@@ -124,7 +124,7 @@ export default function ViajamosCTA() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+            <div className="grid grid-cols-3 gap-4 border-t border-light pt-6">
               {[
                 { num: '25+',  label: 'Años de\nexperiencia' },
                 { num: '500+', label: 'Eventos\nrealizados' },
@@ -141,7 +141,7 @@ export default function ViajamosCTA() {
                   <div className="font-heading font-extrabold text-primary text-2xl md:text-3xl">
                     {num}
                   </div>
-                  <div className="text-white/50 text-xs font-heading mt-1 whitespace-pre-line leading-snug">
+                  <div className="text-dark/50 text-xs font-heading mt-1 whitespace-pre-line leading-snug">
                     {label}
                   </div>
                 </motion.div>
