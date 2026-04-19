@@ -31,8 +31,8 @@ const proyectosMenu = [
   { label: 'Visita del Papa Francisco',          href: '/visita-del-papa-francisco' },
   { label: 'Copa Davis Colombia',                href: '/copa-davis-colombia-turkia' },
   { label: 'Copa Claro Colsanitas',              href: '/copa-claro-colsanitas' },
-  { label: 'Juegos Centroamericanos',            href: '/juegos-centroamericanos-y-del-caribe' },
-  { label: 'Juegos Centroam. Barranquilla',      href: '/juegos-centroamericanos-y-del-caribe-barranquilla' },
+  { label: 'Juegos Centroaméricanos y del Caribe Mar y Playa',      href: '/juegos-centroamericanos-y-del-caribe' },
+  { label: 'Juegos Centroaméricanos y del Caribe - Barranquilla',   href: '/juegos-centroamericanos-y-del-caribe-barranquilla' },
   { label: 'Estadio Aguilas Doradas',            href: '/estadio-aguilas-doradas' },
 ]
 
