@@ -17,6 +17,7 @@ interface ProyectoPageProps {
   datos?: { label: string; valor: string }[]
   comparacion?: { antes: string; despues: string; labelAntes?: string; labelDespues?: string }
   videos?: string[]
+  fotosDestacadas?: { src: string; caption?: string }[]
   videoCta?: string
 }
 
@@ -31,6 +32,7 @@ export default function ProyectoPage({
   datos = [],
   comparacion,
   videos = [],
+  fotosDestacadas = [],
   videoCta,
 }: ProyectoPageProps) {
   return (
@@ -115,6 +117,33 @@ export default function ProyectoPage({
               labelAntes={comparacion.labelAntes}
               labelDespues={comparacion.labelDespues}
             />
+          </div>
+        </section>
+      )}
+
+      {/* Fotos destacadas */}
+      {fotosDestacadas.length > 0 && (
+        <section className="py-12 bg-[#f7f7f7]">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className={`grid gap-6 ${fotosDestacadas.length === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
+              {fotosDestacadas.map((foto, i) => (
+                <div key={i} className="flex flex-col items-center gap-3">
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
+                    <Image
+                      src={foto.src}
+                      alt={foto.caption ?? `${titulo} — foto destacada ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  {foto.caption && (
+                    <p className="text-center text-dark font-heading font-semibold text-sm md:text-base leading-snug px-2">
+                      {foto.caption}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
