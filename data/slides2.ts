@@ -1,78 +1,102 @@
 // ── Slides del Slideshow 2 (parte inferior de la home) ──────────────────────
-// Configura aquí los slides independientes del segundo slider
 
 import type { SlideLogos, SlideText } from '@/components/Hero'
 
 type Slide = SlideLogos | SlideText
 
 const slides2: Slide[] = [
+  // 1 — Copa Davis Colombia vs Turkía
   {
     id: 1,
     type: 'logos',
-    image: '/images/hero/hero-fuxion.jpg',
-    logoLeft:    '/images/logos/puerta-de-oro.png',
-    logoLeftAlt: 'Puerta de Oro — Centro de Eventos del Caribe Barranquilla',
-    tagLeft:     'C O R F E R I A S',
-    logoRight:    '/images/logos/fuxion.jpg',
-    logoRightAlt: 'Convención FuXion 2024',
+    image: '/images/proyectos/copa-davis/001.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'COPA DAVIS — COLOMBIA vs TURKÍA 2019',
+    logoRight:    '',
+    logoRightAlt: '',
   },
+
+  // 2 — Sibatá (Sin título) + logo Policía Nacional
   {
     id: 2,
     type: 'logos',
-    image: '/images/hero/hero-bmx.jpg',
-    logoLeft:    '/images/logos/alcaldia-tocancipa.png',
-    logoLeftAlt: 'Alcaldía de Tocancipá',
-    tagLeft:     'PISTA BMX TOCANCIPÁ',
+    image: '/images/hero/hero-sibate.jpg',
+    logoLeft:    '/images/logos/policia-nacional.png',
+    logoLeftAlt: 'Policía Nacional de Colombia',
+    tagLeft:     '',
     logoRight:    '',
     logoRightAlt: '',
   },
+
+  // 3 — Copa Claro Colsanitas
   {
     id: 3,
     type: 'logos',
-    image: '/images/hero/hero-sincelejo.jpg',
-    logoLeft:    '/images/logos/alcaldia-sincelejo.png',
-    logoLeftAlt: 'Alcaldía de Sincelejo',
-    tagLeft:     'VENTA DE SILLETERÍA — ESTADIO DE BÉISBOL DE SINCELEJO',
+    image: '/images/proyectos/colsanitas/001.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'COPA CLARO COLSANITAS',
     logoRight:    '',
     logoRightAlt: '',
   },
+
+  // 4 — Sin título + logos Sanofi (izq) y Chamorro (der)
   {
     id: 4,
     type: 'logos',
-    image: '/images/hero/hero-truss.jpg',
-    logoLeft:    '/images/logos/tocancipa.png',
-    logoLeftAlt: 'Tocancipá',
-    tagLeft:     'TECHOS Y ESTRUCTURAS EN TRUSS',
-    logoRight:    '',
-    logoRightAlt: '',
+    image: '/images/hero/hero-chamorro-sanofi.jpg',
+    logoLeft:    '/images/logos/sanofi.png',
+    logoLeftAlt: 'Sanofi',
+    tagLeft:     '',
+    logoRight:    '/images/logos/chamorro.png',
+    logoRightAlt: 'Chamorro',
   },
+
+  // 5 — Carnaval de Barranquilla + logos Carnaval (izq) y Alcaldía (der)
   {
     id: 5,
     type: 'logos',
-    image: '/images/hero/hero-san-andres.jpg',
-    logoLeft:    '',
-    logoLeftAlt: '',
-    tagLeft:     'SAN ANDRÉS SILLETERÍA — GRADERÍAS EN ALUMINIO',
-    logoRight:    '',
-    logoRightAlt: '',
+    image: '/images/hero/hero-carnaval.jpg',
+    logoLeft:    '/images/logos/carnaval-barranquilla.png',
+    logoLeftAlt: 'Carnaval de Barranquilla',
+    tagLeft:     '',
+    logoRight:    '/images/logos/alcaldia-barranquilla.png',
+    logoRightAlt: 'Alcaldía de Barranquilla',
   },
+
+  // 6 — Gradería Convencional (solo imagen)
   {
     id: 6,
     type: 'logos',
-    image: '/images/hero/hero-vips.jpg',
+    image: '/images/hero/hero-graderia-convencional.jpg',
     logoLeft:    '',
     logoLeftAlt: '',
-    tagLeft:     'GRADERÍAS VIPS — PEQUEÑAS',
+    tagLeft:     'GRADERÍA CONVENCIONAL',
     logoRight:    '',
     logoRightAlt: '',
   },
+
+  // 7 — Venta Gobernación de Cundinamarca
   {
     id: 7,
     type: 'logos',
-    image: '/images/hero/hero-cometas.jpg',
-    logoLeft:    '/images/logos/idrd-bogota.png',
-    logoLeftAlt: 'IDRD — Instituto Distrital de Recreación y Deporte',
-    tagLeft:     'GRADERÍA Y SILLETERÍA — Parque las Cometas',
+    image: '/images/hero/hero-gobernacion-cundinamarca.jpg',
+    logoLeft:    '/images/logos/gobernacion-cundinamarca.png',
+    logoLeftAlt: 'Gobernación de Cundinamarca',
+    tagLeft:     'VENTA — GOBERNACIÓN DE CUNDINAMARCA',
+    logoRight:    '',
+    logoRightAlt: '',
+  },
+
+  // 8 — Venta Aeropuerto El Dorado
+  {
+    id: 8,
+    type: 'logos',
+    image: '/images/hero/hero-aeropuerto-dorado.jpg',
+    logoLeft:    '/images/logos/aeropuerto-dorado.png',
+    logoLeftAlt: 'Aeropuerto Internacional El Dorado',
+    tagLeft:     'VENTA — AEROPUERTO INTERNACIONAL EL DORADO',
     logoRight:    '',
     logoRightAlt: '',
   },
