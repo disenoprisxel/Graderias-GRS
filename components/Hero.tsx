@@ -185,7 +185,7 @@ export default function Hero({ slides = slidesDefault }: { slides?: Slide[] }) {
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className="font-heading font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight drop-shadow-lg text-center"
+                      className="font-heading font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight drop-shadow-lg text-center whitespace-pre-line"
                     >
                       {slide.tagLeft}
                     </motion.h2>

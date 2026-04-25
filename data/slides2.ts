@@ -36,7 +36,7 @@ const slides2: Slide[] = [
     image: '/images/hero/hero-colsanitas.jpg',
     logoLeft:    '/images/logos/copa-claro.png',
     logoLeftAlt: 'Copa Claro Colsanitas',
-    tagLeft:     'Copa Claro Colsanitas',
+    tagLeft:     'Copa Claro\nColsanitas',
     logoRight:    '/images/logos/10-lagartos.png',
     logoRightAlt: 'Club Los Lagartos',
   },
