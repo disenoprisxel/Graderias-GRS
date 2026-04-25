@@ -2,9 +2,21 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiImage, FiVideo, FiUploadCloud } from 'react-icons/fi'
+import { FiImage, FiVideo } from 'react-icons/fi'
+import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import VideoCarousel from '@/components/ui/VideoCarousel'
 
 type Tab = 'fotos' | 'videos'
+
+const fotos = Array.from({ length: 9 }, (_, i) => {
+  const n = String(i + 1).padStart(3, '0')
+  return `/images/galeria/${n}.jpg`
+})
+
+const videos = [
+  '/videos/galeria/001.mp4',
+  '/videos/galeria/002.mp4',
+]
 
 export default function GaleriaPage() {
   const [tab, setTab] = useState<Tab>('fotos')
@@ -54,34 +66,43 @@ export default function GaleriaPage() {
 
       {/* Contenido por tab */}
       <AnimatePresence mode="wait">
-        <motion.section
-          key={tab}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.35 }}
-          className="min-h-[60vh] py-20 bg-light/20"
-        >
-          <div className="max-w-5xl mx-auto px-4 flex flex-col items-center justify-center text-center gap-6">
-            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-              <FiUploadCloud size={36} className="text-primary" />
-            </div>
-            <div>
-              <h2 className="font-heading font-extrabold text-dark text-2xl md:text-3xl mb-2">
-                {tab === 'fotos' ? 'Galería de Fotos' : 'Galería de Videos'}
-              </h2>
-              <p className="text-dark/50 font-heading text-base max-w-xl mx-auto">
-                {tab === 'fotos'
-                  ? 'Próximamente encontrarás aquí nuestra colección de fotografías aéreas con dron y registros de nuestros proyectos más destacados.'
-                  : 'Próximamente encontrarás aquí los videos de nuestros montajes, eventos y proyectos a nivel nacional.'
-                }
+        {tab === 'fotos' ? (
+          <motion.section
+            key="fotos"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="py-12 bg-light/20"
+          >
+            <div className="max-w-7xl mx-auto px-4">
+              <p className="text-center text-dark/40 font-heading text-sm mb-8 uppercase tracking-widest">
+                {fotos.length} fotografías aéreas con dron
               </p>
+              <GaleriaLightbox
+                images={fotos}
+                titulo="Galería Graderías GRS"
+                watermark="/images/logo-blanco.png"
+              />
             </div>
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full">
-              <FiUploadCloud size={13} /> Contenido en preparación
-            </span>
-          </div>
-        </motion.section>
+          </motion.section>
+        ) : (
+          <motion.section
+            key="videos"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="py-12 bg-[#111]"
+          >
+            <div className="max-w-5xl mx-auto px-4">
+              <p className="text-center text-white/40 font-heading text-sm mb-8 uppercase tracking-widest">
+                {videos.length} videos aéreos con dron
+              </p>
+              <VideoCarousel videos={videos} />
+            </div>
+          </motion.section>
+        )}
       </AnimatePresence>
     </>
   )
