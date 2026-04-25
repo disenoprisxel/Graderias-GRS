@@ -8,9 +8,10 @@ import { motion } from 'framer-motion'
 interface GaleriaLightboxProps {
   images: string[]
   titulo?: string
+  watermark?: string
 }
 
-export default function GaleriaLightbox({ images, titulo }: GaleriaLightboxProps) {
+export default function GaleriaLightbox({ images, titulo, watermark }: GaleriaLightboxProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const open  = (i: number) => setActiveIndex(i)
@@ -40,8 +41,21 @@ export default function GaleriaLightbox({ images, titulo }: GaleriaLightboxProps
               loading="lazy"
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
+            {/* Marca de agua centrada */}
+            {watermark && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={watermark}
+                  alt=""
+                  className="w-3/5 opacity-[0.22] drop-shadow select-none"
+                  draggable={false}
+                />
+              </div>
+            )}
+
             {/* Overlay con icono */}
-            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center z-20">
               <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-3xl font-bold">
                 ⊕
               </span>
@@ -58,6 +72,7 @@ export default function GaleriaLightbox({ images, titulo }: GaleriaLightboxProps
           onClose={close}
           onPrev={prev}
           onNext={next}
+          watermark={watermark}
         />
       )}
     </>

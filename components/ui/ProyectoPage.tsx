@@ -19,6 +19,7 @@ interface ProyectoPageProps {
   videos?: string[]
   fotosDestacadas?: { src: string; caption?: string }[]
   videoCta?: string
+  watermark?: string   // ruta al logo para marca de agua sobre la galería
 }
 
 export default function ProyectoPage({
@@ -34,6 +35,7 @@ export default function ProyectoPage({
   videos = [],
   fotosDestacadas = [],
   videoCta,
+  watermark,
 }: ProyectoPageProps) {
   return (
     <>
@@ -148,16 +150,34 @@ export default function ProyectoPage({
         </section>
       )}
 
-      {/* Videos del proyecto */}
+      {/* Videos del proyecto — carrusel horizontal */}
       {videos.length > 0 && (
-        <section className="py-14 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
-            <h2 className="font-heading font-bold text-dark text-2xl mb-8 text-center">
+        <section className="py-14 bg-[#111] overflow-hidden">
+          <div className="max-w-5xl mx-auto px-4 mb-8">
+            <h2 className="font-heading font-bold text-white text-2xl text-center">
               Videos del Proyecto
             </h2>
-            <div className={`grid gap-6 ${videos.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
-              {videos.map((src, i) => (
-                <div key={i} className="rounded-xl overflow-hidden shadow-lg bg-dark aspect-video">
+            <p className="text-center text-white/40 font-heading text-sm mt-1">
+              {videos.length} {videos.length === 1 ? 'video' : 'videos'} · desliza para ver más
+            </p>
+          </div>
+
+          {/* Track con scroll horizontal */}
+          <div
+            className="flex gap-5 overflow-x-auto scroll-smooth [scrollbar-width:none] [-webkit-overflow-scrolling:touch] px-4 md:px-[max(1rem,calc((100vw-80rem)/2))] pb-6"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {videos.map((src, i) => (
+              <div
+                key={i}
+                className="group flex-none w-[88vw] md:w-[56vw] lg:w-[44vw]"
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                {/* Barra verde superior — aparece en hover */}
+                <div className="h-1 rounded-t-xl bg-dark/0 group-hover:bg-primary transition-colors duration-300" />
+
+                {/* Contenedor del video */}
+                <div className="relative aspect-video rounded-b-xl overflow-hidden bg-dark shadow-lg group-hover:shadow-primary/25 group-hover:shadow-2xl transition-shadow duration-300">
                   <video
                     src={src}
                     controls
@@ -166,8 +186,15 @@ export default function ProyectoPage({
                     className="w-full h-full object-cover"
                   />
                 </div>
-              ))}
-            </div>
+
+                {/* Contador */}
+                <p className="mt-2 text-center text-xs font-heading font-bold text-white/30 group-hover:text-primary transition-colors duration-200 uppercase tracking-widest">
+                  {String(i + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}
+                </p>
+              </div>
+            ))}
+            {/* Spacer final para que el último card no quede pegado al borde */}
+            <div className="flex-none w-4" aria-hidden="true" />
           </div>
         </section>
       )}
@@ -179,7 +206,7 @@ export default function ProyectoPage({
             <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
               Galería del Proyecto
             </h2>
-            <GaleriaLightbox images={galeria} titulo={titulo} />
+            <GaleriaLightbox images={galeria} titulo={titulo} watermark={watermark} />
           </div>
         </section>
       )}

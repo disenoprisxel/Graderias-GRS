@@ -39,6 +39,7 @@ export default function Page() {
         { src: '/images/proyectos/billy-jean-king/003.jpg' },
       ]}
       galeria={galeria}
+      watermark="/images/logo-blanco.png"
       videos={[
         '/videos/billy-jean-king/001.mp4',
         '/videos/billy-jean-king/002.mp4',

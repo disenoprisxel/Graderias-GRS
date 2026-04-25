@@ -12,9 +12,10 @@ interface LightboxProps {
   onClose: () => void
   onPrev: () => void
   onNext: () => void
+  watermark?: string
 }
 
-export default function Lightbox({ images, index, titulo, onClose, onPrev, onNext }: LightboxProps) {
+export default function Lightbox({ images, index, titulo, onClose, onPrev, onNext, watermark }: LightboxProps) {
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose()
     if (e.key === 'ArrowLeft') onPrev()
@@ -74,6 +75,18 @@ export default function Lightbox({ images, index, titulo, onClose, onPrev, onNex
             priority
             sizes="90vw"
           />
+          {/* Marca de agua sobre imagen ampliada */}
+          {watermark && (
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={watermark}
+                alt=""
+                className="w-2/5 opacity-[0.20] drop-shadow select-none"
+                draggable={false}
+              />
+            </div>
+          )}
         </motion.div>
 
         {/* Flecha izquierda */}
