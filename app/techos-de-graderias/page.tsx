@@ -84,29 +84,42 @@ export default function Page() {
             Su evento en las mejores manos...
           </p>
 
+          {/* Instrucción visual */}
+          <p className="mt-8 text-white/50 text-xs font-heading uppercase tracking-widest flex items-center gap-2">
+            <span className="inline-block w-6 h-px bg-white/30" />
+            Selecciona el tipo de techo
+            <span className="inline-block w-6 h-px bg-white/30" />
+          </p>
+
           {/* Tab selector */}
-          <div className="mt-7 flex items-center gap-0 bg-black/40 backdrop-blur-sm rounded-xl p-1 border border-white/10">
+          <div className="mt-3 flex items-stretch gap-3">
             <button
               onClick={() => setTab('moviles')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-heading font-bold text-sm transition-all duration-300 ${
+              className={`group flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-all duration-300 ${
                 tab === 'moviles'
-                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                  : 'text-white/70 hover:text-white'
+                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40 scale-105'
+                  : 'bg-black/40 border-white/20 text-white/80 hover:border-primary/60 hover:bg-black/60 hover:scale-102 backdrop-blur-sm'
               }`}
             >
-              <FiWind size={15} />
-              Techos Móviles
+              <FiWind size={22} className={tab === 'moviles' ? 'text-white' : 'text-primary'} />
+              <span>Techos Móviles</span>
+              <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'moviles' ? 'text-white/80' : 'text-white/40'}`}>
+                Soluciones temporales
+              </span>
             </button>
             <button
               onClick={() => setTab('fijos')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-heading font-bold text-sm transition-all duration-300 ${
+              className={`group flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-all duration-300 ${
                 tab === 'fijos'
-                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                  : 'text-white/70 hover:text-white'
+                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40 scale-105'
+                  : 'bg-black/40 border-white/20 text-white/80 hover:border-primary/60 hover:bg-black/60 hover:scale-102 backdrop-blur-sm'
               }`}
             >
-              <FiAnchor size={15} />
-              Techos Fijos
+              <FiAnchor size={22} className={tab === 'fijos' ? 'text-white' : 'text-primary'} />
+              <span>Techos Fijos</span>
+              <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'fijos' ? 'text-white/80' : 'text-white/40'}`}>
+                Soluciones permanentes
+              </span>
             </button>
           </div>
         </div>
