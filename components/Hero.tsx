@@ -175,32 +175,33 @@ export default function Hero({ slides = slidesDefault }: { slides?: Slide[] }) {
           {slide.type === 'logos' ? (
 
             slide.logoRight ? (
-              /* ── SLIDE LOGOS DOS — título centrado arriba + logos abajo ── */
-              <div className="relative z-10 h-full flex flex-col justify-between px-5 md:px-14 pt-24 pb-20 md:pb-28">
+              /* ── SLIDE LOGOS DOS — título centrado + logos abajo ── */
+              <div className="relative z-10 h-full">
 
-                {/* Título grande centrado */}
+                {/* Título grande — centrado verticalmente */}
                 {slide.tagLeft && (
-                  <motion.h2
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="font-heading font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight drop-shadow-lg text-center w-full"
-                  >
-                    {slide.tagLeft}
-                  </motion.h2>
+                  <div className="absolute inset-0 flex items-center justify-center px-6">
+                    <motion.h2
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className="font-heading font-extrabold text-white text-4xl md:text-6xl lg:text-7xl uppercase leading-tight drop-shadow-lg text-center"
+                    >
+                      {slide.tagLeft}
+                    </motion.h2>
+                  </div>
                 )}
 
-                {/* Logos en la parte inferior */}
-                <div className="flex items-end justify-between w-full max-w-5xl mx-auto gap-4">
+                {/* Logos fijos en la parte inferior */}
+                <div className="absolute bottom-20 md:bottom-28 left-0 right-0 flex items-end justify-between px-5 md:px-14 max-w-5xl mx-auto">
 
                   {/* Logo izquierdo */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -60, y: 30 }}
-                    animate={{ opacity: 1, x: 0, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col items-start gap-1"
-                  >
-                    {slide.logoLeft && (
+                  {slide.logoLeft && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -60, y: 30 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    >
                       <Image
                         src={slide.logoLeft}
                         alt={slide.logoLeftAlt}
@@ -208,17 +209,16 @@ export default function Hero({ slides = slidesDefault }: { slides?: Slide[] }) {
                         height={100}
                         className="object-contain max-h-16 md:max-h-24 w-auto max-w-[130px] md:max-w-none drop-shadow-2xl"
                       />
-                    )}
-                  </motion.div>
+                    </motion.div>
+                  )}
 
                   {/* Logo derecho */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 60, y: 30 }}
-                    animate={{ opacity: 1, x: 0, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col items-end gap-1"
-                  >
-                    {slide.logoRight && (
+                  {slide.logoRight && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 60, y: 30 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    >
                       <Image
                         src={slide.logoRight}
                         alt={slide.logoRightAlt}
@@ -226,8 +226,8 @@ export default function Hero({ slides = slidesDefault }: { slides?: Slide[] }) {
                         height={90}
                         className="object-contain max-h-14 md:max-h-20 w-auto max-w-[140px] md:max-w-none drop-shadow-2xl"
                       />
-                    )}
-                  </motion.div>
+                    </motion.div>
+                  )}
                 </div>
               </div>
             ) : (
