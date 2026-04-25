@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
+import HorizontalStrip from '@/components/ui/HorizontalStrip'
 import QuienesSomos from '@/components/sections/QuienesSomos'
 import ProyectosDestacados from '@/components/sections/ProyectosDestacados'
 import ProductosGrid from '@/components/sections/ProductosGrid'
@@ -24,8 +25,8 @@ export default function HomePage() {
       {/* ── Separador entre slideshows ── */}
       <div className="h-4 bg-dark" />
 
-      {/* ── Slideshow 2 ── */}
-      <Hero slides={slides2} />
+      {/* ── Strip de proyectos ── */}
+      <HorizontalStrip slides={slides2} />
 
       <QuienesSomos />
       <ProyectosDestacados />

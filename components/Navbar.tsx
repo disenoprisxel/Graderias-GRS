@@ -7,39 +7,39 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { FiMenu, FiX, FiChevronDown, FiArrowUpRight } from 'react-icons/fi'
 import {
   FiLayers, FiTruck, FiHome, FiMonitor, FiAnchor,
-  FiBox, FiGrid, FiShield, FiStar, FiPenTool,
+  FiBox, FiGrid, FiShield, FiStar, FiPenTool, FiDisc,
 } from 'react-icons/fi'
 
 const productosMenu = [
-  { label: 'Venta de Graderías',             href: '/venta_de_graderias',    Icono: FiLayers },
-  { label: 'Alquiler de Graderías',          href: '/alquiler_de_graderias', Icono: FiTruck  },
-  { label: 'Techos de Graderías',            href: '/techos-de-graderias',   Icono: FiHome   },
-  { label: 'Silletería Escenarios',          href: '/silleteria-escenarios', Icono: FiGrid   },
-  { label: 'Cubiertas en Truss',             href: '/cubiertas-truss',       Icono: FiAnchor },
-  { label: 'Bancas de Suplentes',            href: '/bancas-de-madera',      Icono: FiBox    },
-  { label: 'Paneles',                        href: '/paneles-y-tarimas',     Icono: FiLayers },
-  { label: 'Vallas y Mallas de Encerramiento', href: '/vallas-y-barreras',  Icono: FiShield },
-  { label: 'Stand Truss',                    href: '/stand-truss',           Icono: FiStar   },
-  { label: 'Pantallas',                      href: '/pantallas-led',         Icono: FiMonitor},
-  { label: 'Diseño y Render',                href: '/diseno-y-produccion',   Icono: FiPenTool},
+  { label: 'Venta de Graderías',               href: '/venta_de_graderias',          Icono: FiLayers },
+  { label: 'Alquiler de Graderías',            href: '/alquiler_de_graderias',       Icono: FiTruck  },
+  { label: 'Graderías de Rodachines',          href: '/graderias-de-rodachines',     Icono: FiDisc   },
+  { label: 'Techos de Graderías',              href: '/techos-de-graderias',         Icono: FiHome   },
+  { label: 'Silletería Escenarios',            href: '/silleteria-escenarios',       Icono: FiGrid   },
+  { label: 'Cubiertas en Truss',               href: '/cubiertas-truss',             Icono: FiAnchor },
+  { label: 'Bancas de Suplentes',              href: '/bancas-de-madera',            Icono: FiBox    },
+  { label: 'Paneles',                          href: '/paneles-y-tarimas',           Icono: FiLayers },
+  { label: 'Vallas y Mallas de Encerramiento', href: '/vallas-y-barreras',           Icono: FiShield },
+  { label: 'Stand Truss',                      href: '/stand-truss',                 Icono: FiStar   },
+  { label: 'Pantallas',                        href: '/pantallas-led',               Icono: FiMonitor},
+  { label: 'Diseño y Render',                  href: '/diseno-y-produccion',         Icono: FiPenTool},
 ]
 
+// Solo proyectos destacados en el dropdown
 const proyectosMenu = [
-  { label: 'Pista de BMX Tocancipá',             href: '/pista_bmx_tocancipa' },
-  { label: 'Estadio de Béisbol Sincelejo',       href: '/venta_de_silleteria_sincelejo' },
-  { label: 'Fuxion 2024',                        href: '/fuxion2024' },
-  { label: 'Visita del Papa Francisco',          href: '/visita-del-papa-francisco' },
-  { label: 'Copa Davis Colombia',                href: '/copa-davis-colombia-turkia' },
-  { label: 'Copa Claro Colsanitas',              href: '/copa-claro-colsanitas' },
-  { label: 'Juegos Centroaméricanos y del Caribe Mar y Playa',      href: '/juegos-centroamericanos-y-del-caribe' },
-  { label: 'Juegos Centroaméricanos y del Caribe - Barranquilla',   href: '/juegos-centroamericanos-y-del-caribe-barranquilla' },
-  { label: 'Estadio Aguilas Doradas',            href: '/estadio-aguilas-doradas' },
+  { label: 'Copa Davis Colombia',                               href: '/copa-davis-colombia-turkia' },
+  { label: 'Copa Claro Colsanitas',                            href: '/copa-claro-colsanitas' },
+  { label: 'Juegos Centroaméricanos Mar y Playa',              href: '/juegos-centroamericanos-y-del-caribe' },
+  { label: 'Juegos Centroaméricanos Barranquilla',             href: '/juegos-centroamericanos-y-del-caribe-barranquilla' },
+  { label: 'Estadio Aguilas Doradas',                          href: '/estadio-aguilas-doradas' },
+  { label: 'Convención FuXion 2024',                           href: '/fuxion2024' },
+  { label: 'Visita del Papa Francisco',                        href: '/visita-del-papa-francisco' },
 ]
 
-// Divide productos en filas de 5 / 5 / 1 (centrado)
-const row1 = productosMenu.slice(0, 5)
-const row2 = productosMenu.slice(5, 10)
-const row3 = productosMenu.slice(10)
+// Divide productos en filas de 4 / 4 / 4 (12 productos)
+const row1 = productosMenu.slice(0, 4)
+const row2 = productosMenu.slice(4, 8)
+const row3 = productosMenu.slice(8, 12)
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen]       = useState(false)
@@ -108,6 +108,12 @@ export default function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
+                  <div className="border-t border-dark/10 mx-3 my-1" />
+                  <Link href="/proyectos"
+                    className="flex items-center gap-2 px-4 py-2.5 text-primary font-bold hover:bg-primary hover:text-white transition-colors duration-200 text-sm group">
+                    <FiArrowUpRight size={13} />
+                    Ver todos los proyectos
+                  </Link>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -123,6 +129,7 @@ export default function Navbar() {
             </button>
           </div>
 
+          <Link href="/galeria" className="whitespace-nowrap hover:text-primary transition-colors">Galería</Link>
           <Link href="/contacto" className="whitespace-nowrap hover:text-primary transition-colors">Contacto</Link>
           <Link href="/descargas" className="whitespace-nowrap hover:text-primary transition-colors">Descargas</Link>
         </div>
@@ -170,44 +177,26 @@ export default function Navbar() {
                 Nuestros Productos
               </motion.p>
 
-              {/* Fila 1 — 5 items con stagger */}
-              <div className="grid grid-cols-5 gap-2 mb-2">
+              {/* Fila 1 — 4 items */}
+              <div className="grid grid-cols-4 gap-2 mb-2">
                 {row1.map(({ label, href, Icono }, i) => (
-                  <motion.div
-                    key={href}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.22, delay: 0.1 + i * 0.04, ease: 'easeOut' }}
-                  >
+                  <motion.div key={href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22, delay: 0.1 + i * 0.04, ease: 'easeOut' }}>
                     <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
                   </motion.div>
                 ))}
               </div>
-
-              {/* Fila 2 — 5 items */}
-              <div className="grid grid-cols-5 gap-2 mb-2">
+              {/* Fila 2 — 4 items */}
+              <div className="grid grid-cols-4 gap-2 mb-2">
                 {row2.map(({ label, href, Icono }, i) => (
-                  <motion.div
-                    key={href}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.22, delay: 0.22 + i * 0.04, ease: 'easeOut' }}
-                  >
+                  <motion.div key={href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22, delay: 0.22 + i * 0.04, ease: 'easeOut' }}>
                     <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
                   </motion.div>
                 ))}
               </div>
-
-              {/* Fila 3 — 1 item centrado */}
-              <div className="flex justify-center">
-                {row3.map(({ label, href, Icono }) => (
-                  <motion.div
-                    key={href}
-                    className="w-1/5"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.22, delay: 0.42, ease: 'easeOut' }}
-                  >
+              {/* Fila 3 — 4 items */}
+              <div className="grid grid-cols-4 gap-2">
+                {row3.map(({ label, href, Icono }, i) => (
+                  <motion.div key={href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22, delay: 0.34 + i * 0.04, ease: 'easeOut' }}>
                     <ProductoCard label={label} href={href} Icono={Icono} onClick={() => setProductosOpen(false)} />
                   </motion.div>
                 ))}
@@ -252,6 +241,8 @@ export default function Navbar() {
             </div>
           </details>
 
+          <Link href="/proyectos" className="block py-2 hover:text-primary font-bold text-primary" onClick={() => setMobileOpen(false)}>Ver todos los proyectos →</Link>
+          <Link href="/galeria" className="block py-2 hover:text-primary" onClick={() => setMobileOpen(false)}>Galería</Link>
           <Link href="/contacto" className="block py-2 hover:text-primary" onClick={() => setMobileOpen(false)}>Contacto</Link>
           <Link href="/descargas" className="block py-2 hover:text-primary" onClick={() => setMobileOpen(false)}>Descargas</Link>
         </div>
