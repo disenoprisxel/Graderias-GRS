@@ -40,12 +40,15 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'equinal-bucaramanga-2026',
-    titulo: 'Exposición Nacional Equinal',
+    titulo: 'Exposición Nacional Equina',
     subtitulo: 'Bucaramanga',
     año: 2026,
     categoria: 'cultural',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/equina-bucaramanga/hero.jpg',
+    href: '/exposicion-equina-bucaramanga',
+    logo: '/images/proyectos/equina-bucaramanga/hero.jpg',
+    logoAlt: 'Exposición Nacional Equina Bucaramanga 2026',
+    destacado: true,
   },
 
   // ── 2025 ──────────────────────────────────────────────────────────────────
