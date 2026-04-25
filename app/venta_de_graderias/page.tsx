@@ -16,8 +16,7 @@ export default function Page() {
     <ProductoPage
       titulo="Venta de Graderías"
       descripcion="Su evento en las mejores manos..."
-      imagen="/images/productos/venta-graderias.jpg"
-      imagenDestacada="/images/productos/venta-graderias/45.jpg"
+      imagen="/images/productos/venta-graderias/45.jpg"
       descripcionLarga={[
         'Graderías GRS comercializa graderías de alta calidad para estadios, coliseos, pistas de atletismo y cualquier tipo de recinto deportivo o de entretenimiento. Ofrecemos soluciones tanto temporales como permanentes.',
         'Nuestras graderías están fabricadas con materiales de primera calidad y cumplen con los estándares internacionales del ICC. Cada instalación cuenta con diseño estructural personalizado según las necesidades del proyecto.',
