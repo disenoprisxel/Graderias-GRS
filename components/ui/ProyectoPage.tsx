@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import ComparisonSlider from '@/components/ui/ComparisonSlider'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import VideoCarousel from '@/components/ui/VideoCarousel'
 import VideoCtaSection from '@/components/ui/VideoCtaSection'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
@@ -150,7 +151,7 @@ export default function ProyectoPage({
         </section>
       )}
 
-      {/* Videos del proyecto — carrusel horizontal */}
+      {/* Videos del proyecto — carrusel horizontal con flechas */}
       {videos.length > 0 && (
         <section className="py-14 bg-[#111] overflow-hidden">
           <div className="max-w-5xl mx-auto px-4 mb-8">
@@ -158,43 +159,11 @@ export default function ProyectoPage({
               Videos del Proyecto
             </h2>
             <p className="text-center text-white/40 font-heading text-sm mt-1">
-              {videos.length} {videos.length === 1 ? 'video' : 'videos'} · desliza para ver más
+              {videos.length} {videos.length === 1 ? 'video' : 'videos'}
             </p>
           </div>
-
-          {/* Track con scroll horizontal */}
-          <div
-            className="flex gap-5 overflow-x-auto scroll-smooth [scrollbar-width:none] [-webkit-overflow-scrolling:touch] px-4 md:px-[max(1rem,calc((100vw-80rem)/2))] pb-6"
-            style={{ scrollSnapType: 'x mandatory' }}
-          >
-            {videos.map((src, i) => (
-              <div
-                key={i}
-                className="group flex-none w-[88vw] md:w-[56vw] lg:w-[44vw]"
-                style={{ scrollSnapAlign: 'start' }}
-              >
-                {/* Barra verde superior — aparece en hover */}
-                <div className="h-1 rounded-t-xl bg-dark/0 group-hover:bg-primary transition-colors duration-300" />
-
-                {/* Contenedor del video */}
-                <div className="relative aspect-video rounded-b-xl overflow-hidden bg-dark shadow-lg group-hover:shadow-primary/25 group-hover:shadow-2xl transition-shadow duration-300">
-                  <video
-                    src={src}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Contador */}
-                <p className="mt-2 text-center text-xs font-heading font-bold text-white/30 group-hover:text-primary transition-colors duration-200 uppercase tracking-widest">
-                  {String(i + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}
-                </p>
-              </div>
-            ))}
-            {/* Spacer final para que el último card no quede pegado al borde */}
-            <div className="flex-none w-4" aria-hidden="true" />
+          <div className="px-4 md:px-[max(1rem,calc((100vw-80rem)/2))]">
+            <VideoCarousel videos={videos} />
           </div>
         </section>
       )}
