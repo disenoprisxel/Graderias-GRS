@@ -1,36 +1,227 @@
-import type { Metadata } from 'next'
-import ProductoPage from '@/components/ui/ProductoPage'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Techos de Graderías',
-  description:
-    'Techos y cubiertas para graderías en eventos al aire libre. Estructuras en truss y lona tensada. Protección contra lluvia y sol para espectadores en Colombia.',
-}
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { FiChevronRight, FiCheck, FiWind, FiAnchor } from 'react-icons/fi'
+import { motion, AnimatePresence } from 'framer-motion'
+import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import ViajamosCTA from '@/components/sections/ViajamosCTA'
+
+const galeriaMoviles = Array.from({ length: 13 }, (_, i) => {
+  const n = String(i + 1).padStart(3, '0')
+  return `/images/productos/techos-moviles/${n}.jpg`
+})
+
+const galeriaFijos = Array.from({ length: 34 }, (_, i) => {
+  const n = String(i + 1).padStart(3, '0')
+  return `/images/productos/techos-fijos/${n}.jpg`
+})
+
+const caracteristicasMoviles = [
+  'Estructura en aluminio ligero',
+  'Montaje y desmontaje en horas',
+  'Lona tensada o policarbonato',
+  'Resistente a lluvia y viento',
+  'Ideal para eventos temporales',
+  'Transporte a nivel nacional',
+  'Diferentes colores disponibles',
+  'Alquiler o venta',
+]
+
+const caracteristicasFijos = [
+  'Estructura metálica galvanizada',
+  'Cubierta permanente de larga duración',
+  'Diseño integrado a la gradería',
+  'Certificación estructural NSR-10',
+  'Resistencia a cargas de viento',
+  'Capacidad para grades envergaduras',
+  'Solución permanente para estadios',
+  'Asesoría técnica y estructural',
+]
+
+type Tab = 'moviles' | 'fijos'
 
 export default function Page() {
+  const [tab, setTab] = useState<Tab>('moviles')
+
   return (
-    <ProductoPage
-      titulo="Techos de Graderías"
-      descripcion="Cubiertas y techos certificados para proteger a sus espectadores"
-      imagen="/images/productos/techos-graderias.jpg"
-      descripcionLarga={[
-        'Los techos para graderías de Graderías GRS son soluciones estructurales diseñadas para proteger a los espectadores de las condiciones climáticas en eventos al aire libre. Fabricados en estructura metálica tubular con cubierta en lona tensada o policarbonato.',
-        'Nuestros techos se integran perfectamente con las graderías, garantizando estabilidad estructural y seguridad. Están diseñados para soportar cargas de viento según las normas NSR-10 colombianas y los estándares ICC.',
-        'Disponemos de diferentes sistemas de cubierta según el tipo de evento y la inversión disponible: desde toldos simples hasta estructuras permanentes de gran envergadura.',
-      ]}
-      caracteristicas={[
-        'Estructura metálica tubular galvanizada',
-        'Cubierta en lona tensada o policarbonato',
-        'Resistente a lluvia y viento fuerte',
-        'Diseño integrado con la gradería',
-        'Certificación estructural',
-        'Montaje y desmontaje rápido',
-        'Diferentes colores disponibles',
-        'Disponible en alquiler o venta',
-      ]}
-      galeria={[
-        '/images/productos/techos-graderias.jpg',
-      ]}
-    />
+    <>
+      {/* Hero */}
+      <section className="relative h-72 md:h-[420px] bg-dark overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={tab === 'moviles'
+                ? '/images/productos/techos-moviles/003.jpg'
+                : '/images/productos/techos-fijos/001.jpg'}
+              alt={tab === 'moviles' ? 'Techos Móviles' : 'Techos Fijos'}
+              fill
+              className="object-cover opacity-55"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/75" />
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          <nav className="flex items-center gap-1 text-light/70 text-sm mb-4">
+            <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
+            <FiChevronRight className="text-light/50" />
+            <span className="text-white">Techos de Graderías</span>
+          </nav>
+          <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl drop-shadow-lg">
+            Techos de Graderías
+          </h1>
+          <p className="mt-3 text-primary font-heading font-semibold text-lg max-w-2xl">
+            Su evento en las mejores manos...
+          </p>
+
+          {/* Tab selector */}
+          <div className="mt-7 flex items-center gap-0 bg-black/40 backdrop-blur-sm rounded-xl p-1 border border-white/10">
+            <button
+              onClick={() => setTab('moviles')}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-heading font-bold text-sm transition-all duration-300 ${
+                tab === 'moviles'
+                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              <FiWind size={15} />
+              Techos Móviles
+            </button>
+            <button
+              onClick={() => setTab('fijos')}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-heading font-bold text-sm transition-all duration-300 ${
+                tab === 'fijos'
+                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              <FiAnchor size={15} />
+              Techos Fijos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contenido dinámico por tab */}
+      <AnimatePresence mode="wait">
+        {tab === 'moviles' ? (
+          <motion.div
+            key="moviles"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+          >
+            {/* Badge identificador */}
+            <div className="bg-primary py-3">
+              <div className="max-w-5xl mx-auto px-4 flex items-center gap-3">
+                <FiWind size={18} className="text-white" />
+                <span className="font-heading font-extrabold text-white uppercase tracking-widest text-sm">
+                  Techos Móviles — Soluciones Temporales
+                </span>
+              </div>
+            </div>
+
+            {/* Descripción */}
+            <section className="py-14 bg-white">
+              <div className="max-w-4xl mx-auto px-4">
+                <p className="text-body-text leading-relaxed mb-4 text-lg">
+                  Los techos móviles para graderías de Graderías GRS son soluciones estructurales diseñadas para proteger a los espectadores de las condiciones climáticas en eventos al aire libre. Fabricados en estructura metálica tubular con cubierta en lona tensada o policarbonato.
+                </p>
+                <p className="text-body-text leading-relaxed mb-8 text-lg">
+                  GRS alquila techos en aluminio y hierro de categoría general y VIP con sentaderos tipo estadio; así mismo, tarimas, vallas y palcos de honor para su servicio a nivel nacional, satisfaciendo a cabalidad las necesidades de nuestros clientes y cumpliendo los requerimientos de carácter masivo —deportivos, culturales, sociales, populares y/o privados—, garantizando resultados óptimos en tiempo récord y con los mejores precios del mercado.
+                </p>
+                <h2 className="font-heading font-bold text-dark text-xl mb-4">Características</h2>
+                <ul className="flex flex-wrap gap-2">
+                  {caracteristicasMoviles.map((item) => (
+                    <li
+                      key={item}
+                      className="inline-flex items-center gap-1.5 bg-light/70 border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
+                    >
+                      <FiCheck size={13} className="text-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* Galería Móviles */}
+            <section className="pb-16 bg-light/30">
+              <div className="max-w-7xl mx-auto px-4 pt-8">
+                <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
+                  Galería — Techos Móviles
+                </h2>
+                <GaleriaLightbox images={galeriaMoviles} titulo="Techos Móviles" />
+              </div>
+            </section>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="fijos"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+          >
+            {/* Badge identificador */}
+            <div className="bg-dark py-3">
+              <div className="max-w-5xl mx-auto px-4 flex items-center gap-3">
+                <FiAnchor size={18} className="text-primary" />
+                <span className="font-heading font-extrabold text-white uppercase tracking-widest text-sm">
+                  Techos Fijos — Soluciones Permanentes
+                </span>
+              </div>
+            </div>
+
+            {/* Descripción */}
+            <section className="py-14 bg-[#f8f9f4]">
+              <div className="max-w-4xl mx-auto px-4">
+                <p className="text-body-text leading-relaxed mb-4 text-lg">
+                  Los techos fijos para graderías de Graderías GRS son estructuras permanentes diseñadas para proteger a los espectadores de manera continua. Integradas a la gradería con la más alta ingeniería estructural, garantizan durabilidad y resistencia a largo plazo.
+                </p>
+                <p className="text-body-text leading-relaxed mb-8 text-lg">
+                  GRS alquila graderías en aluminio y hierro de categoría general y VIP con sentaderos tipo estadio; así mismo, tarimas, vallas y palcos de honor para su servicio a nivel nacional, satisfaciendo a cabalidad las necesidades de nuestros clientes y cumpliendo los requerimientos de carácter masivo —deportivos, culturales, sociales, populares y/o privados—, garantizando resultados óptimos en tiempo récord y con los mejores precios del mercado.
+                </p>
+                <h2 className="font-heading font-bold text-dark text-xl mb-4">Características</h2>
+                <ul className="flex flex-wrap gap-2">
+                  {caracteristicasFijos.map((item) => (
+                    <li
+                      key={item}
+                      className="inline-flex items-center gap-1.5 bg-white border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
+                    >
+                      <FiCheck size={13} className="text-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* Galería Fijos */}
+            <section className="pb-16 bg-white">
+              <div className="max-w-7xl mx-auto px-4 pt-8">
+                <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
+                  Galería — Techos Fijos
+                </h2>
+                <GaleriaLightbox images={galeriaFijos} titulo="Techos Fijos" />
+              </div>
+            </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <ViajamosCTA />
+    </>
   )
 }
