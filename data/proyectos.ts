@@ -52,13 +52,16 @@ export const proyectos: Proyecto[] = [
 
   // ── 2025 ──────────────────────────────────────────────────────────────────
   {
-    id: 'fair-2025',
-    titulo: 'FAIR 2025',
-    subtitulo: 'Feria Internacional',
-    año: 2025,
+    id: 'fair-2026',
+    titulo: 'F-AIR 2026',
+    subtitulo: 'Feria Aeronáutica Internacional',
+    año: 2026,
     categoria: 'corporativo',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/fair-2026/hero.jpg',
+    href: '/fair-2026',
+    logo: '/images/logos/fair-2026.png',
+    logoAlt: 'F-AIR 2026 — Feria Aeronáutica Internacional de Colombia',
+    destacado: true,
   },
   {
     id: 'independencia-cartagena-2025',
