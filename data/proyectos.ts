@@ -65,7 +65,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'independencia-cartagena-2025',
-    titulo: 'Fiestas de la Independencia — Cartagena 2025',
+    titulo: 'Fiestas de la Independencia\nCartagena 2025',
     subtitulo: 'Cartagena de Indias',
     año: 2025,
     categoria: 'cultural',

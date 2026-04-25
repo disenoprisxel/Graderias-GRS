@@ -62,7 +62,7 @@ export default function ProyectosDestacados() {
 
               {/* Contenido hover — título arriba centrado + logo abajo centrado */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 gap-5 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                <h3 className="font-heading font-extrabold text-white text-xl md:text-2xl text-center uppercase leading-tight drop-shadow">
+                <h3 className="font-heading font-extrabold text-white text-xl md:text-2xl text-center uppercase leading-tight drop-shadow whitespace-pre-line">
                   {proyecto.titulo}
                 </h3>
 
