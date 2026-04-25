@@ -40,8 +40,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'equinal-bucaramanga-2026',
-    titulo: 'Exposición Nacional Equina',
-    subtitulo: 'Bucaramanga',
+    titulo: 'Exposición Nacional Equina — Bucaramanga 2026',
     año: 2026,
     categoria: 'cultural',
     imagen: '/images/proyectos/equina-bucaramanga/005.jpg',

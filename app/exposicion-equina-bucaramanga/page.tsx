@@ -15,7 +15,7 @@ const galeria = Array.from({ length: 8 }, (_, i) => {
 export default function Page() {
   return (
     <ProyectoPage
-      titulo="Exposición Nacional Equina"
+      titulo="Exposición Nacional Equina — Bucaramanga 2026"
       descripcion="Graderías para el evento ecuestre más importante de Colombia"
       lugar="Bucaramanga"
       año="2026"
