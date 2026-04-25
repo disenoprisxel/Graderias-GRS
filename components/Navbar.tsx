@@ -70,7 +70,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 py-1">
-          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={175} height={66} priority className="h-[58px] w-auto" />
+          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={195} height={74} priority className="h-[66px] w-auto" />
         </Link>
 
         {/* Desktop links */}
@@ -139,9 +139,9 @@ export default function Navbar() {
           <Image
             src="/images/certificaciones/experiencia.png"
             alt="25 Years Experience — ICC International Code Council"
-            width={175}
-            height={66}
-            className="h-[58px] w-auto object-contain"
+            width={195}
+            height={74}
+            className="h-[66px] w-auto object-contain"
           />
         </div>
 
