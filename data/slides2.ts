@@ -9,12 +9,12 @@ const slides2: Slide[] = [
   {
     id: 1,
     type: 'logos',
-    image: '/images/proyectos/copa-davis/001.jpg',
-    logoLeft:    '',
-    logoLeftAlt: '',
-    tagLeft:     'COPA DAVIS — COLOMBIA vs TURKÍA 2019',
-    logoRight:    '',
-    logoRightAlt: '',
+    image: '/images/hero/hero-copa-davis.jpg',
+    logoLeft:    '/images/logos/copa-davis.jpg',
+    logoLeftAlt: 'Copa Davis — Colombia vs Turkía 2019',
+    tagLeft:     'C O P A   D A V I S   2 0 1 9',
+    logoRight:    '/images/logos/logo-carmel.png',
+    logoRightAlt: 'Carmel',
   },
 
   // 2 — Sibatá (Sin título) + logo Policía Nacional
@@ -33,12 +33,12 @@ const slides2: Slide[] = [
   {
     id: 3,
     type: 'logos',
-    image: '/images/proyectos/colsanitas/001.jpg',
-    logoLeft:    '',
-    logoLeftAlt: '',
-    tagLeft:     'COPA CLARO COLSANITAS',
-    logoRight:    '',
-    logoRightAlt: '',
+    image: '/images/hero/hero-colsanitas.jpg',
+    logoLeft:    '/images/logos/copa-claro.png',
+    logoLeftAlt: 'Copa Claro Colsanitas',
+    tagLeft:     'C O P A   C L A R O   C O L S A N I T A S',
+    logoRight:    '/images/logos/10-lagartos.png',
+    logoRightAlt: 'Club Los Lagartos',
   },
 
   // 4 — Sin título + logos Sanofi (izq) y Chamorro (der)
@@ -60,7 +60,7 @@ const slides2: Slide[] = [
     image: '/images/hero/hero-carnaval.jpg',
     logoLeft:    '/images/logos/carnaval-barranquilla.png',
     logoLeftAlt: 'Carnaval de Barranquilla',
-    tagLeft:     '',
+    tagLeft:     'CARNAVAL DE BARRANQUILLA',
     logoRight:    '/images/logos/alcaldia-barranquilla.png',
     logoRightAlt: 'Alcaldía de Barranquilla',
   },
