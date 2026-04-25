@@ -12,7 +12,7 @@ const slides2: Slide[] = [
     image: '/images/hero/hero-copa-davis.jpg',
     logoLeft:    '/images/logos/copa-davis.jpg',
     logoLeftAlt: 'Copa Davis — Colombia vs Turkía 2019',
-    tagLeft:     'Copa Davis — Colombia vs Turkía 2019',
+    tagLeft:     'Copa Davis\nColombia vs Turkía 2019',
     logoRight:    '/images/logos/logo-carmel.png',
     logoRightAlt: 'Carmel',
   },
