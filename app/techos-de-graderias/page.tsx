@@ -92,7 +92,7 @@ export default function Page() {
           </p>
 
           {/* Tab selector */}
-          <div className="mt-3 flex items-stretch gap-3">
+          <div className="mt-3 flex items-stretch gap-2 md:gap-3">
             {/* Botón Móviles */}
             <motion.button
               onClick={() => setTab('moviles')}
@@ -114,7 +114,7 @@ export default function Page() {
               }
               whileHover={{ scale: tab === 'moviles' ? 1.05 : 1.06 }}
               whileTap={{ scale: 0.97 }}
-              className={`flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-colors duration-300 ${
+              className={`flex flex-col items-center gap-1.5 md:gap-2 px-5 py-3 md:px-9 md:py-5 rounded-xl md:rounded-2xl font-heading font-extrabold text-sm md:text-base border-2 transition-colors duration-300 ${
                 tab === 'moviles'
                   ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40'
                   : 'bg-black/40 border-white/20 text-white/80 backdrop-blur-sm'
@@ -124,10 +124,11 @@ export default function Page() {
                 animate={tab !== 'moviles' ? { rotate: [0, -8, 8, -4, 0] } : { rotate: 0 }}
                 transition={tab !== 'moviles' ? { duration: 0.6, repeat: Infinity, repeatDelay: 2.2, ease: 'easeInOut' } : {}}
               >
-                <FiWind size={22} className={tab === 'moviles' ? 'text-white' : 'text-primary'} />
+                <FiWind size={18} className={`md:hidden ${tab === 'moviles' ? 'text-white' : 'text-primary'}`} />
+                <FiWind size={22} className={`hidden md:block ${tab === 'moviles' ? 'text-white' : 'text-primary'}`} />
               </motion.span>
               <span>Techos Móviles</span>
-              <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'moviles' ? 'text-white/80' : 'text-white/40'}`}>
+              <span className={`text-[9px] md:text-[10px] font-heading font-semibold uppercase tracking-wider ${tab === 'moviles' ? 'text-white/80' : 'text-white/40'}`}>
                 Soluciones temporales
               </span>
             </motion.button>
@@ -153,7 +154,7 @@ export default function Page() {
               }
               whileHover={{ scale: tab === 'fijos' ? 1.05 : 1.06 }}
               whileTap={{ scale: 0.97 }}
-              className={`flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-colors duration-300 ${
+              className={`flex flex-col items-center gap-1.5 md:gap-2 px-5 py-3 md:px-9 md:py-5 rounded-xl md:rounded-2xl font-heading font-extrabold text-sm md:text-base border-2 transition-colors duration-300 ${
                 tab === 'fijos'
                   ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40'
                   : 'bg-black/40 border-white/20 text-white/80 backdrop-blur-sm'
@@ -163,10 +164,11 @@ export default function Page() {
                 animate={tab !== 'fijos' ? { y: [0, -3, 0] } : { y: 0 }}
                 transition={tab !== 'fijos' ? { duration: 0.5, repeat: Infinity, repeatDelay: 2.5, ease: 'easeInOut' } : {}}
               >
-                <FiAnchor size={22} className={tab === 'fijos' ? 'text-white' : 'text-primary'} />
+                <FiAnchor size={18} className={`md:hidden ${tab === 'fijos' ? 'text-white' : 'text-primary'}`} />
+                <FiAnchor size={22} className={`hidden md:block ${tab === 'fijos' ? 'text-white' : 'text-primary'}`} />
               </motion.span>
               <span>Techos Fijos</span>
-              <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'fijos' ? 'text-white/80' : 'text-white/40'}`}>
+              <span className={`text-[9px] md:text-[10px] font-heading font-semibold uppercase tracking-wider ${tab === 'fijos' ? 'text-white/80' : 'text-white/40'}`}>
                 Soluciones permanentes
               </span>
             </motion.button>
