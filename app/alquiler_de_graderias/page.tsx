@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FiChevronRight, FiCheck, FiLayers, FiGrid, FiHeart } from 'react-icons/fi'
+import { FiChevronRight, FiLayers, FiGrid, FiHeart } from 'react-icons/fi'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import CaracteristicasGrid from '@/components/ui/CaracteristicasGrid'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
 export const metadata: Metadata = {
@@ -246,21 +247,7 @@ export default function Page() {
             Ofrecemos el servicio completo: transporte, instalación, supervisión técnica y desmontaje. Nuestro equipo de profesionales le garantiza una instalación segura y en los tiempos acordados.
           </p>
 
-          {/* Características compactas */}
-          <div className="mt-2">
-            <h2 className="font-heading font-bold text-dark text-xl mb-4">Características</h2>
-            <ul className="flex flex-wrap gap-2">
-              {caracteristicas.map((item) => (
-                <li
-                  key={item}
-                  className="inline-flex items-center gap-1.5 bg-light/70 border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
-                >
-                  <FiCheck size={13} className="text-primary shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <CaracteristicasGrid items={caracteristicas} />
         </div>
       </section>
 

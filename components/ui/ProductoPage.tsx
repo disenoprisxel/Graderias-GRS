@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FiChevronRight, FiCheck } from 'react-icons/fi'
+import { FiChevronRight } from 'react-icons/fi'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import CaracteristicasGrid from '@/components/ui/CaracteristicasGrid'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
 interface ProductoPageProps {
@@ -76,24 +77,7 @@ export default function ProductoPage({
             </p>
           ))}
 
-          {caracteristicas.length > 0 && (
-            <div className="mt-8">
-              <h2 className="font-heading font-bold text-dark text-xl mb-4">
-                Características
-              </h2>
-              <ul className="flex flex-wrap gap-2">
-                {caracteristicas.map((item) => (
-                  <li
-                    key={item}
-                    className="inline-flex items-center gap-1.5 bg-light/70 border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
-                  >
-                    <FiCheck size={13} className="text-primary shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <CaracteristicasGrid items={caracteristicas} />
         </div>
       </section>
 

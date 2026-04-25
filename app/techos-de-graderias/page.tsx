@@ -3,7 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { FiChevronRight, FiCheck, FiWind, FiAnchor } from 'react-icons/fi'
+import { FiChevronRight, FiWind, FiAnchor } from 'react-icons/fi'
+import CaracteristicasGrid from '@/components/ui/CaracteristicasGrid'
 import { motion, AnimatePresence } from 'framer-motion'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
@@ -205,18 +206,7 @@ export default function Page() {
                 <p className="text-body-text leading-relaxed mb-8 text-lg">
                   GRS alquila techos en aluminio y hierro de categoría general y VIP con sentaderos tipo estadio; así mismo, tarimas, vallas y palcos de honor para su servicio a nivel nacional, satisfaciendo a cabalidad las necesidades de nuestros clientes y cumpliendo los requerimientos de carácter masivo —deportivos, culturales, sociales, populares y/o privados—, garantizando resultados óptimos en tiempo récord y con los mejores precios del mercado.
                 </p>
-                <h2 className="font-heading font-bold text-dark text-xl mb-4">Características</h2>
-                <ul className="flex flex-wrap gap-2">
-                  {caracteristicasMoviles.map((item) => (
-                    <li
-                      key={item}
-                      className="inline-flex items-center gap-1.5 bg-light/70 border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
-                    >
-                      <FiCheck size={13} className="text-primary shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <CaracteristicasGrid items={caracteristicasMoviles} />
               </div>
             </section>
 
@@ -257,18 +247,7 @@ export default function Page() {
                 <p className="text-body-text leading-relaxed mb-8 text-lg">
                   GRS alquila graderías en aluminio y hierro de categoría general y VIP con sentaderos tipo estadio; así mismo, tarimas, vallas y palcos de honor para su servicio a nivel nacional, satisfaciendo a cabalidad las necesidades de nuestros clientes y cumpliendo los requerimientos de carácter masivo —deportivos, culturales, sociales, populares y/o privados—, garantizando resultados óptimos en tiempo récord y con los mejores precios del mercado.
                 </p>
-                <h2 className="font-heading font-bold text-dark text-xl mb-4">Características</h2>
-                <ul className="flex flex-wrap gap-2">
-                  {caracteristicasFijos.map((item) => (
-                    <li
-                      key={item}
-                      className="inline-flex items-center gap-1.5 bg-white border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
-                    >
-                      <FiCheck size={13} className="text-primary shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <CaracteristicasGrid items={caracteristicasFijos} bgCard="bg-white" />
               </div>
             </section>
 
