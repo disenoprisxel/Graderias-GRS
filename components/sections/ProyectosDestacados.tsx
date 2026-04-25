@@ -18,19 +18,33 @@ const cardVariants: Variants = {
 export default function ProyectosDestacados() {
   return (
     <section id="proyectos" className="bg-[#1a1a1a]">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="py-10 text-center"
-      >
-        <h2 className="font-heading font-extrabold text-primary text-3xl md:text-4xl uppercase tracking-wider">
-          Proyectos Destacados
-        </h2>
-        <div className="mt-3 mx-auto w-12 h-0.5 bg-light/40" />
-      </motion.div>
+      {/* Header con imagen de fondo */}
+      <div className="relative overflow-hidden">
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/heroes/proyectos-destacados-hero.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/60 via-transparent to-[#1a1a1a]/80" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="relative z-10 py-16 text-center"
+        >
+          <h2 className="font-heading font-extrabold text-primary text-3xl md:text-4xl uppercase tracking-wider">
+            Proyectos Destacados
+          </h2>
+          <div className="mt-3 mx-auto w-12 h-0.5 bg-light/40" />
+        </motion.div>
+      </div>
 
       {/* Grid — sin gaps para efecto mosaico continuo */}
       <motion.div

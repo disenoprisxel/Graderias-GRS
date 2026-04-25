@@ -25,9 +25,12 @@ export default function GaleriaPage() {
     <>
       {/* Hero */}
       <section className="relative bg-dark py-20 px-4 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #96CF24 0, #96CF24 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px' }}
-        />
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/heroes/galeria-hero.jpg" alt="" className="w-full h-full object-cover opacity-40" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/60 via-dark/40 to-dark/80" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <p className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-3">
             Graderías GRS
