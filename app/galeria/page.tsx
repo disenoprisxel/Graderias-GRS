@@ -30,7 +30,7 @@ export default function GaleriaPage() {
       </section>
 
       {/* Tabs */}
-      <section className="bg-white sticky top-[97px] z-30 border-b border-dark/10 shadow-sm">
+      <section className="bg-white sticky top-[84px] z-30 border-b border-dark/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 flex gap-0">
           {([
             { key: 'fotos',  label: 'Fotos',  Icono: FiImage },

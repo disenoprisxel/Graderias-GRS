@@ -66,15 +66,15 @@ export default function Navbar() {
     // position:relative necesario para que el mega-menu absoluto se posicione dentro del header
     <header className={`sticky top-0 z-50 bg-white transition-shadow relative ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
 
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
+      <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
 
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 py-1 px-1">
-          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={210} height={80} priority className="h-[72px] w-auto" />
+        <Link href="/" className="flex-shrink-0 py-1">
+          <Image src="/images/logo-navbar.png" alt="Graderías GRS" width={175} height={66} priority className="h-[58px] w-auto" />
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-5 font-heading font-semibold text-dark text-sm xl:text-base">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4 font-heading font-semibold text-dark text-sm">
           <Link href="/" className="whitespace-nowrap hover:text-primary transition-colors">Inicio</Link>
           <Link href="/#quienes" className="whitespace-nowrap hover:text-primary transition-colors">¿Quiénes Somos?</Link>
 
@@ -135,13 +135,13 @@ export default function Navbar() {
         </div>
 
         {/* Badge experiencia */}
-        <div className="hidden lg:flex items-center py-1 px-1">
+        <div className="hidden lg:flex items-center py-1">
           <Image
             src="/images/certificaciones/experiencia.png"
             alt="25 Years Experience — ICC International Code Council"
-            width={220}
-            height={80}
-            className="h-[72px] w-auto object-contain"
+            width={175}
+            height={66}
+            className="h-[58px] w-auto object-contain"
           />
         </div>
 
