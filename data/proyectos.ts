@@ -208,8 +208,10 @@ export const proyectos: Proyecto[] = [
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 // Proyectos con página, ordenados del más reciente al más antiguo
+// Máximo 9 proyectos — los más recientes primero. El resto solo aparece en /proyectos.
 export const proyectosDestacados = proyectos
   .filter((p) => p.destacado && p.href)
   .sort((a, b) => b.año - a.año)
+  .slice(0, 9)
 
 export const años = [...new Set(proyectos.map((p) => p.año))].sort((a, b) => b - a)
