@@ -2,17 +2,22 @@ import type { Metadata } from 'next'
 import ProductoPage from '@/components/ui/ProductoPage'
 
 export const metadata: Metadata = {
-  title: 'Venta de Graderías',
+  title: 'Venta de Graderías | Graderías GRS',
   description:
     'Venta de graderías permanentes y temporales para estadios, coliseos y recintos deportivos en Colombia. Certificación ICC. Asesoría técnica.',
 }
+
+const galeria = Array.from({ length: 83 }, (_, i) => {
+  return `/images/productos/venta-graderias/${i + 1}.jpg`
+})
 
 export default function Page() {
   return (
     <ProductoPage
       titulo="Venta de Graderías"
-      descripcion="Graderías permanentes y temporales para estadios y recintos deportivos"
+      descripcion="Su evento en las mejores manos..."
       imagen="/images/productos/venta-graderias.jpg"
+      imagenDestacada="/images/productos/venta-graderias/45.jpg"
       descripcionLarga={[
         'Graderías GRS comercializa graderías de alta calidad para estadios, coliseos, pistas de atletismo y cualquier tipo de recinto deportivo o de entretenimiento. Ofrecemos soluciones tanto temporales como permanentes.',
         'Nuestras graderías están fabricadas con materiales de primera calidad y cumplen con los estándares internacionales del ICC. Cada instalación cuenta con diseño estructural personalizado según las necesidades del proyecto.',
@@ -28,9 +33,7 @@ export default function Page() {
         'Silletería incluida o sin silletería',
         'Cumplimiento NSR-10',
       ]}
-      galeria={[
-        '/images/productos/venta-graderias.jpg',
-      ]}
+      galeria={galeria}
     />
   )
 }

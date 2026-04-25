@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FiChevronRight } from 'react-icons/fi'
+import { FiChevronRight, FiCheck } from 'react-icons/fi'
+import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
 interface ProductoPageProps {
@@ -8,6 +9,7 @@ interface ProductoPageProps {
   descripcion: string
   descripcionLarga: string[]
   imagen: string
+  imagenDestacada?: string
   caracteristicas?: string[]
   galeria?: string[]
 }
@@ -17,6 +19,7 @@ export default function ProductoPage({
   descripcion,
   descripcionLarga,
   imagen,
+  imagenDestacada,
   caracteristicas = [],
   galeria = [],
 }: ProductoPageProps) {
@@ -48,6 +51,22 @@ export default function ProductoPage({
         </div>
       </section>
 
+      {/* Imagen destacada */}
+      {imagenDestacada && (
+        <section className="bg-[#111] w-full">
+          <div className="relative w-full max-h-[680px] overflow-hidden flex items-center justify-center">
+            <Image
+              src={imagenDestacada}
+              alt={`${titulo} — vista destacada`}
+              width={1920}
+              height={1080}
+              className="w-full h-auto max-h-[680px] object-contain"
+              priority
+            />
+          </div>
+        </section>
+      )}
+
       {/* Content */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
@@ -58,18 +77,18 @@ export default function ProductoPage({
           ))}
 
           {caracteristicas.length > 0 && (
-            <div className="mt-10">
-              <h2 className="font-heading font-bold text-dark text-2xl mb-6">
+            <div className="mt-8">
+              <h2 className="font-heading font-bold text-dark text-xl mb-4">
                 Características
               </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <ul className="flex flex-wrap gap-2">
                 {caracteristicas.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 bg-light/50 rounded-lg p-4 text-body-text"
+                    className="inline-flex items-center gap-1.5 bg-light/70 border border-light text-dark/80 text-sm font-heading font-semibold px-3 py-1.5 rounded-full"
                   >
-                    <span className="text-primary font-bold mt-0.5">✓</span>
-                    <span>{item}</span>
+                    <FiCheck size={13} className="text-primary shrink-0" />
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -78,26 +97,14 @@ export default function ProductoPage({
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery con Lightbox */}
       {galeria.length > 0 && (
-        <section className="pb-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
+        <section className="pb-16 bg-light/30">
+          <div className="max-w-7xl mx-auto px-4 pt-8">
             <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
               Galería de Imágenes
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galeria.map((src, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden bg-dark">
-                  <Image
-                    src={src}
-                    alt={`${titulo} — imagen ${i + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+            <GaleriaLightbox images={galeria} titulo={titulo} />
           </div>
         </section>
       )}
