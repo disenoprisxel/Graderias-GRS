@@ -52,7 +52,7 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
         {videos.map((src, i) => (
           <div
             key={i}
-            className="group flex-none w-[88vw] md:w-[56vw] lg:w-[44vw]"
+            className="group flex-none w-full"
             style={{ scrollSnapAlign: 'start' }}
           >
             {/* Barra verde superior al hover */}
