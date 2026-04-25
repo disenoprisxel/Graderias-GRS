@@ -65,12 +65,15 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'independencia-cartagena-2025',
-    titulo: 'Fiestas de la Independencia',
+    titulo: 'Fiestas de la Independencia — Cartagena 2025',
     subtitulo: 'Cartagena de Indias',
     año: 2025,
     categoria: 'cultural',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/independencia-cartagena-2025/001.jpg',
+    href: '/independencia-cartagena-2025',
+    logo: '/images/proyectos/independencia-cartagena-2025/002.jpg',
+    logoAlt: 'Fiestas de la Independencia Cartagena 2025',
+    destacado: true,
   },
   {
     id: 'centro-democratico-2025',
