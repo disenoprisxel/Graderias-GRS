@@ -52,15 +52,15 @@ export const proyectos: Proyecto[] = [
 
   // ── 2025 ──────────────────────────────────────────────────────────────────
   {
-    id: 'fair-2026',
-    titulo: 'F-AIR 2026',
+    id: 'fair-2025',
+    titulo: 'F-AIR 2025',
     subtitulo: 'Feria Aeronáutica Internacional',
-    año: 2026,
+    año: 2025,
     categoria: 'corporativo',
     imagen: '/images/proyectos/fair-2026/hero.jpg',
-    href: '/fair-2026',
+    href: '/fair-2025',
     logo: '/images/logos/fair-2026.png',
-    logoAlt: 'F-AIR 2026 — Feria Aeronáutica Internacional de Colombia',
+    logoAlt: 'F-AIR 2025 — Feria Aeronáutica Internacional de Colombia',
     destacado: true,
   },
   {
