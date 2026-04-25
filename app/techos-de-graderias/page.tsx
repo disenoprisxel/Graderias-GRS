@@ -93,34 +93,83 @@ export default function Page() {
 
           {/* Tab selector */}
           <div className="mt-3 flex items-stretch gap-3">
-            <button
+            {/* Botón Móviles */}
+            <motion.button
               onClick={() => setTab('moviles')}
-              className={`group flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-all duration-300 ${
+              initial={{ opacity: 0, y: 20 }}
+              animate={tab === 'moviles'
+                ? { opacity: 1, y: 0, scale: 1.05 }
+                : {
+                    opacity: 1, y: 0, scale: 1,
+                    boxShadow: [
+                      '0 0 0px 0px rgba(150,207,36,0)',
+                      '0 0 0px 6px rgba(150,207,36,0.25)',
+                      '0 0 0px 0px rgba(150,207,36,0)',
+                    ],
+                  }
+              }
+              transition={tab === 'moviles'
+                ? { duration: 0.3 }
+                : { opacity: { duration: 0.5, delay: 0.1 }, y: { duration: 0.5, delay: 0.1 }, boxShadow: { duration: 2, repeat: Infinity, repeatDelay: 0.8, ease: 'easeInOut' } }
+              }
+              whileHover={{ scale: tab === 'moviles' ? 1.05 : 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              className={`flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-colors duration-300 ${
                 tab === 'moviles'
-                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40 scale-105'
-                  : 'bg-black/40 border-white/20 text-white/80 hover:border-primary/60 hover:bg-black/60 hover:scale-102 backdrop-blur-sm'
+                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40'
+                  : 'bg-black/40 border-white/20 text-white/80 backdrop-blur-sm'
               }`}
             >
-              <FiWind size={22} className={tab === 'moviles' ? 'text-white' : 'text-primary'} />
+              <motion.span
+                animate={tab !== 'moviles' ? { rotate: [0, -8, 8, -4, 0] } : { rotate: 0 }}
+                transition={tab !== 'moviles' ? { duration: 0.6, repeat: Infinity, repeatDelay: 2.2, ease: 'easeInOut' } : {}}
+              >
+                <FiWind size={22} className={tab === 'moviles' ? 'text-white' : 'text-primary'} />
+              </motion.span>
               <span>Techos Móviles</span>
               <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'moviles' ? 'text-white/80' : 'text-white/40'}`}>
                 Soluciones temporales
               </span>
-            </button>
-            <button
+            </motion.button>
+
+            {/* Botón Fijos */}
+            <motion.button
               onClick={() => setTab('fijos')}
-              className={`group flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-all duration-300 ${
+              initial={{ opacity: 0, y: 20 }}
+              animate={tab === 'fijos'
+                ? { opacity: 1, y: 0, scale: 1.05 }
+                : {
+                    opacity: 1, y: 0, scale: 1,
+                    boxShadow: [
+                      '0 0 0px 0px rgba(150,207,36,0)',
+                      '0 0 0px 6px rgba(150,207,36,0.25)',
+                      '0 0 0px 0px rgba(150,207,36,0)',
+                    ],
+                  }
+              }
+              transition={tab === 'fijos'
+                ? { duration: 0.3 }
+                : { opacity: { duration: 0.5, delay: 0.2 }, y: { duration: 0.5, delay: 0.2 }, boxShadow: { duration: 2, repeat: Infinity, repeatDelay: 0.8, delay: 1.4, ease: 'easeInOut' } }
+              }
+              whileHover={{ scale: tab === 'fijos' ? 1.05 : 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              className={`flex flex-col items-center gap-2 px-9 py-5 rounded-2xl font-heading font-extrabold text-base border-2 transition-colors duration-300 ${
                 tab === 'fijos'
-                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40 scale-105'
-                  : 'bg-black/40 border-white/20 text-white/80 hover:border-primary/60 hover:bg-black/60 hover:scale-102 backdrop-blur-sm'
+                  ? 'bg-primary border-primary text-white shadow-xl shadow-primary/40'
+                  : 'bg-black/40 border-white/20 text-white/80 backdrop-blur-sm'
               }`}
             >
-              <FiAnchor size={22} className={tab === 'fijos' ? 'text-white' : 'text-primary'} />
+              <motion.span
+                animate={tab !== 'fijos' ? { y: [0, -3, 0] } : { y: 0 }}
+                transition={tab !== 'fijos' ? { duration: 0.5, repeat: Infinity, repeatDelay: 2.5, ease: 'easeInOut' } : {}}
+              >
+                <FiAnchor size={22} className={tab === 'fijos' ? 'text-white' : 'text-primary'} />
+              </motion.span>
               <span>Techos Fijos</span>
               <span className={`text-[10px] font-heading font-semibold uppercase tracking-wider mt-0.5 ${tab === 'fijos' ? 'text-white/80' : 'text-white/40'}`}>
                 Soluciones permanentes
               </span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
