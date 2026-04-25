@@ -2,35 +2,38 @@ import type { Metadata } from 'next'
 import ProductoPage from '@/components/ui/ProductoPage'
 
 export const metadata: Metadata = {
-  title: 'Bancas de Madera',
+  title: 'Bancas de Suplentes | Graderías GRS',
   description:
-    'Alquiler y venta de bancas de madera para eventos, conciertos, iglesias y parques en Colombia. Bancas rústicas y modernas de alta calidad.',
+    'Alquiler y venta de bancas de suplentes en plástico con estructura metálica para eventos deportivos, culturales y corporativos en Colombia.',
 }
+
+const galeria = Array.from({ length: 13 }, (_, i) => {
+  const n = String(i + 1).padStart(3, '0')
+  return `/images/productos/bancas-suplentes/${n}.jpg`
+})
 
 export default function Page() {
   return (
     <ProductoPage
-      titulo="Bancas de Madera"
-      descripcion="Bancas rústicas y modernas para eventos al aire libre e interiores"
-      imagen="/images/productos/bancas-madera.jpg"
+      titulo="Bancas de Suplentes"
+      descripcion="Su evento en las mejores manos..."
+      imagen="/images/productos/bancas-suplentes/004.jpg"
       descripcionLarga={[
-        'Las bancas de madera de Graderías GRS son la solución perfecta para eventos que requieren una estética cálida y natural. Ideales para conciertos, eventos religiosos, bodas al aire libre, festivales y parques.',
-        'Fabricadas en madera de alta calidad, nuestras bancas están tratadas para resistir condiciones de intemperie. Disponemos de bancas sin respaldo y con respaldo en diferentes longitudes.',
-        'El servicio incluye transporte, instalación en el lugar del evento y posterior recogida. Contamos con gran inventario para atender eventos de cualquier escala.',
+        'Graderías GRS ofrece bancas de suplentes fabricadas con asientos en plástico de alto impacto y estructura metálica galvanizada, diseñadas para resistir las exigencias del uso deportivo y de entretenimiento de alto nivel.',
+        'Ideales para zonas técnicas de estadios, áreas de descanso, tribunas de honor y zonas especiales en todo tipo de eventos. Su diseño robusto y estético garantiza comodidad para los asistentes y una presentación profesional del recinto.',
+        'Disponemos de diferentes configuraciones y longitudes, con servicio de transporte, instalación y desmontaje a nivel nacional. Atendemos eventos de cualquier escala con los más altos estándares de calidad.',
       ]}
       caracteristicas={[
-        'Madera tratada para exteriores',
-        'Bancas de 2 m y 3 m de longitud',
-        'Con y sin respaldo',
+        'Asientos en plástico de alto impacto',
+        'Estructura metálica galvanizada',
+        'Resistente a intemperie y uso intensivo',
+        'Diferentes longitudes disponibles',
         'Capacidad para 4-6 personas por banca',
         'Fácil transporte y apilamiento',
-        'Acabado resistente a la humedad',
         'Disponibles en alquiler o venta',
         'Entrega a nivel nacional',
       ]}
-      galeria={[
-        '/images/productos/bancas-madera.jpg',
-      ]}
+      galeria={galeria}
     />
   )
 }
