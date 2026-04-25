@@ -44,7 +44,7 @@ export const proyectos: Proyecto[] = [
     subtitulo: 'Bucaramanga',
     año: 2026,
     categoria: 'cultural',
-    imagen: '/images/proyectos/equina-bucaramanga/hero.jpg',
+    imagen: '/images/proyectos/equina-bucaramanga/005.jpg',
     href: '/exposicion-equina-bucaramanga',
     logo: '/images/proyectos/equina-bucaramanga/hero.jpg',
     logoAlt: 'Exposición Nacional Equina Bucaramanga 2026',

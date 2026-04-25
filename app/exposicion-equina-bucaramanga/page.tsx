@@ -19,7 +19,7 @@ export default function Page() {
       descripcion="Graderías para el evento ecuestre más importante de Colombia"
       lugar="Bucaramanga"
       año="2026"
-      imagen="/images/proyectos/equina-bucaramanga/hero.jpg"
+      imagen="/images/proyectos/equina-bucaramanga/005.jpg"
       descripcionLarga={[
         'Graderías GRS fue la empresa encargada del montaje de graderías para la Exposición Nacional Equina de Bucaramanga 2026, uno de los eventos ecuestres más importantes y tradicionales de Colombia. Un escenario donde la elegancia del caballo de paso fino y la cultura santandereana se unen para recibir a miles de espectadores.',
         'Se instalaron graderías en aluminio con silletería tipo estadio, garantizando comodidad, visibilidad óptima y seguridad para el público asistente durante todos los días de competencia y exhibición. El montaje fue diseñado para adaptarse al ruedo central del evento, cumpliendo con los requerimientos técnicos y espaciales del certamen.',
