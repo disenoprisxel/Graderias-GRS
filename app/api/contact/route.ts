@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
     // Send via Resend (requires RESEND_API_KEY env variable)
     const RESEND_API_KEY = process.env.RESEND_API_KEY
-    const TO_EMAIL = process.env.CONTACT_EMAIL || 'info@graderiasgrs.com'
+    const TO_EMAIL = process.env.CONTACT_EMAIL || 'graderiasgrs@outlook.com'
 
     if (!RESEND_API_KEY) {
       // In development without API key: log and return success
