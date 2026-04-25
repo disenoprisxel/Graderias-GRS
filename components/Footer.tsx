@@ -109,14 +109,6 @@ export default function Footer() {
             className="object-contain w-full max-w-[280px]"
           />
 
-          {/* Cámara de Comercio */}
-          <Image
-            src="/images/certificaciones/camara-comercio.png"
-            alt="Cámara de Comercio de Bogotá"
-            width={110}
-            height={45}
-            className="object-contain"
-          />
         </motion.div>
       </motion.div>
 
