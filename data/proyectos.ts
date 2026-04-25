@@ -11,7 +11,9 @@ export interface Proyecto {
   categoria: Categoria
   imagen: string | null   // null = tarjeta "Próximamente"
   href: string | null     // null = sin página todavía
-  destacado?: boolean     // aparece en el dropdown del navbar
+  logo?: string           // logo para hover en ProyectosDestacados
+  logoAlt?: string
+  destacado?: boolean     // aparece en dropdown del navbar y sección home
 }
 
 export const CATEGORIAS: { value: Categoria | 'todos'; label: string }[] = [
@@ -97,6 +99,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'corporativo',
     imagen: '/images/proyectos/fuxion2024.jpg',
     href: '/fuxion2024',
+    logo: '/images/logos/fuxion.svg',
+    logoAlt: 'FuXion 2024',
     destacado: true,
   },
 
@@ -108,6 +112,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/aguilas-doradas.jpg',
     href: '/estadio-aguilas-doradas',
+    logo: '/images/logos/aguilas-doradas.svg',
+    logoAlt: 'Águilas Doradas',
     destacado: true,
   },
   {
@@ -117,6 +123,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/juegos-centroamericanos.jpg',
     href: '/juegos-centroamericanos-y-del-caribe',
+    logo: '/images/logos/juegos-centroamericanos.svg',
+    logoAlt: 'Juegos Centroamericanos y del Caribe',
     destacado: true,
   },
   {
@@ -126,6 +134,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/colsanitas.jpg',
     href: '/copa-claro-colsanitas',
+    logo: '/images/logos/colsanitas.svg',
+    logoAlt: 'Copa Claro Colsanitas',
     destacado: true,
   },
 
@@ -137,6 +147,9 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/bmx-tocancipa.jpg',
     href: '/pista_bmx_tocancipa',
+    logo: '/images/logos/alcaldia-tocancipa-hover.png',
+    logoAlt: 'Alcaldía de Tocancipá',
+    destacado: true,
   },
   {
     id: 'sincelejo',
@@ -145,6 +158,9 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/sincelejo.jpg',
     href: '/venta_de_silleteria_sincelejo',
+    logo: '/images/logos/sincelejo.svg',
+    logoAlt: 'Alcaldía de Sincelejo',
+    destacado: true,
   },
 
   // ── 2019 ──────────────────────────────────────────────────────────────────
@@ -155,6 +171,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/copa-davis.jpg',
     href: '/copa-davis-colombia-turkia',
+    logo: '/images/logos/copa-davis.svg',
+    logoAlt: 'Copa Davis 2019',
     destacado: true,
   },
 
@@ -166,6 +184,8 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/barranquilla.jpg',
     href: '/juegos-centroamericanos-y-del-caribe-barranquilla',
+    logo: '/images/logos/barranquilla.svg',
+    logoAlt: 'Barranquilla 2018',
     destacado: true,
   },
 
@@ -177,10 +197,16 @@ export const proyectos: Proyecto[] = [
     categoria: 'cultural',
     imagen: '/images/proyectos/papa-francisco.jpg',
     href: '/visita-del-papa-francisco',
+    logo: '/images/logos/papa-francisco.svg',
+    logoAlt: 'Visita del Papa Francisco',
     destacado: true,
   },
 ]
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
-export const proyectosDestacados = proyectos.filter((p) => p.destacado && p.href)
+// ── Helpers ───────────────────────────────────────────────────────────────────
+// Proyectos con página, ordenados del más reciente al más antiguo
+export const proyectosDestacados = proyectos
+  .filter((p) => p.destacado && p.href)
+  .sort((a, b) => b.año - a.año)
+
 export const años = [...new Set(proyectos.map((p) => p.año))].sort((a, b) => b - a)

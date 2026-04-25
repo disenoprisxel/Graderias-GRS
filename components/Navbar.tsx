@@ -25,16 +25,9 @@ const productosMenu = [
   { label: 'Diseño y Render',                  href: '/diseno-y-produccion',         Icono: FiPenTool},
 ]
 
-// Solo proyectos destacados en el dropdown
-const proyectosMenu = [
-  { label: 'Copa Davis Colombia',                               href: '/copa-davis-colombia-turkia' },
-  { label: 'Copa Claro Colsanitas',                            href: '/copa-claro-colsanitas' },
-  { label: 'Juegos Centroaméricanos Mar y Playa',              href: '/juegos-centroamericanos-y-del-caribe' },
-  { label: 'Juegos Centroaméricanos Barranquilla',             href: '/juegos-centroamericanos-y-del-caribe-barranquilla' },
-  { label: 'Estadio Aguilas Doradas',                          href: '/estadio-aguilas-doradas' },
-  { label: 'Convención FuXion 2024',                           href: '/fuxion2024' },
-  { label: 'Visita del Papa Francisco',                        href: '/visita-del-papa-francisco' },
-]
+// Proyectos destacados — leídos desde la fuente de datos central (orden: más reciente primero)
+import { proyectosDestacados } from '@/data/proyectos'
+const proyectosMenu = proyectosDestacados.map((p) => ({ label: p.titulo, href: p.href! }))
 
 // Divide productos en filas de 4 / 4 / 4 (12 productos)
 const row1 = productosMenu.slice(0, 4)
