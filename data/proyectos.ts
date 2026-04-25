@@ -77,11 +77,14 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'centro-democratico-2025',
-    titulo: 'Campaña Centro Democrático',
+    titulo: 'Campaña Centro Democrático 2025',
     año: 2025,
     categoria: 'corporativo',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/centro-democratico-2025/006.jpg',
+    href: '/centro-democratico-2025',
+    logo: '/images/logos/centro-democratico.png',
+    logoAlt: 'Centro Democrático 2025',
+    destacado: true,
   },
   {
     id: 'bolivar-open-2025',
