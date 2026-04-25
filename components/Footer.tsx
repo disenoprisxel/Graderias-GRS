@@ -85,14 +85,14 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3">
             {contacto.map(({ Icono, texto, href }, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-light/80">
+              <li key={i} className="flex items-start gap-3 text-sm">
                 <Icono className="text-primary mt-0.5 shrink-0" size={15} />
                 {href ? (
-                  <a href={href} className="hover:text-primary transition-colors break-all">
+                  <a href={href} className="text-white font-semibold hover:text-primary transition-colors break-all">
                     {texto}
                   </a>
                 ) : (
-                  <span>{texto}</span>
+                  <span className="text-white font-semibold">{texto}</span>
                 )}
               </li>
             ))}
@@ -100,39 +100,14 @@ export default function Footer() {
         </motion.div>
 
         {/* Col 3 — Certificaciones */}
-        <motion.div variants={colItem} className="flex flex-col gap-4">
-          {/* Experiencia (25 Years + ICC) */}
-          <div className="flex items-center">
-            <Image
-              src="/images/certificaciones/experiencia.png"
-              alt="25 Years Experience — ICC International Code Council"
-              width={180}
-              height={60}
-              className="object-contain"
-            />
-          </div>
-
-          {/* Fila 2: ISO 9001 + ISO 14001 */}
-          <div className="flex items-center gap-4 flex-wrap">
-            <Image
-              src="/images/certificaciones/iso-9001.png"
-              alt="ISO 9001 Icontec"
-              width={85}
-              height={85}
-              className="object-contain"
-            />
-            <Image
-              src="/images/certificaciones/iso-14001.png"
-              alt="ISO 14001 Icontec"
-              width={85}
-              height={85}
-              className="object-contain"
-            />
-          </div>
-
-          <p className="text-white/70 text-xs font-heading text-center leading-snug">
-            Fabricación de graderías con<br />materiales certificados
-          </p>
+        <motion.div variants={colItem} className="flex flex-col gap-6">
+          <Image
+            src="/images/certificaciones/logosFooter3.png"
+            alt="Certificaciones — ICC, ISO 9001, ISO 10001"
+            width={280}
+            height={120}
+            className="object-contain w-full max-w-[280px]"
+          />
 
           {/* Cámara de Comercio */}
           <Image
