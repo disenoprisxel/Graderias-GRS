@@ -28,12 +28,15 @@ export const proyectos: Proyecto[] = [
   // ── 2026 ──────────────────────────────────────────────────────────────────
   {
     id: 'billy-jean-king-2026',
-    titulo: 'Billie Jean King Cup',
-    subtitulo: 'Copa Internacional de Tenis',
+    titulo: 'Billie Jean King Cup 2026',
+    subtitulo: 'Torneo Internacional de Tenis',
     año: 2026,
     categoria: 'deportivo',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/billy-jean-king/001.jpg',
+    href: '/billy-jean-king-cup',
+    logo: '/images/proyectos/billy-jean-king/001.jpg',
+    logoAlt: 'Billie Jean King Cup 2026',
+    destacado: true,
   },
   {
     id: 'equinal-bucaramanga-2026',
