@@ -100,12 +100,15 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'villa-olimpica-2025',
-    titulo: 'Villa Olímpica Villavicencio',
+    titulo: 'Villa Olímpica\nVillavicencio 2025',
     subtitulo: 'Gobernación del Meta',
     año: 2025,
     categoria: 'gubernamental',
-    imagen: null,
-    href: null,
+    imagen: '/images/proyectos/villa-olimpica-2025/hero.jpg',
+    href: '/villa-olimpica-2025',
+    logo: '/images/logos/gobernacion-meta.png',
+    logoAlt: 'Gobernación del Meta — Villa Olímpica Villavicencio 2025',
+    destacado: true,
   },
 
   // ── 2024 ──────────────────────────────────────────────────────────────────
