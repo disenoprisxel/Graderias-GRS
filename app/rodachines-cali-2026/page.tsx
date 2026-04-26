@@ -19,7 +19,7 @@ export default function Page() {
       descripcion="Estructuras móviles con rodachines para eventos en Cali"
       lugar="Cali, Colombia"
       año="2026"
-      imagen="/images/proyectos/rodachines-cali-2026/001.jpg"
+      imagen="/images/proyectos/rodachines-cali-2026/hero.jpg"
       descripcionLarga={[
         'Graderías GRS realizó el montaje de graderías de rodachines en Cali durante 2026, proveyendo estructuras modulares con ruedas que permiten una mayor flexibilidad en la configuración de los espacios para eventos. Este tipo de gradería facilita el desplazamiento y reubicación rápida durante el montaje y desmontaje.',
         'Las graderías de rodachines son ideales para recintos cerrados como coliseos, pabellones y centros de convenciones, donde se requiere adaptabilidad a distintos formatos de evento. Su sistema de ruedas bloqueables garantiza estabilidad estructural durante el uso y agilidad en la logística.',
