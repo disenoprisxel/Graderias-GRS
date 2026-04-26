@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import GaleriaLightbox from '@/components/ui/GaleriaLightbox'
+import VideoCarousel from '@/components/ui/VideoCarousel'
 import CaracteristicasGrid from '@/components/ui/CaracteristicasGrid'
 import ViajamosCTA from '@/components/sections/ViajamosCTA'
 
@@ -13,6 +14,8 @@ interface ProductoPageProps {
   imagenDestacada?: string
   caracteristicas?: string[]
   galeria?: string[]
+  videos?: string[]
+  watermark?: string
 }
 
 export default function ProductoPage({
@@ -23,6 +26,8 @@ export default function ProductoPage({
   imagenDestacada,
   caracteristicas = [],
   galeria = [],
+  videos = [],
+  watermark,
 }: ProductoPageProps) {
   return (
     <>
@@ -88,7 +93,19 @@ export default function ProductoPage({
             <h2 className="font-heading font-bold text-dark text-2xl mb-6 text-center">
               Galería de Imágenes
             </h2>
-            <GaleriaLightbox images={galeria} titulo={titulo} />
+            <GaleriaLightbox images={galeria} titulo={titulo} watermark={watermark} />
+          </div>
+        </section>
+      )}
+
+      {/* Videos */}
+      {videos.length > 0 && (
+        <section className="py-12 bg-[#111]">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="font-heading font-bold text-white text-2xl mb-8 text-center">
+              Videos
+            </h2>
+            <VideoCarousel videos={videos} />
           </div>
         </section>
       )}
