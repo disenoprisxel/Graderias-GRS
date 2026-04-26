@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Graderías GRS Web <noreply@graderiasgrs.com>',
+        from: 'Graderías GRS <noreply@graderiasgrs.com>',
         to: [TO_EMAIL],
         reply_to: email,
         subject: `Nuevo mensaje de contacto — ${nombre}`,
