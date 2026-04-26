@@ -33,7 +33,7 @@ export const slidesDefault: Slide[] = [
     image: '/images/hero/hero-fuxion.jpg',
     logoLeft:    '/images/logos/puerta-de-oro.png',
     logoLeftAlt: 'Puerta de Oro — Centro de Eventos del Caribe Barranquilla',
-    tagLeft:     'C O R F E R I A S',
+    tagLeft:     '',
     logoRight:    '/images/logos/fuxion.jpg',
     logoRightAlt: 'Convención FuXion 2024',
   },

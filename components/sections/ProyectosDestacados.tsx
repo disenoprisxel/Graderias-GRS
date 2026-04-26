@@ -64,6 +64,19 @@ export default function ProyectosDestacados() {
                 </div>
               )}
 
+              {/* Marca de agua — solo proyectos nuevos */}
+              {proyecto.nuevo && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+                  <Image
+                    src="/images/logo-blanco.png"
+                    alt="Graderías GRS"
+                    width={130}
+                    height={65}
+                    className="object-contain opacity-[0.22] select-none"
+                  />
+                </div>
+              )}
+
               {/* Overlay verde al hover */}
               <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
