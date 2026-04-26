@@ -1,26 +1,79 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// ── Rate Limiter en memoria ────────────────────────────────────────────────────
+// Máximo 5 envíos por IP cada 15 minutos.
+// Funciona por instancia del servidor (suficiente para un sitio de bajo tráfico).
+
+interface RateEntry {
+  count: number
+  resetAt: number
+}
+
+const ipMap = new Map<string, RateEntry>()
+const RATE_LIMIT_MAX    = 5
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000 // 15 minutos en ms
+
+function isRateLimited(ip: string): boolean {
+  const now  = Date.now()
+  const entry = ipMap.get(ip)
+
+  // Primera solicitud o ventana expirada → reinicia contador
+  if (!entry || now > entry.resetAt) {
+    ipMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW })
+    return false
+  }
+
+  // Límite alcanzado
+  if (entry.count >= RATE_LIMIT_MAX) return true
+
+  // Incrementa contador
+  entry.count++
+  return false
+}
+
+function getClientIp(req: NextRequest): string {
+  return (
+    req.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+    req.headers.get('x-real-ip') ??
+    'unknown'
+  )
+}
+
+// ── Handler POST ───────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
+    // ── Rate limit check ──
+    const ip = getClientIp(req)
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Demasiadas solicitudes. Intenta de nuevo en 15 minutos.' },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': '900',
+            'X-RateLimit-Limit': String(RATE_LIMIT_MAX),
+          },
+        }
+      )
+    }
+
     const { nombre, email, telefono, empresa, ciudad, asunto, mensaje } = await req.json()
 
-    // Basic validation
+    // ── Validación básica ──
     if (!nombre || !email || !mensaje) {
       return NextResponse.json({ error: 'Faltan campos requeridos' }, { status: 400 })
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Email inválido' }, { status: 400 })
     }
 
-    // Send via Resend (requires RESEND_API_KEY env variable)
+    // ── Envío con Resend ──
     const RESEND_API_KEY = process.env.RESEND_API_KEY
-    const TO_EMAIL = process.env.CONTACT_EMAIL || 'graderiasgrs@outlook.com'
+    const TO_EMAIL       = process.env.CONTACT_EMAIL || 'graderiasgrs@outlook.com'
 
     if (!RESEND_API_KEY) {
-      // In development without API key: log and return success
       console.log('[Contact Form]', { nombre, email, telefono, empresa, ciudad, asunto, mensaje })
       return NextResponse.json({ ok: true })
     }

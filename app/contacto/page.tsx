@@ -21,7 +21,7 @@ export default function ContactoPage() {
     asunto: '',
     mensaje: '',
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'ratelimit'>('idle')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,6 +36,7 @@ export default function ContactoPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
+      if (res.status === 429) { setStatus('ratelimit'); return }
       if (!res.ok) throw new Error()
       setStatus('success')
       setForm({ nombre: '', telefono: '', email: '', empresa: '', ciudad: '', asunto: '', mensaje: '' })
@@ -190,6 +191,12 @@ export default function ContactoPage() {
               {status === 'error' && (
                 <p className="text-red-500 text-sm">
                   Error al enviar. Por favor intenta de nuevo.
+                </p>
+              )}
+
+              {status === 'ratelimit' && (
+                <p className="text-amber-500 text-sm">
+                  Has enviado demasiados mensajes. Por favor espera 15 minutos antes de intentarlo de nuevo.
                 </p>
               )}
 
