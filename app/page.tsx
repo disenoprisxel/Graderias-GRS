@@ -22,10 +22,18 @@ export default function HomePage() {
       {/* ── Slideshow 1 ── */}
       <Hero />
 
-      {/* ── Separador entre slideshows ── */}
-      <div className="h-4 bg-dark" />
+      {/* ── Encabezado Novedades ── */}
+      <div className="bg-dark pt-8 pb-4 text-center">
+        <p className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-1">
+          Graderías GRS
+        </p>
+        <h2 className="font-heading font-extrabold text-white text-2xl md:text-3xl uppercase tracking-wide">
+          Novedades <span className="text-primary">2025 — 2026</span>
+        </h2>
+        <div className="mt-3 mx-auto w-10 h-0.5 bg-primary" />
+      </div>
 
-      {/* ── Strip de proyectos ── */}
+      {/* ── Strip de proyectos recientes ── */}
       <HorizontalStrip slides={slides2} />
 
       <QuienesSomos />

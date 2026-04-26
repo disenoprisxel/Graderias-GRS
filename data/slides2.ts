@@ -1,102 +1,91 @@
-// ── Slides del Slideshow 2 (parte inferior de la home) ──────────────────────
+// ── Slides del Strip de Novedades (home) ─────────────────────────────────────
+// Muestra los proyectos más recientes justo debajo del hero principal.
 
 import type { SlideLogos, SlideText } from '@/components/Hero'
 
 type Slide = SlideLogos | SlideText
 
 const slides2: Slide[] = [
-  // 1 — Copa Davis Colombia vs Turkía
+  // 1 — Billie Jean King Cup 2026
   {
     id: 1,
     type: 'logos',
-    image: '/images/hero/hero-copa-davis.jpg',
-    logoLeft:    '/images/logos/copa-davis.jpg',
-    logoLeftAlt: 'Copa Davis — Colombia vs Turkía 2019',
-    tagLeft:     'Copa Davis\nColombia vs Turkía 2019',
-    logoRight:    '/images/logos/logo-carmel.png',
-    logoRightAlt: 'Carmel',
+    image: '/images/proyectos/billy-jean-king/003.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'Billie Jean King Cup\n2026',
+    logoRight:    '',
+    logoRightAlt: '',
   },
 
-  // 2 — Sibatá (Sin título) + logo Policía Nacional
+  // 2 — Exposición Nacional Equina — Bucaramanga 2026
   {
     id: 2,
     type: 'logos',
-    image: '/images/hero/hero-sibate.jpg',
-    logoLeft:    '/images/logos/policia-nacional.png',
-    logoLeftAlt: 'Policía Nacional de Colombia',
-    tagLeft:     '',
+    image: '/images/proyectos/equina-bucaramanga/hero.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'Exposición Nacional Equina\nBucaramanga 2026',
     logoRight:    '',
     logoRightAlt: '',
   },
 
-  // 3 — Copa Claro Colsanitas
+  // 3 — F-AIR 2025
   {
     id: 3,
     type: 'logos',
-    image: '/images/hero/hero-colsanitas.jpg',
-    logoLeft:    '/images/logos/copa-claro.png',
-    logoLeftAlt: 'Copa Claro Colsanitas',
-    tagLeft:     'Copa Claro\nColsanitas',
-    logoRight:    '/images/logos/10-lagartos.png',
-    logoRightAlt: 'Club Los Lagartos',
+    image: '/images/proyectos/fair-2026/hero.jpg',
+    logoLeft:    '/images/logos/fair-2026.png',
+    logoLeftAlt: 'F-AIR 2025 — Feria Aeronáutica Internacional',
+    tagLeft:     'F-AIR 2025',
+    logoRight:    '',
+    logoRightAlt: '',
   },
 
-  // 4 — Sin título + logos Sanofi (izq) y Chamorro (der)
+  // 4 — Fiestas de la Independencia Cartagena 2025
   {
     id: 4,
     type: 'logos',
-    image: '/images/hero/hero-chamorro-sanofi.jpg',
-    logoLeft:    '/images/logos/sanofi.png',
-    logoLeftAlt: 'Sanofi',
-    tagLeft:     '',
-    logoRight:    '/images/logos/chamorro.png',
-    logoRightAlt: 'Chamorro',
+    image: '/images/proyectos/independencia-cartagena-2025/001.jpg',
+    logoLeft:    '',
+    logoLeftAlt: '',
+    tagLeft:     'Fiestas de la Independencia\nCartagena 2025',
+    logoRight:    '',
+    logoRightAlt: '',
   },
 
-  // 5 — Carnaval de Barranquilla + logos Carnaval (izq) y Alcaldía (der)
+  // 5 — Campaña Centro Democrático 2025
   {
     id: 5,
     type: 'logos',
-    image: '/images/hero/hero-carnaval.jpg',
-    logoLeft:    '/images/logos/carnaval-barranquilla.png',
-    logoLeftAlt: 'Carnaval de Barranquilla',
-    tagLeft:     'CARNAVAL DE BARRANQUILLA',
-    logoRight:    '/images/logos/alcaldia-barranquilla.png',
-    logoRightAlt: 'Alcaldía de Barranquilla',
+    image: '/images/proyectos/centro-democratico-2025/006.jpg',
+    logoLeft:    '/images/logos/centro-democratico.png',
+    logoLeftAlt: 'Centro Democrático 2025',
+    tagLeft:     'Campaña Centro Democrático\n2025',
+    logoRight:    '',
+    logoRightAlt: '',
   },
 
-  // 6 — Gradería Convencional (solo imagen)
+  // 6 — Seguros Bolívar Open 2025
   {
     id: 6,
     type: 'logos',
-    image: '/images/hero/hero-graderia-convencional.jpg',
-    logoLeft:    '',
-    logoLeftAlt: '',
-    tagLeft:     'GRADERÍA CONVENCIONAL',
+    image: '/images/proyectos/bolivar-open-2025/hero.jpg',
+    logoLeft:    '/images/logos/club-los-lagartos.png',
+    logoLeftAlt: 'Club Los Lagartos',
+    tagLeft:     'Seguros Bolívar Open\n2025',
     logoRight:    '',
     logoRightAlt: '',
   },
 
-  // 7 — Venta Gobernación de Cundinamarca
+  // 7 — Villa Olímpica Villavicencio 2025
   {
     id: 7,
     type: 'logos',
-    image: '/images/hero/hero-gobernacion-cundinamarca.jpg',
-    logoLeft:    '/images/logos/gobernacion-cundinamarca.png',
-    logoLeftAlt: 'Gobernación de Cundinamarca',
-    tagLeft:     'VENTA — GOBERNACIÓN DE CUNDINAMARCA',
-    logoRight:    '',
-    logoRightAlt: '',
-  },
-
-  // 8 — Venta Aeropuerto El Dorado
-  {
-    id: 8,
-    type: 'logos',
-    image: '/images/hero/hero-aeropuerto-dorado.jpg',
-    logoLeft:    '/images/logos/aeropuerto-dorado.png',
-    logoLeftAlt: 'Aeropuerto Internacional El Dorado',
-    tagLeft:     'VENTA — AEROPUERTO INTERNACIONAL EL DORADO',
+    image: '/images/proyectos/villa-olimpica-2025/hero.jpg',
+    logoLeft:    '/images/logos/gobernacion-meta.png',
+    logoLeftAlt: 'Gobernación del Meta',
+    tagLeft:     'Villa Olímpica\nVillavicencio 2025',
     logoRight:    '',
     logoRightAlt: '',
   },

@@ -57,6 +57,13 @@ export default function ProyectosDestacados() {
                 />
               )}
 
+              {/* Badge Nuevo */}
+              {proyecto.nuevo && (
+                <div className="absolute top-3 left-3 z-10 bg-primary text-white font-heading font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full shadow-lg">
+                  Nuevo
+                </div>
+              )}
+
               {/* Overlay verde al hover */}
               <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 

@@ -14,6 +14,7 @@ export interface Proyecto {
   logo?: string           // logo para hover en ProyectosDestacados
   logoAlt?: string
   destacado?: boolean     // aparece en dropdown del navbar y sección home
+  nuevo?: boolean         // muestra badge "Nuevo" en ProyectosDestacados
 }
 
 export const CATEGORIAS: { value: Categoria | 'todos'; label: string }[] = [
@@ -37,6 +38,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/proyectos/billy-jean-king/001.jpg',
     logoAlt: 'Billie Jean King Cup 2026',
     destacado: true,
+    nuevo: true,
   },
   {
     id: 'equinal-bucaramanga-2026',
@@ -48,6 +50,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/proyectos/equina-bucaramanga/hero.jpg',
     logoAlt: 'Exposición Nacional Equina Bucaramanga 2026',
     destacado: true,
+    nuevo: true,
   },
 
   // ── 2025 ──────────────────────────────────────────────────────────────────
@@ -62,6 +65,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/logos/fair-2026.png',
     logoAlt: 'F-AIR 2025 — Feria Aeronáutica Internacional de Colombia',
     destacado: true,
+    nuevo: true,
   },
   {
     id: 'independencia-cartagena-2025',
@@ -74,6 +78,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/proyectos/independencia-cartagena-2025/002.jpg',
     logoAlt: 'Fiestas de la Independencia Cartagena 2025',
     destacado: true,
+    nuevo: true,
   },
   {
     id: 'centro-democratico-2025',
@@ -85,6 +90,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/logos/centro-democratico.png',
     logoAlt: 'Centro Democrático 2025',
     destacado: true,
+    nuevo: true,
   },
   {
     id: 'bolivar-open-2025',
@@ -97,6 +103,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/logos/club-los-lagartos.png',
     logoAlt: 'Club Los Lagartos — Seguros Bolívar Open 2025',
     destacado: true,
+    nuevo: true,
   },
   {
     id: 'villa-olimpica-2025',
@@ -109,6 +116,7 @@ export const proyectos: Proyecto[] = [
     logo: '/images/logos/gobernacion-meta.png',
     logoAlt: 'Gobernación del Meta — Villa Olímpica Villavicencio 2025',
     destacado: true,
+    nuevo: true,
   },
 
   // ── 2024 ──────────────────────────────────────────────────────────────────
