@@ -27,18 +27,6 @@ export const CATEGORIAS: { value: Categoria | 'todos'; label: string }[] = [
 export const proyectos: Proyecto[] = [
   // ── 2026 ──────────────────────────────────────────────────────────────────
   {
-    id: 'rodachines-cali-2026',
-    titulo: 'Graderías de Rodachines\nCali 2026',
-    subtitulo: 'Estructuras móviles con ruedas',
-    año: 2026,
-    categoria: 'corporativo',
-    imagen: '/images/proyectos/rodachines-cali-2026/hero.jpg',
-    href: '/rodachines-cali-2026',
-    logo: '/images/proyectos/rodachines-cali-2026/hero.jpg',
-    logoAlt: 'Graderías de Rodachines Cali 2026',
-    destacado: true,
-  },
-  {
     id: 'billy-jean-king-2026',
     titulo: 'Billie Jean King Cup 2026',
     subtitulo: 'Torneo Internacional de Tenis',
