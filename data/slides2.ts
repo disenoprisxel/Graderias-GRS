@@ -22,7 +22,7 @@ const slides2: Slide[] = [
   {
     id: 2,
     type: 'logos',
-    image: '/images/proyectos/equina-bucaramanga/hero.jpg',
+    image: '/images/proyectos/equina-bucaramanga/slide.jpg',
     logoLeft:    '',
     logoLeftAlt: '',
     tagLeft:     'Exposición Nacional Equina\nBucaramanga 2026',
