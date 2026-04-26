@@ -70,8 +70,8 @@ export default function ProyectosDestacados() {
                   <Image
                     src="/images/logo-blanco.png"
                     alt="Graderías GRS"
-                    width={130}
-                    height={65}
+                    width={260}
+                    height={130}
                     className="object-contain opacity-[0.22] select-none"
                   />
                 </div>

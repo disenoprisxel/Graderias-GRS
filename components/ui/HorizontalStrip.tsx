@@ -117,8 +117,8 @@ export default function HorizontalStrip({ slides }: { slides: Slide[] }) {
                   <Image
                     src="/images/logo-blanco.png"
                     alt="Graderías GRS"
-                    width={120}
-                    height={60}
+                    width={240}
+                    height={120}
                     className="object-contain opacity-[0.22] select-none"
                   />
                 </div>
