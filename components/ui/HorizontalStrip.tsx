@@ -210,6 +210,17 @@ export default function HorizontalStrip({ slides }: { slides: Slide[] }) {
                   />
                   <div className="absolute inset-0 bg-black/55" />
 
+                  {/* Marca de agua lightbox */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+                    <Image
+                      src="/images/logo-blanco.png"
+                      alt="Graderías GRS"
+                      width={220}
+                      height={110}
+                      className="object-contain opacity-[0.22] select-none"
+                    />
+                  </div>
+
                   {/* Title — centered */}
                   {getTag(activeSlide) && (
                     <div className="absolute inset-0 flex items-center justify-center px-16">
