@@ -16,6 +16,7 @@ interface ProductoPageProps {
   galeria?: string[]
   videos?: string[]
   watermark?: string
+  watermarkHero?: boolean
 }
 
 export default function ProductoPage({
@@ -28,6 +29,7 @@ export default function ProductoPage({
   galeria = [],
   videos = [],
   watermark,
+  watermarkHero = false,
 }: ProductoPageProps) {
   return (
     <>
@@ -41,6 +43,17 @@ export default function ProductoPage({
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
+        {watermarkHero && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+            <Image
+              src="/images/logo-blanco.png"
+              alt="Graderías GRS"
+              width={320}
+              height={160}
+              className="object-contain opacity-[0.22] select-none"
+            />
+          </div>
+        )}
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1 text-light/70 text-sm mb-4">

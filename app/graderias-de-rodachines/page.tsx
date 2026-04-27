@@ -37,6 +37,7 @@ export default function Page() {
       caracteristicas={caracteristicas}
       galeria={galeria}
       watermark="/images/logo-blanco.png"
+      watermarkHero
       videos={[
         '/videos/rodachines-cali-2026/001.mp4',
         '/videos/rodachines-cali-2026/002.mp4',

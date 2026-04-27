@@ -40,6 +40,7 @@ export default function Page() {
       ]}
       galeria={galeria}
       watermark="/images/logo-blanco.png"
+      watermarkHero
       videos={['/videos/bolivar-open-2025/001.mp4']}
     />
   )

@@ -40,6 +40,7 @@ export default function Page() {
       ]}
       galeria={galeria}
       watermark="/images/logo-blanco.png"
+      watermarkHero
       videos={[
         '/videos/billy-jean-king/001.mp4',
         '/videos/billy-jean-king/002.mp4',

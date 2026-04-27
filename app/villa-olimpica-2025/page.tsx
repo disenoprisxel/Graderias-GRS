@@ -40,6 +40,7 @@ export default function Page() {
       ]}
       galeria={galeria}
       watermark="/images/logo-blanco.png"
+      watermarkHero
     />
   )
 }

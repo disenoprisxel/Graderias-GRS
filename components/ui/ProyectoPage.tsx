@@ -21,6 +21,7 @@ interface ProyectoPageProps {
   fotosDestacadas?: { src: string; caption?: string }[]
   videoCta?: string
   watermark?: string   // ruta al logo para marca de agua sobre la galería
+  watermarkHero?: boolean  // muestra marca de agua en hero y fotosDestacadas
 }
 
 export default function ProyectoPage({
@@ -37,6 +38,7 @@ export default function ProyectoPage({
   fotosDestacadas = [],
   videoCta,
   watermark,
+  watermarkHero = false,
 }: ProyectoPageProps) {
   return (
     <>
@@ -50,6 +52,17 @@ export default function ProyectoPage({
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
+        {watermarkHero && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+            <Image
+              src="/images/logo-blanco.png"
+              alt="Graderías GRS"
+              width={320}
+              height={160}
+              className="object-contain opacity-[0.22] select-none"
+            />
+          </div>
+        )}
         <div className="relative z-10 h-full flex flex-col justify-end pb-10 px-4 max-w-5xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1 text-light/70 text-sm mb-3">
@@ -138,6 +151,17 @@ export default function ProyectoPage({
                       fill
                       className="object-cover"
                     />
+                    {watermarkHero && (
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+                        <Image
+                          src="/images/logo-blanco.png"
+                          alt="Graderías GRS"
+                          width={260}
+                          height={130}
+                          className="object-contain opacity-[0.22] select-none"
+                        />
+                      </div>
+                    )}
                   </div>
                   {foto.caption && (
                     <p className="text-center text-dark font-heading font-semibold text-sm md:text-base leading-snug px-2">

@@ -40,6 +40,7 @@ export default function Page() {
       ]}
       galeria={galeria}
       watermark="/images/logo-blanco.png"
+      watermarkHero
       videos={[
         '/videos/centro-democratico-2025/001.mp4',
         '/videos/centro-democratico-2025/002.mp4',
