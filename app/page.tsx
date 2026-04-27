@@ -8,6 +8,7 @@ import ClientesCarrusel from '@/components/sections/ClientesCarrusel'
 import CoberturaNacional from '@/components/sections/CoberturaNacional'
 import NosotrosCumpliendo from '@/components/sections/NosotrosCumpliendo'
 import ContactoCTA from '@/components/sections/ContactoCTA'
+import VideoReel from '@/components/sections/VideoReel'
 import slides2 from '@/data/slides2'
 
 export const metadata: Metadata = {
@@ -35,6 +36,9 @@ export default function HomePage() {
 
       {/* ── Strip de proyectos recientes ── */}
       <HorizontalStrip slides={slides2} />
+
+      {/* ── Video Reel — Billie Jean King Cup 2026 ── */}
+      <VideoReel />
 
       <QuienesSomos />
       <ProyectosDestacados />
