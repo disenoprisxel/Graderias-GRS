@@ -35,7 +35,7 @@ export const proyectos: Proyecto[] = [
     categoria: 'deportivo',
     imagen: '/images/proyectos/billy-jean-king/card.jpg',
     href: '/billy-jean-king-cup',
-    logo: '/images/proyectos/billy-jean-king/card.jpg',
+    logo: '/images/logos/billie-jean-king.png',
     logoAlt: 'Billie Jean King Cup 2026',
     destacado: true,
     nuevo: true,
