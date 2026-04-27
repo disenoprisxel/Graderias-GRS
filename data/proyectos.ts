@@ -75,7 +75,7 @@ export const proyectos: Proyecto[] = [
     categoria: 'cultural',
     imagen: '/images/proyectos/independencia-cartagena-2025/001.jpg',
     href: '/independencia-cartagena-2025',
-    logo: '/images/proyectos/independencia-cartagena-2025/002.jpg',
+    logo: '/images/logos/fiestas-cartagena.png',
     logoAlt: 'Fiestas de la Independencia Cartagena 2025',
     destacado: true,
     nuevo: true,

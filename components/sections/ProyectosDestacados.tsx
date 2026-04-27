@@ -15,6 +15,25 @@ const cardVariants: Variants = {
   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
 
+function LogoImg({ src, alt }: { src: string; alt: string }) {
+  return src.endsWith('.svg') ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      className="object-contain max-h-28 w-auto max-w-[225px] drop-shadow-xl"
+    />
+  ) : (
+    <Image
+      src={src}
+      alt={alt}
+      width={225}
+      height={120}
+      className="object-contain max-h-28 w-auto drop-shadow-xl"
+    />
+  )
+}
+
 export default function ProyectosDestacados() {
   return (
     <section id="proyectos" className="bg-[#1a1a1a]">
@@ -77,6 +96,28 @@ export default function ProyectosDestacados() {
                 </div>
               )}
 
+              {/* Logo móvil — esquina inferior derecha, solo en móvil, solo proyectos nuevos con logo */}
+              {proyecto.nuevo && proyecto.logo && (
+                <div className="absolute bottom-3 right-3 z-10 md:hidden">
+                  {proyecto.logo.endsWith('.svg') ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={proyecto.logo}
+                      alt={proyecto.logoAlt ?? proyecto.titulo}
+                      className="object-contain h-10 w-auto max-w-[100px] drop-shadow-xl"
+                    />
+                  ) : (
+                    <Image
+                      src={proyecto.logo}
+                      alt={proyecto.logoAlt ?? proyecto.titulo}
+                      width={100}
+                      height={50}
+                      className="object-contain h-10 w-auto drop-shadow-xl"
+                    />
+                  )}
+                </div>
+              )}
+
               {/* Overlay verde al hover */}
               <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
@@ -87,22 +128,7 @@ export default function ProyectosDestacados() {
                 </h3>
 
                 {proyecto.logo && (
-                  proyecto.logo.endsWith('.svg') ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={proyecto.logo}
-                      alt={proyecto.logoAlt ?? proyecto.titulo}
-                      className="object-contain max-h-24 w-auto max-w-[180px] drop-shadow-xl"
-                    />
-                  ) : (
-                    <Image
-                      src={proyecto.logo}
-                      alt={proyecto.logoAlt ?? proyecto.titulo}
-                      width={180}
-                      height={96}
-                      className="object-contain max-h-24 w-auto drop-shadow-xl"
-                    />
-                  )
+                  <LogoImg src={proyecto.logo} alt={proyecto.logoAlt ?? proyecto.titulo} />
                 )}
               </div>
             </Link>
