@@ -96,23 +96,23 @@ export default function ProyectosDestacados() {
                 </div>
               )}
 
-              {/* Logo móvil — esquina inferior derecha, solo en móvil, solo proyectos nuevos con logo */}
-              {proyecto.nuevo && proyecto.logo && (
+              {/* Logo móvil — esquina inferior derecha, visible en móvil para todos los proyectos con logo */}
+              {proyecto.logo && (
                 <div className="absolute bottom-3 right-3 z-10 md:hidden">
                   {proyecto.logo.endsWith('.svg') ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={proyecto.logo}
                       alt={proyecto.logoAlt ?? proyecto.titulo}
-                      className="object-contain h-10 w-auto max-w-[100px] drop-shadow-xl"
+                      className="object-contain h-[50px] w-auto max-w-[125px] drop-shadow-xl"
                     />
                   ) : (
                     <Image
                       src={proyecto.logo}
                       alt={proyecto.logoAlt ?? proyecto.titulo}
-                      width={100}
-                      height={50}
-                      className="object-contain h-10 w-auto drop-shadow-xl"
+                      width={125}
+                      height={62}
+                      className="object-contain h-[50px] w-auto drop-shadow-xl"
                     />
                   )}
                 </div>
