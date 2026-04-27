@@ -117,6 +117,17 @@ export default function ProyectosGrid() {
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
+                  {/* Marca de agua */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <Image
+                      src="/images/logo-blanco.png"
+                      alt="Graderías GRS"
+                      width={200}
+                      height={100}
+                      className="object-contain opacity-[0.22] select-none"
+                    />
+                  </div>
+
                   {/* Badge categoría */}
                   <div className={`absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-white text-[10px] font-heading font-bold uppercase tracking-wide ${CATEGORIA_COLORS[proyecto.categoria]}`}>
                     {CATEGORIA_LABELS[proyecto.categoria]}
