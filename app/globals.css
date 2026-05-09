@@ -37,3 +37,13 @@ h1, h2, h3, h4, h5, h6 {
 .gal-item {
   animation: gal-fade-in 0.35s ease-out both;
 }
+
+/* ── Footer heart color cycle ── */
+@keyframes heart-color {
+  0%,  30% { color: #FFD700; }
+  40%, 70% { color: #3B82F6; }
+  80%, 100%{ color: #EF4444; }
+}
+.heart-cycle {
+  animation: heart-color 3s ease-in-out infinite;
+}

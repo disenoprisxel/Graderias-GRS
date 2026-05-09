@@ -117,7 +117,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm font-semibold text-white">
           <span>&copy; {new Date().getFullYear()} Graderías GRS. Todos los derechos reservados.</span>
           <span className="text-white/80">
-            Hecho por <span className="text-primary font-bold">PRISXEL</span> con ❤️
+            Hecho por <span className="text-primary font-bold">PRISXEL</span> con <span className="heart-cycle">❤</span>
           </span>
           <span>
             <Link href="/contacto" className="hover:text-primary transition-colors">Contacto</Link>
