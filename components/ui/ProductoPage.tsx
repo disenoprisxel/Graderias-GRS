@@ -35,13 +35,8 @@ export default function ProductoPage({
     <>
       {/* Hero */}
       <section className="relative h-72 md:h-96 bg-dark overflow-hidden">
-        <Image
-          src={imagen}
-          alt={titulo}
-          fill
-          className="object-cover opacity-50"
-          priority
-        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={imagen} alt={titulo} className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
         {watermarkHero && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">

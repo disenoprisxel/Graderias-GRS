@@ -44,13 +44,8 @@ export default function ProyectoPage({
     <>
       {/* Hero */}
       <section className="relative h-80 md:h-[500px] bg-dark overflow-hidden">
-        <Image
-          src={imagen}
-          alt={titulo}
-          fill
-          className="object-cover opacity-50"
-          priority
-        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={imagen} alt={titulo} className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
         {watermarkHero && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
@@ -145,12 +140,8 @@ export default function ProyectoPage({
               {fotosDestacadas.map((foto, i) => (
                 <div key={i} className="flex flex-col items-center gap-3">
                   <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
-                    <Image
-                      src={foto.src}
-                      alt={foto.caption ?? `${titulo} — foto destacada ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={foto.src} alt={foto.caption ?? `${titulo} — foto destacada ${i + 1}`} className="absolute inset-0 w-full h-full object-cover" />
                     {watermarkHero && (
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
                         <Image

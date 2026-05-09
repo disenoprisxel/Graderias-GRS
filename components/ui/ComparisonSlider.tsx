@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useCallback } from 'react'
-import Image from 'next/image'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 interface ComparisonSliderProps {
@@ -50,7 +49,8 @@ export default function ComparisonSlider({
       >
         {/* Imagen DESPUÉS (base) */}
         <div className="absolute inset-0">
-          <Image src={despues} alt={labelDespues} fill className="object-cover" priority />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={despues} alt={labelDespues} className="absolute inset-0 w-full h-full object-cover" />
         </div>
 
         {/* Imagen ANTES (clip) */}
@@ -58,7 +58,8 @@ export default function ComparisonSlider({
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <Image src={antes} alt={labelAntes} fill className="object-cover" priority />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={antes} alt={labelAntes} className="absolute inset-0 w-full h-full object-cover" />
         </div>
 
         {/* Divisor */}
