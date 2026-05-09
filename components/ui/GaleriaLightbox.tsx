@@ -26,19 +26,20 @@ export default function GaleriaLightbox({ images, titulo, watermark }: GaleriaLi
           <motion.button
             key={i}
             onClick={() => open(i)}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: (i % 4) * 0.05 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: (i % 4) * 0.04 }}
             className="relative aspect-square rounded-lg overflow-hidden bg-dark group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label={`Ver imagen ${i + 1}`}
+            style={{ willChange: 'opacity, transform' }}
           >
             <Image
               src={src}
               alt={`${titulo ?? 'Imagen'} ${i + 1}`}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
+              loading={i < 8 ? 'eager' : 'lazy'}
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
             {/* Marca de agua centrada */}
