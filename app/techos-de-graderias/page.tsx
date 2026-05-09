@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { FiChevronRight, FiWind, FiAnchor } from 'react-icons/fi'
@@ -59,14 +58,13 @@ export default function Page() {
             transition={{ duration: 0.6 }}
             className="absolute inset-0"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={tab === 'moviles'
                 ? '/images/productos/techos-moviles/003.jpg'
                 : '/images/productos/techos-fijos/001.jpg'}
               alt={tab === 'moviles' ? 'Techos Móviles' : 'Techos Fijos'}
-              fill
-              className="object-cover opacity-55"
-              priority
+              className="absolute inset-0 w-full h-full object-cover opacity-55"
             />
           </motion.div>
         </AnimatePresence>

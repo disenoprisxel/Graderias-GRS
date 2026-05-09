@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import CaracteristicasGrid from '@/components/ui/CaracteristicasGrid'
@@ -39,13 +38,8 @@ export default function Page() {
     <>
       {/* Hero */}
       <section className="relative h-72 md:h-96 bg-dark overflow-hidden">
-        <Image
-          src="/images/productos/pantallas/001.jpg"
-          alt="Pantallas y Circuito Cerrado de Transmisión — Graderías GRS"
-          fill
-          className="object-cover opacity-55"
-          priority
-        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/productos/pantallas/001.jpg" alt="Pantallas y Circuito Cerrado de Transmisión — Graderías GRS" className="absolute inset-0 w-full h-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
           <nav className="flex items-center gap-1 text-light/70 text-sm mb-4">
