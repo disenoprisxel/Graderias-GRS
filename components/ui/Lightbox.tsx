@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useCallback } from 'react'
-import Image from 'next/image'
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -60,20 +59,21 @@ export default function Lightbox({ images, index, titulo, onClose, onPrev, onNex
         {/* Imagen principal */}
         <motion.div
           key={index}
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.96 }}
+          initial={{ scale: 0.96 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0.96 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="relative w-full max-w-5xl max-h-[85vh] mx-16 aspect-[4/3]"
+          className="relative mx-auto px-16 flex items-center justify-center"
+          style={{ maxWidth: '1200px', width: '100%' }}
           onClick={(e) => e.stopPropagation()}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={images[index]}
             alt={`${titulo ?? 'Imagen'} ${index + 1}`}
-            fill
-            className="object-contain"
-            priority
-            sizes="90vw"
+            className="block w-auto h-auto max-w-full object-contain select-none"
+            style={{ maxHeight: '82vh' }}
+            draggable={false}
           />
           {/* Marca de agua sobre imagen ampliada */}
           {watermark && (
@@ -117,7 +117,8 @@ export default function Lightbox({ images, index, titulo, onClose, onPrev, onNex
                 i === index ? 'border-primary scale-110' : 'border-transparent opacity-50 hover:opacity-80'
               }`}
             >
-              <Image src={src} alt="" fill className="object-cover" sizes="48px" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" />
             </button>
           ))}
         </div>
