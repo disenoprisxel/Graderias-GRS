@@ -18,7 +18,7 @@ const galeria = [
 export default function Page() {
   return (
     <ProductoPage
-      titulo="Diseño y Producción"
+      titulo="Diseño y Render"
       descripcion="Su evento en las mejores manos..."
       imagen="/images/productos/diseno-produccion/071.jpg"
       descripcionLarga={[
