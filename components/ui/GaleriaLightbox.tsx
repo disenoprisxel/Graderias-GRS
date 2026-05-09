@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Lightbox from './Lightbox'
-import { motion } from 'framer-motion'
 
 interface GaleriaLightboxProps {
   images: string[]
@@ -23,16 +22,13 @@ export default function GaleriaLightbox({ images, titulo, watermark }: GaleriaLi
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {images.map((src, i) => (
-          <motion.button
+          <button
             key={i}
             onClick={() => open(i)}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: (i % 4) * 0.04 }}
-            className="relative aspect-square rounded-lg overflow-hidden bg-dark group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary"
+            /* CSS animation — always fires, no React/Framer timing issues */
+            className="gal-item relative aspect-square rounded-lg overflow-hidden bg-dark group cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary"
+            style={{ animationDelay: `${(i % 4) * 0.04}s` }}
             aria-label={`Ver imagen ${i + 1}`}
-            style={{ willChange: 'opacity, transform' }}
           >
             <Image
               src={src}
@@ -42,6 +38,7 @@ export default function GaleriaLightbox({ images, titulo, watermark }: GaleriaLi
               loading={i < 8 ? 'eager' : 'lazy'}
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
+
             {/* Marca de agua centrada */}
             {watermark && (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
@@ -61,7 +58,7 @@ export default function GaleriaLightbox({ images, titulo, watermark }: GaleriaLi
                 ⊕
               </span>
             </div>
-          </motion.button>
+          </button>
         ))}
       </div>
 

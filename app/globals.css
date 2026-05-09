@@ -28,3 +28,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
+
+/* ── Gallery fade-in — CSS animation, no framework dependency ── */
+@keyframes gal-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gal-item {
+  animation: gal-fade-in 0.35s ease-out both;
+}
