@@ -38,7 +38,7 @@ export default function Page() {
         { label: 'Certificación',   valor: 'ICC — Estándares olímpicos' },
       ]}
       fotosDestacadas={[
-        { src: '/images/proyectos/juegos-mar-playa/001.jpg' },
+        { src: '/images/proyectos/juegos-mar-playa/render-001.jpg', caption: 'Render 3D — Diseño de graderías VIP y general' },
         { src: '/images/proyectos/juegos-mar-playa/002.jpg' },
       ]}
       galeria={galeria}
