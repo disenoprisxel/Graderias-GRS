@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef } from 'react'
 import Image from 'next/image'
@@ -27,7 +27,7 @@ export default function QuienesSomos() {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           {/* Videos — 1 col en móvil, 2 en tablet+ */}
@@ -53,7 +53,7 @@ export default function QuienesSomos() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5 }}
             className="text-primary font-heading font-bold uppercase tracking-widest text-sm"
           >
@@ -63,7 +63,7 @@ export default function QuienesSomos() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-heading font-extrabold text-dark text-3xl md:text-4xl mt-1 leading-tight"
           >
@@ -74,7 +74,7 @@ export default function QuienesSomos() {
           <motion.div
             initial={{ scaleX: 0, originX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-3 mb-5 w-10 h-0.5 bg-primary"
           />
@@ -83,7 +83,7 @@ export default function QuienesSomos() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-body-text text-sm leading-relaxed text-justify"
           >
@@ -98,7 +98,7 @@ export default function QuienesSomos() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-4 text-body-text text-sm leading-relaxed text-justify"
           >
@@ -119,7 +119,7 @@ export default function QuienesSomos() {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="relative rounded-lg overflow-hidden shadow-2xl bg-[#f5f5f5]"
           style={{ minHeight: '520px' }}

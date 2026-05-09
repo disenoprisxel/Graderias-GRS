@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -41,7 +41,7 @@ export default function ProyectosDestacados() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="py-10 text-center"
       >
@@ -57,7 +57,7 @@ export default function ProyectosDestacados() {
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, amount: 0 }}
       >
         {proyectosDestacados.map((proyecto) => (
           <motion.div key={proyecto.id} variants={cardVariants}>

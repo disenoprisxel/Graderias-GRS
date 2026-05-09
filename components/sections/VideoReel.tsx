@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -98,7 +98,7 @@ export default function VideoReel() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-primary font-heading font-bold uppercase tracking-widest text-xs"
         >
@@ -109,7 +109,7 @@ export default function VideoReel() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-6xl uppercase leading-tight drop-shadow-lg max-w-3xl"
         >
@@ -121,7 +121,7 @@ export default function VideoReel() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-white/70 font-heading text-sm md:text-base max-w-xl"
         >
@@ -132,7 +132,7 @@ export default function VideoReel() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-2"
         >

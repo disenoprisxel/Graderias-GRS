@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -20,7 +20,7 @@ export default function ClientesCarrusel() {
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="text-center mb-10 px-4"
       >

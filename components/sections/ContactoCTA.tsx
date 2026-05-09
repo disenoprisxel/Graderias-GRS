@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
@@ -51,7 +51,7 @@ export default function ContactoCTA() {
         <motion.span
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5 }}
           className="text-primary font-heading font-bold uppercase tracking-widest text-sm"
         >
@@ -61,7 +61,7 @@ export default function ContactoCTA() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-heading font-extrabold text-white text-3xl md:text-5xl mt-3 leading-tight"
         >
@@ -71,7 +71,7 @@ export default function ContactoCTA() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-4 text-light/80 text-lg max-w-2xl mx-auto"
         >
@@ -83,7 +83,7 @@ export default function ContactoCTA() {
           variants={btnVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
@@ -112,7 +112,7 @@ export default function ContactoCTA() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-white/10 pt-12"
         >
@@ -121,7 +121,7 @@ export default function ContactoCTA() {
               key={label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5, delay: 0.35 + i * 0.1 }}
               className="text-center"
             >

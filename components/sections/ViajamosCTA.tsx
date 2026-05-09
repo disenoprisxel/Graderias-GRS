@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -33,7 +33,7 @@ export default function ViajamosCTA() {
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 text-primary font-heading font-bold uppercase tracking-widest text-sm mb-4"
             >
@@ -44,7 +44,7 @@ export default function ViajamosCTA() {
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.65, delay: 0.08 }}
               className="font-heading font-extrabold text-dark text-4xl md:text-5xl uppercase leading-tight"
             >
@@ -55,7 +55,7 @@ export default function ViajamosCTA() {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
               className="mt-4 mb-6 w-14 h-0.5 bg-primary origin-left"
             />
@@ -63,7 +63,7 @@ export default function ViajamosCTA() {
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-body-text text-base leading-relaxed max-w-md"
             >
@@ -77,7 +77,7 @@ export default function ViajamosCTA() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               className="mt-8"
             >
@@ -95,7 +95,7 @@ export default function ViajamosCTA() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             {/* Título cobertura */}
@@ -110,7 +110,7 @@ export default function ViajamosCTA() {
                   key={ciudad}
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.35, delay: 0.2 + i * 0.05 }}
                   className="flex items-center gap-1.5 bg-light/60 border border-light hover:border-primary hover:bg-primary/10 text-dark/70 hover:text-primary text-sm font-heading font-semibold px-3 py-1.5 rounded-full transition-colors cursor-default"
                 >
@@ -134,7 +134,7 @@ export default function ViajamosCTA() {
                   key={num}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.45, delay: 0.5 + i * 0.1 }}
                   className="text-center"
                 >

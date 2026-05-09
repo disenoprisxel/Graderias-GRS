@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { FiCheckCircle, FiUserCheck } from 'react-icons/fi'
@@ -27,7 +27,7 @@ export default function NosotrosCumpliendo() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="font-heading font-extrabold text-dark text-3xl md:text-4xl leading-tight"
         >
@@ -44,7 +44,7 @@ export default function NosotrosCumpliendo() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-5 text-body-text max-w-2xl leading-relaxed"
         >
@@ -58,7 +58,7 @@ export default function NosotrosCumpliendo() {
               key={titulo}
               initial={{ opacity: 0, x: i === 0 ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
               className="flex items-start gap-5"
             >

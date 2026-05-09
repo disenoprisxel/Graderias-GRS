@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -75,7 +75,7 @@ export default function ProductosGrid() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="text-center mb-8 px-4"
       >
@@ -96,7 +96,7 @@ export default function ProductosGrid() {
             key={`mob-${p.href}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: (i % 2) * 0.08 }}
             className="overflow-hidden bg-white group rounded-sm shadow-sm"
           >
@@ -135,7 +135,7 @@ export default function ProductosGrid() {
             key={`desk-${p.href}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut', delay: (i % 3) * 0.1 }}
             style={{ gridColumn: p.col, gridRow: p.row }}
             className="overflow-hidden bg-white group"

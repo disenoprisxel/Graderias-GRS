@@ -12,6 +12,10 @@
   --font-body: var(--font-roboto), sans-serif;
 }
 
+:root {
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
 }

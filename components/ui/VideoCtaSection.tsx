@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -46,7 +46,7 @@ export default function VideoCtaSection({
         <motion.span
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5 }}
           className="text-primary font-heading font-bold uppercase tracking-widest text-sm"
         >
@@ -56,7 +56,7 @@ export default function VideoCtaSection({
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-heading font-extrabold text-white text-4xl md:text-6xl uppercase leading-tight mt-3 drop-shadow-lg"
         >
@@ -66,7 +66,7 @@ export default function VideoCtaSection({
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-4 mx-auto w-16 h-0.5 bg-primary origin-center"
         />
@@ -74,7 +74,7 @@ export default function VideoCtaSection({
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-5 text-white/80 text-lg font-heading font-semibold"
         >
@@ -84,7 +84,7 @@ export default function VideoCtaSection({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
