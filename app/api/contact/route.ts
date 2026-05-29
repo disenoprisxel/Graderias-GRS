@@ -57,7 +57,12 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const { nombre, email, telefono, empresa, ciudad, asunto, mensaje } = await req.json()
+    const { nombre, email, telefono, empresa, ciudad, asunto, mensaje, website } = await req.json()
+
+    // ── Honeypot — si viene con datos es un bot, se descarta silenciosamente ──
+    if (website) {
+      return NextResponse.json({ ok: true }) // respuesta falsa para no delatar el filtro
+    }
 
     // ── Validación básica ──
     if (!nombre || !email || !mensaje) {

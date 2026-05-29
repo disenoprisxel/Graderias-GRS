@@ -20,6 +20,7 @@ export default function ContactoPage() {
     ciudad: '',
     asunto: '',
     mensaje: '',
+    website: '', // honeypot — invisible para humanos, bots lo llenan
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'ratelimit'>('idle')
 
@@ -39,7 +40,7 @@ export default function ContactoPage() {
       if (res.status === 429) { setStatus('ratelimit'); return }
       if (!res.ok) throw new Error()
       setStatus('success')
-      setForm({ nombre: '', telefono: '', email: '', empresa: '', ciudad: '', asunto: '', mensaje: '' })
+      setForm({ nombre: '', telefono: '', email: '', empresa: '', ciudad: '', asunto: '', mensaje: '', website: '' })
     } catch {
       setStatus('error')
     }
@@ -199,6 +200,18 @@ export default function ContactoPage() {
                   Has enviado demasiados mensajes. Por favor espera 15 minutos antes de intentarlo de nuevo.
                 </p>
               )}
+
+              {/* Honeypot — trampa anti-spam, invisible para humanos */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none', tabIndex: -1 } as React.CSSProperties}>
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
 
               {/* Botón Enviar — alineado a la derecha */}
               <div className="flex justify-end pt-1">
