@@ -39,6 +39,13 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  // Sirve las imágenes tal cual están en /public, sin pasar por el optimizador
+  // pago de Vercel (evita el error 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED
+  // al agotar la cuota gratuita de Image Optimization)
+  images: {
+    unoptimized: true,
+  },
+
   // Aplica los headers de seguridad a todas las rutas
   async headers() {
     return [
