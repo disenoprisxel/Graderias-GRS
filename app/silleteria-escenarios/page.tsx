@@ -17,7 +17,7 @@ const galeria = [
     const n = String(i + 22).padStart(3, '0')
     return `/images/productos/silleteria-escenarios/${n}.jpg`
   }),
-  ...Array.from({ length: 13 }, (_, i) => {
+  ...Array.from({ length: 4 }, (_, i) => {
     const n = String(i + 36).padStart(3, '0')
     if (n === '036') return `/images/productos/silleteria-escenarios/036.png`
     return `/images/productos/silleteria-escenarios/${n}.jpg`
